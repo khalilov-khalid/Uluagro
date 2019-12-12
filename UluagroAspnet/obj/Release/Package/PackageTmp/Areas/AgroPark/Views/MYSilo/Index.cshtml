@@ -1,0 +1,54 @@
+﻿@model IEnumerable<UluagroAspnet.Models.MYSILOSTOCK>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Silo siyahısı</h3>
+        <a class="btn sbm_btn" href="@Url.Action("Create","MYSilo")">Silo nəzarət paneli</a>
+    </div>
+    <div class="table_con">
+        <table class="table table-bordered table-hover t_h_fixed">
+            <thead>
+                <tr>
+                    <th>
+                        Silo
+                    </th>
+                    <th>
+                        Bitki
+                    </th>
+                    <th>
+                        Sortu
+                    </th>
+                    <th>
+                        Keyfiyyət dərəcəsi
+                    </th>
+                    <th>
+                        Ümumi miqdar
+                    </th>
+                    <th>
+                        Ətraflı
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MYSILO.NAME</td>
+                        <td>@item.CROP_SORT.CROP.NAME</td>
+                        <td>@item.CROP_SORT.NAME</td>
+                        <td>@item.CROP_REPRODUCTION.NAME</td>
+                        <td>@item.TOTALCOUNT</td>
+                        <td class="icon_center">
+                            <a class="ico ico_info" href="@Url.Action("Details","MYSilo", new { id = item.MYSILOID })"><i class="fas fa-info-circle"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,143 @@
+﻿@model IEnumerable<UluagroAspnet.Models.WORKS_CATEGORY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between">
+        <h3>İş kateqoriyalarının siyahısı</h3>
+        <button style="outline:none;" data-toggle="modal" data-target="#wk_add_Modal" class="u_btn sbm_btn mb-3">Yeni Kategoriya elavə et</button>
+    </div>
+    <div class="table_con">
+        <table class="table table-hover table-bordered t_h_fixed">
+            <thead>
+                <tr>
+                    <th>Adı</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="width:85%;">
+                            @Html.DisplayFor(modelItem => item.NAME)
+                        </td>
+                        <td style="width:15%;text-align:-webkit-center;">
+                            <button style="outline:none;" data-toggle="modal" data-target="#wk_edit_Modal" data-id="@item.OBJECTID" data-name="@item.NAME" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@* Add Category AJAX *@
+<div class="modal fade" id="wk_add_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yeni kateqoriya əlavə edin</h5>
+                <button style="outline:none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="new_cat" type="text" value="" />
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="u_btn go_b_btn w_100" data-dismiss="modal">Geri qayıt</button>*@
+                <button type="button" id="add_new_cat" class="u_btn sbm_btn w_100">Əlavə et</button>
+            </div>
+            <div class="alert alert-danger" id="error_alert" style="display:none;">
+                <p>Please write anything first!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Edit Category AJAX *@
+<div class="modal fade" id="wk_edit_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Katqoriyaya dəyişiklik edin</h5>
+                <button style="outline:none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="edit_cat" type="text" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="edit_new_cat" class="u_btn sbm_btn w_100">Yadda saxla</button>
+            </div>
+            <div class="alert alert-danger" id="edit_error_alert" style="display:none;">
+                <p>Please write anything first!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        var content = $("#new_cat");
+        var $editInput = $('#edit_cat');
+        var $slctd_id;//ID of selected item
+
+        //Add New Category
+        $("#add_new_cat").on("click", function () {
+            if (content.val().trim() != "") {
+                $("#error_alert").css("display", "none");
+                $('#wk_add_Modal').modal('toggle');
+                $.ajax({
+                    url: "/WORKS_CATEGORY/AddWorkCategory",
+                    data: {
+                        name: content.val()
+                    },
+                    type: "post",
+                    dataType: "html"
+                })
+                location.reload();
+            }
+            else {
+                $("#error_alert").css("display", "block");
+            }
+        });
+
+        //Select Category for change
+        $(".ico_edit").on("click", function () {
+            var $editableName = $(this).data('name');
+            $editInput.val($editableName);
+            $slctd_id = $(this).data('id');
+        });
+
+        //Edit and save changes
+         $("#edit_new_cat").on("click", function (){
+            if ($editInput.val().trim() != "") {
+                $("#edit_error_alert").css("display", "none");
+
+                $('#wk_edit_Modal').modal('toggle');
+
+                $.ajax({
+                    url: "/WORKS_CATEGORY/EditWorkCategory",
+                    data: {
+                        name: $editInput.val(),
+                        id: $slctd_id
+                    },
+                    type: "post",
+                    dataType: "html"
+                })
+
+                location.reload();
+            }
+            else {
+                $("#edit_error_alert").css("display", "block");
+            }
+        });
+    </script>
+}

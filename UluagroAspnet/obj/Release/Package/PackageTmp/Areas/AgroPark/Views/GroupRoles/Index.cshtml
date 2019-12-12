@@ -1,0 +1,92 @@
+﻿@model IEnumerable<UluagroAspnet.Models.Role>
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mb-3">
+        <div>
+            <h3>Gruplar və İcazələr</h3>
+        </div>
+        <div>
+            <a href="@Url.Action("Create","GroupRoles")" class="btn btn-primary mr-2">Yeni grup əlave ele</a>
+            <a href="@Url.Action("AllEdit","GroupRoles")" class="btn btn-warning">Redaktə etmək</a>
+        </div>
+    </div>
+    <div class="accordion" id="OculusAccordion">
+    @foreach (var _group in ViewBag.groups)
+    {
+        <div class="card">
+            <div class="card-header" id="@_group.ID">
+                <div data-toggle="collapse" class="d-flex justify-content-between align-items-center" data-target="#@_group.Name" aria-expanded="true" aria-controls="@_group.Name">
+                    <div>@_group.Name</div>
+                    <a class="btn btn-success"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <div id="@_group.Name" class="collapse" aria-labelledby="@_group.ID" data-parent="#OculusAccordion">
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <tr class="text-center">
+                            <th>
+                                Əməliyyatın adı
+                            </th>
+                            <th>
+                                Görmək
+                            </th>
+                            <th>
+                                Əlavə etmək
+                            </th>
+                            <th>
+                                Dəyişmək
+                            </th>
+                            <th>
+                                Silmək
+                            </th>
+                            <th>                                
+                                @Html.DisplayNameFor(model => model.ownerdata)
+                            </th>
+                            <th></th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            if (_group.Name== item.GROUP.Name)
+                            {
+                                <tr class="text-center">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Action.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.can_view)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.can_add)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.can_update)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.can_delete)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ownerdata)
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("OneEdit","GroupRoles", new { id=item.Id })" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+       
+    }
+    </div>
+    
+</div>
+

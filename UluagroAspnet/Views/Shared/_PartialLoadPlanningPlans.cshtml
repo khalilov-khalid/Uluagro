@@ -1,0 +1,17 @@
+﻿@model IEnumerable<UluagroAspnet.Models.PLANNINGPLAN>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.PARCEL.NAME</td>
+        <td>@item.CROP_SORT.CROP.NAME</td>
+        <td>@item.CROP_SORT.NAME</td>
+        <td>@item.CREATEDDATE.ToString("MMMM dd")</td>
+        <td>@item.PLANNINGDATE.ToString("MMMM dd")</td>
+        <td>
+            <span class="menu-toggle pointer text-center plan_detail_opener" data-target-modal="planting-planning-details" data-id="@item.OBJECTID">
+                <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+            </span>
+        </td>
+    </tr>
+}

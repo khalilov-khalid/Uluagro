@@ -1,0 +1,1240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="PergoWebService" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PergoWebService" targetNamespace="PergoWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="PergoWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:element name="Login">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="usercredential" nillable="true" type="q1:UserCredential" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LoginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="LoginResult" nillable="true" type="q2:ServiceResultOfUser0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LoginWS">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="usercredential" nillable="true" type="q3:UserCredential" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LoginWSResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="LoginWSResult" nillable="true" type="q4:ServiceResultOfUser0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCompaniesTerminals">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCompaniesTerminalsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetCompaniesTerminalsResult" nillable="true" type="q5:ServiceResultOfArrayOfCompany0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Ping">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="PingResult" nillable="true" type="q6:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetKey">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetKeyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetKeyResult" nillable="true" type="q7:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUpdateLocationStatus">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUpdateLocationStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetUpdateLocationStatusResult" nillable="true" type="q8:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateDeviceLocation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="lat" type="xs:decimal" />
+            <xs:element minOccurs="0" name="lon" type="xs:decimal" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateDeviceLocationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="UpdateDeviceLocationResult" nillable="true" type="q9:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLastPk">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLastPkResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetLastPkResult" nillable="true" type="q10:ServiceResultOflong" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLastPositions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="LastPk" type="xs:long" />
+            <xs:element minOccurs="0" name="Companies" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Terminals" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLastPositionsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetLastPositionsResult" nillable="true" type="q11:ServiceResultOfArrayOfLastPositions0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTerminalDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTerminalDetailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetTerminalDetailResult" nillable="true" type="q12:ServiceResultOfTerminal0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendChainLocation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendChainLocationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="SendChainLocationResult" nillable="true" type="q13:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="StartVehicle">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="StartVehicleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="StartVehicleResult" nillable="true" type="q14:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="StopVehicle">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="StopVehicleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="StopVehicleResult" nillable="true" type="q15:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendLocationInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendLocationInformationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="SendLocationInformationResult" nillable="true" type="q16:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendGPSLocationInterval">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="SendLocationSecond" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="SendLocationDistance" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="LocationPerPocket" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="LocationOnTurn" type="xs:boolean" />
+            <xs:element minOccurs="0" name="EvaluationTime" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="TurnAngle" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendGPSLocationIntervalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="SendGPSLocationIntervalResult" nillable="true" type="q17:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateTerminalGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="CompanyPk" type="xs:int" />
+            <xs:element minOccurs="0" name="ChangeSubData" type="xs:boolean" />
+            <xs:element minOccurs="0" name="ChangeArchiveData" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateTerminalGroupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="UpdateTerminalGroupResult" nillable="true" type="q18:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTerminalStatus">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTerminalStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetTerminalStatusResult" nillable="true" type="q19:ServiceResultOfArrayOfTerminalStatus0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateTerminalStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="TerminalStatus" type="xs:unsignedByte" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateTerminalStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="UpdateTerminalStatusResult" nillable="true" type="q20:ServiceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGeneralReportTerminal">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGeneralReportTerminalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetGeneralReportTerminalResult" nillable="true" type="q21:ServiceResultOfGeneralReport0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGeneralReport">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+            <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Companies" nillable="true" type="q22:ArrayOfint" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGeneralReportResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetGeneralReportResult" nillable="true" type="q23:ServiceResultOfArrayOfGeneralReport0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTerminalDistanceMonth">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Year" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTerminalDistanceMonthResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetTerminalDistanceMonthResult" nillable="true" type="q24:ServiceResultOfArrayOfTerminalDistance0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTerminalDistanceDay">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Year" type="xs:int" />
+            <xs:element minOccurs="0" name="Month" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTerminalDistanceDayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetTerminalDistanceDayResult" nillable="true" type="q25:ServiceResultOfArrayOfTerminalDistance0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCommands">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCommandsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="GetCommandsResult" nillable="true" type="q26:ServiceResultOfArrayOfCommand0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ArchiveQuery">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Plate" nillable="true" type="xs:string" />
+            <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Companies" nillable="true" type="q27:ArrayOfint" />
+            <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="County" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Quarter" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:short" />
+            <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:double" />
+            <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:double" />
+            <xs:element minOccurs="0" name="Radius" nillable="true" type="xs:int" />
+            <xs:element minOccurs="0" name="commandid" type="xs:unsignedByte" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ArchiveQueryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/PergoWebService.Models" minOccurs="0" name="ArchiveQueryResult" nillable="true" type="q28:ServiceResultOfArrayOfArchive0MwRnOQU" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PergoWebService.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="UserCredential">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UserCredential" nillable="true" type="tns:UserCredential" />
+      <xs:complexType name="ServiceResultOfUser0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="User" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfUser0MwRnOQU" nillable="true" type="tns:ServiceResultOfUser0MwRnOQU" />
+      <xs:complexType name="User">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserPk" type="xs:int" />
+          <xs:element minOccurs="0" name="VehicleOnOffAuthority" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ViewAuthority" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="User" nillable="true" type="tns:User" />
+      <xs:complexType name="ServiceStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceStatus" nillable="true" type="tns:ServiceStatus" />
+      <xs:complexType name="ServiceResultOfArrayOfCompany0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfCompany" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfCompany" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfArrayOfCompany0MwRnOQU" nillable="true" type="tns:ServiceResultOfArrayOfCompany0MwRnOQU" />
+      <xs:complexType name="ArrayOfCompany">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Company" nillable="true" type="tns:Company" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCompany" nillable="true" type="tns:ArrayOfCompany" />
+      <xs:complexType name="Company">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Pk" type="xs:int" />
+          <xs:element minOccurs="0" name="TerminalList" nillable="true" type="tns:ArrayOfTerminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Company" nillable="true" type="tns:Company" />
+      <xs:complexType name="ArrayOfTerminal">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Terminal" nillable="true" type="tns:Terminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTerminal" nillable="true" type="tns:ArrayOfTerminal" />
+      <xs:complexType name="Terminal">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Battery" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Distance" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Driver" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FuelTank" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="GPSKm" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="HDOP" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="ImageIndex" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="IsOnline" type="xs:boolean" />
+          <xs:element minOccurs="0" name="KeepCenter" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="LongName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="MovementSound" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OfflineDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OnlineDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Personnel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonnelPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PositionDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RunMode" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Satellite" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Temperature" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VehicleKm" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Terminal" nillable="true" type="tns:Terminal" />
+      <xs:complexType name="ServiceResultOflong">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="long" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" type="xs:long" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOflong" nillable="true" type="tns:ServiceResultOflong" />
+      <xs:complexType name="ServiceResultOfArrayOfLastPositions0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfLastPositions" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfLastPositions" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfArrayOfLastPositions0MwRnOQU" nillable="true" type="tns:ServiceResultOfArrayOfLastPositions0MwRnOQU" />
+      <xs:complexType name="ArrayOfLastPositions">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="LastPositions" nillable="true" type="tns:LastPositions" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfLastPositions" nillable="true" type="tns:ArrayOfLastPositions" />
+      <xs:complexType name="LastPositions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Battery" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Distance" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="FuelTank" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="GPSKm" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="HDOP" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="LogDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Pk" type="xs:long" />
+          <xs:element minOccurs="0" name="RaText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RaType" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="RaValue" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Satellite" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Temperature" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Terminal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VehicleKm" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="LastPositions" nillable="true" type="tns:LastPositions" />
+      <xs:complexType name="ServiceResultOfTerminal0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="Terminal" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Terminal" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfTerminal0MwRnOQU" nillable="true" type="tns:ServiceResultOfTerminal0MwRnOQU" />
+      <xs:complexType name="ServiceResultOfArrayOfTerminalStatus0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfTerminalStatus" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfTerminalStatus" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfArrayOfTerminalStatus0MwRnOQU" nillable="true" type="tns:ServiceResultOfArrayOfTerminalStatus0MwRnOQU" />
+      <xs:complexType name="ArrayOfTerminalStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TerminalStatus" nillable="true" type="tns:TerminalStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTerminalStatus" nillable="true" type="tns:ArrayOfTerminalStatus" />
+      <xs:complexType name="TerminalStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Pk" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TerminalStatus" nillable="true" type="tns:TerminalStatus" />
+      <xs:complexType name="ServiceResultOfGeneralReport0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="GeneralReport" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:GeneralReport" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfGeneralReport0MwRnOQU" nillable="true" type="tns:ServiceResultOfGeneralReport0MwRnOQU" />
+      <xs:complexType name="GeneralReport">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Distance" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FuelConsumption" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gprs" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LongName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonnelGsm" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonnelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StopIdle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VehicleMark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VehicleModel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Work" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkIdle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GeneralReport" nillable="true" type="tns:GeneralReport" />
+      <xs:complexType name="ServiceResultOfArrayOfGeneralReport0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfGeneralReport" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfGeneralReport" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfArrayOfGeneralReport0MwRnOQU" nillable="true" type="tns:ServiceResultOfArrayOfGeneralReport0MwRnOQU" />
+      <xs:complexType name="ArrayOfGeneralReport">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="GeneralReport" nillable="true" type="tns:GeneralReport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfGeneralReport" nillable="true" type="tns:ArrayOfGeneralReport" />
+      <xs:complexType name="ServiceResultOfArrayOfTerminalDistance0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfTerminalDistance" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfTerminalDistance" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfArrayOfTerminalDistance0MwRnOQU" nillable="true" type="tns:ServiceResultOfArrayOfTerminalDistance0MwRnOQU" />
+      <xs:complexType name="ArrayOfTerminalDistance">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TerminalDistance" nillable="true" type="tns:TerminalDistance" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTerminalDistance" nillable="true" type="tns:ArrayOfTerminalDistance" />
+      <xs:complexType name="TerminalDistance">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Day" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Distance" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Month" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Year" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TerminalDistance" nillable="true" type="tns:TerminalDistance" />
+      <xs:complexType name="ServiceResultOfArrayOfCommand0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfCommand" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfCommand" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfArrayOfCommand0MwRnOQU" nillable="true" type="tns:ServiceResultOfArrayOfCommand0MwRnOQU" />
+      <xs:complexType name="ArrayOfCommand">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Command" nillable="true" type="tns:Command" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCommand" nillable="true" type="tns:ArrayOfCommand" />
+      <xs:complexType name="Command">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CommandName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Command" nillable="true" type="tns:Command" />
+      <xs:complexType name="ServiceResultOfArrayOfArchive0MwRnOQU">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="ServiceResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfArchive" Namespace="http://schemas.datacontract.org/2004/07/PergoWebService.Models" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfArchive" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ServiceStatus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ServiceResultOfArrayOfArchive0MwRnOQU" nillable="true" type="tns:ServiceResultOfArrayOfArchive0MwRnOQU" />
+      <xs:complexType name="ArrayOfArchive">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Archive" nillable="true" type="tns:Archive" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfArchive" nillable="true" type="tns:ArrayOfArchive" />
+      <xs:complexType name="Archive">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Altitude" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="County" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Distance" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LogDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LongName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Quarter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SatelliteHdop" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VehicleKm" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ViolationTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViolationValue" nillable="true" type="xs:short" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Archive" nillable="true" type="tns:Archive" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfint">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IPergoWebService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_LoginWS_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWS" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_LoginWS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetCompaniesTerminals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesTerminals" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetCompaniesTerminals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesTerminalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKey" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetUpdateLocationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateLocationStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetUpdateLocationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateLocationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_UpdateDeviceLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeviceLocation" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_UpdateDeviceLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeviceLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetLastPk_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPk" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetLastPk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetLastPositions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPositions" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetLastPositions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetTerminalDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalDetail" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetTerminalDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_SendChainLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendChainLocation" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_SendChainLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendChainLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_StartVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_StartVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_StopVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_StopVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_SendLocationInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendLocationInformation" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_SendLocationInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendLocationInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_SendGPSLocationInterval_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendGPSLocationInterval" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_SendGPSLocationInterval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendGPSLocationIntervalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_UpdateTerminalGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTerminalGroup" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_UpdateTerminalGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTerminalGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetTerminalStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetTerminalStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_UpdateTerminalStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTerminalStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_UpdateTerminalStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTerminalStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetGeneralReportTerminal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeneralReportTerminal" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetGeneralReportTerminal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeneralReportTerminalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetGeneralReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeneralReport" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetGeneralReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeneralReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetTerminalDistanceMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalDistanceMonth" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetTerminalDistanceMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalDistanceMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetTerminalDistanceDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalDistanceDay" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetTerminalDistanceDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalDistanceDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetCommands_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommands" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_GetCommands_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_ArchiveQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ArchiveQuery" />
+  </wsdl:message>
+  <wsdl:message name="IPergoWebService_ArchiveQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ArchiveQueryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPergoWebService">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/Login" message="tns:IPergoWebService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/LoginResponse" message="tns:IPergoWebService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginWS">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/LoginWS" message="tns:IPergoWebService_LoginWS_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/LoginWSResponse" message="tns:IPergoWebService_LoginWS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesTerminals">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetCompaniesTerminals" message="tns:IPergoWebService_GetCompaniesTerminals_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetCompaniesTerminalsResponse" message="tns:IPergoWebService_GetCompaniesTerminals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/Ping" message="tns:IPergoWebService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/PingResponse" message="tns:IPergoWebService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKey">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetKey" message="tns:IPergoWebService_GetKey_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetKeyResponse" message="tns:IPergoWebService_GetKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateLocationStatus">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetUpdateLocationStatus" message="tns:IPergoWebService_GetUpdateLocationStatus_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetUpdateLocationStatusResponse" message="tns:IPergoWebService_GetUpdateLocationStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeviceLocation">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/UpdateDeviceLocation" message="tns:IPergoWebService_UpdateDeviceLocation_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/UpdateDeviceLocationResponse" message="tns:IPergoWebService_UpdateDeviceLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastPk">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetLastPk" message="tns:IPergoWebService_GetLastPk_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetLastPkResponse" message="tns:IPergoWebService_GetLastPk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastPositions">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetLastPositions" message="tns:IPergoWebService_GetLastPositions_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetLastPositionsResponse" message="tns:IPergoWebService_GetLastPositions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalDetail">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetTerminalDetail" message="tns:IPergoWebService_GetTerminalDetail_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetTerminalDetailResponse" message="tns:IPergoWebService_GetTerminalDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendChainLocation">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/SendChainLocation" message="tns:IPergoWebService_SendChainLocation_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/SendChainLocationResponse" message="tns:IPergoWebService_SendChainLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartVehicle">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/StartVehicle" message="tns:IPergoWebService_StartVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/StartVehicleResponse" message="tns:IPergoWebService_StartVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopVehicle">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/StopVehicle" message="tns:IPergoWebService_StopVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/StopVehicleResponse" message="tns:IPergoWebService_StopVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationInformation">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/SendLocationInformation" message="tns:IPergoWebService_SendLocationInformation_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/SendLocationInformationResponse" message="tns:IPergoWebService_SendLocationInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendGPSLocationInterval">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/SendGPSLocationInterval" message="tns:IPergoWebService_SendGPSLocationInterval_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/SendGPSLocationIntervalResponse" message="tns:IPergoWebService_SendGPSLocationInterval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTerminalGroup">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/UpdateTerminalGroup" message="tns:IPergoWebService_UpdateTerminalGroup_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/UpdateTerminalGroupResponse" message="tns:IPergoWebService_UpdateTerminalGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalStatus">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetTerminalStatus" message="tns:IPergoWebService_GetTerminalStatus_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetTerminalStatusResponse" message="tns:IPergoWebService_GetTerminalStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTerminalStatus">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/UpdateTerminalStatus" message="tns:IPergoWebService_UpdateTerminalStatus_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/UpdateTerminalStatusResponse" message="tns:IPergoWebService_UpdateTerminalStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralReportTerminal">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetGeneralReportTerminal" message="tns:IPergoWebService_GetGeneralReportTerminal_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetGeneralReportTerminalResponse" message="tns:IPergoWebService_GetGeneralReportTerminal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralReport">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetGeneralReport" message="tns:IPergoWebService_GetGeneralReport_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetGeneralReportResponse" message="tns:IPergoWebService_GetGeneralReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalDistanceMonth">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetTerminalDistanceMonth" message="tns:IPergoWebService_GetTerminalDistanceMonth_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetTerminalDistanceMonthResponse" message="tns:IPergoWebService_GetTerminalDistanceMonth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalDistanceDay">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetTerminalDistanceDay" message="tns:IPergoWebService_GetTerminalDistanceDay_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetTerminalDistanceDayResponse" message="tns:IPergoWebService_GetTerminalDistanceDay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommands">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/GetCommands" message="tns:IPergoWebService_GetCommands_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/GetCommandsResponse" message="tns:IPergoWebService_GetCommands_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ArchiveQuery">
+      <wsdl:input wsaw:Action="PergoWebService/IPergoWebService/ArchiveQuery" message="tns:IPergoWebService_ArchiveQuery_InputMessage" />
+      <wsdl:output wsaw:Action="PergoWebService/IPergoWebService/ArchiveQueryResponse" message="tns:IPergoWebService_ArchiveQuery_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPergoWebService" type="tns:IPergoWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginWS">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/LoginWS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesTerminals">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetCompaniesTerminals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKey">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateLocationStatus">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetUpdateLocationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeviceLocation">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/UpdateDeviceLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastPk">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetLastPk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastPositions">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetLastPositions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalDetail">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetTerminalDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendChainLocation">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/SendChainLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartVehicle">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/StartVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopVehicle">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/StopVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLocationInformation">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/SendLocationInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGPSLocationInterval">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/SendGPSLocationInterval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTerminalGroup">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/UpdateTerminalGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalStatus">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetTerminalStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTerminalStatus">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/UpdateTerminalStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralReportTerminal">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetGeneralReportTerminal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralReport">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetGeneralReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalDistanceMonth">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetTerminalDistanceMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalDistanceDay">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetTerminalDistanceDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommands">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/GetCommands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArchiveQuery">
+      <soap:operation soapAction="PergoWebService/IPergoWebService/ArchiveQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PergoWebService">
+    <wsdl:port name="BasicHttpBinding_IPergoWebService" binding="tns:BasicHttpBinding_IPergoWebService">
+      <soap:address location="http://silver.pergo.com.tr/pergomobile/PergoWebService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,58 @@
+﻿<div class="modal-content panel tr-3s" role="document">    
+    <div class="panel-header text-center">
+        <h4 class="panel-title">Tapşırıq</h4>
+    </div>
+    <div class="panel-body">
+        <form action="/" method="post">
+            <div class="row as-5">
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Başlama Tarixi</label>
+                    <input class="input" type="datetime-local" name="StartDateTask" value="" />
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Bitmə Tarixi</label>
+                    <input class="input" type="datetime-local" name="EnddateTask" value="" />
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Novbe</label>
+                    <select id="_WorkPLanTaskQueueChange" class="input" name="QueueCount">
+                        <option selected disabled>Seç</option>
+                        <option value="1">Növbəsiz</option>
+                        <option value="2">2 Növbəli</option>
+                        <option value="3">3 Növbəli</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <div id="_WorkPlanTaskQueuePlace">
+
+        </div>
+        <div class="col as-12 mb-10">
+            <div id="_WorkPlanTaskFeltilizers" style="display:none">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Categoriya</th>
+                            <th>Adi</th>
+                            <th>Su midari</th>
+                            <th>Gubrenin miqdari</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col as-12 mb-10" id="_workPlanTaskAllFeltilizer">
+
+        </div>
+        <div class="col as-12 mb-10">
+            <button id="_AddWorkPlanTaskFeltilizerLine" type="button" class="btn bg-orange">Gubre & Derman Əlavə Et</button>
+        </div>
+    </div>
+    <div class="panel-footer text-center">
+        <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="_workPlanTask">Bağla</span>
+        <span class="btn xs" aria-label="Yadda Saxla" aria-hidden="true" data-close="_workPlanTask" id="_SaveWorkPlanTask">Yadda saxla</span>
+    </div>
+    
+</div>

@@ -1,0 +1,170 @@
+﻿@model IEnumerable<UluagroAspnet.Models.Profession>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between">
+        <h4>Vəzifələrin siyahısı</h4>
+        <button class="u_btn sbm_btn mb-3" style="outline:none;" data-toggle="modal" data-target="#pr_add_Modal">Yeni vəzifə yarat</button>
+    </div>
+    <div class="table_con">
+        <table class="table table-hover table-bordered t_h_fixed">
+            <thead>
+                <tr>
+                    <th>
+                        Adı
+                    </th>
+                    <th>
+                        Məsuliyyətli
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="text-center">
+                            @if (item.CanResponser)
+                            {
+                                <i class="fas fa-check" style="color:green;"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-check" style="color:red;"></i>
+                            }
+                            @*@(item.CanResponser ? "Məsuliyyətli şəxsdir" : "Məsuliyyətli şəxs deyil")*@
+                            @*@Html.DisplayFor(modelItem => item.CanResponser)*@
+                        </td>
+                        <td class="icon_center">
+                            <button style="outline:none;" class="ico ico_edit" data-toggle="modal" data-target="#pr_edit_Modal" data-id="@item.ID" data-name="@item.Name" data-canres="@item.CanResponser.ToString().ToLower()"><i class="fas fa-pencil-alt"></i></button>
+                            @*<a class="btn btn-danger" href="@Url.Action("Delete","Professions", new { id = item.ID })"><i class="far fa-trash-alt"></i></a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@* Add Profession *@
+<div class="modal fade" id="pr_add_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yeni vəzifə əlavə edin</h5>
+                <button style="outline:none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="new_pr_name" type="text" value="" />
+                <span>Məhsuldar: </span><input class="form-check-inline" type="checkbox" id="new_pr_c" />
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="u_btn go_b_btn w_100" data-dismiss="modal">Geri qayıt</button>*@
+                <button type="button" id="add_new_pro" class="u_btn sbm_btn w_100">Əlavə et</button>
+            </div>
+            <div class="alert alert-danger" id="error_alert" style="display:none;">
+                <p>Please write anything first!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Edit Profession *@
+<div class="modal fade" id="pr_edit_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Vəzifəni redaktə edin</h5>
+                <button style="outline:none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="edit_pr_name" type="text" value="" />
+                <span>Məhsuldar: </span><input class="form-check-inline" type="checkbox" id="edit_pr_c" />
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="u_btn go_b_btn w_100" data-dismiss="modal">Geri qayıt</button>*@
+                <button type="button" id="edit_new_pr" class="u_btn sbm_btn w_100">Redaktə et</button>
+            </div>
+            <div class="alert alert-danger" id="edit_error_alert" style="display:none;">
+                <p>Please write anything first!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts
+{
+    <script>
+        var content = $("#new_pr_name");
+        var canres = $("#new_pr_c");
+        var $editInput = $('#edit_pr_name');
+        var $editcanres = $('#edit_pr_c');
+        var $slctd_id;//ID of selected item
+
+        //Add New Category
+        $("#add_new_pro").on("click", function () {
+            if (content.val().trim() != "") {
+                $("#error_alert").css("display", "none");
+                $('#pr_add_Modal').modal('toggle');
+                $.ajax({
+                    url: "/Professions/AddWorkProfession",
+                    data: {
+                        name: content.val(),
+                        canreponser: canres.is(':checked')
+                    },
+                    type: "post",
+                    dataType: "html"
+                })
+                location.reload();
+            }
+            else {
+                $("#error_alert").css("display", "block");
+            }
+        });
+
+        //Select Category for change
+        $(".ico_edit").on("click", function () {
+            $editInput.val($(this).data('name'));
+            $editcanres.attr('checked', $(this).data('canres'));
+            $slctd_id = $(this).data('id');
+        });
+
+        //Edit and save changes
+        $("#edit_new_pr").on("click", function () {
+            if ($editInput.val().trim() != "") {
+                $("#edit_error_alert").css("display", "none");
+
+                $('#pr_edit_Modal').modal('toggle');
+
+                $.ajax({
+                    url: "/Professions/EditWorkProfession",
+                    data: {
+                        name: $editInput.val(),
+                        canresponser: $editcanres.is(':checked'),
+                        id: $slctd_id
+                    },
+                    type: "post",
+                    dataType: "html"
+                })
+
+                location.reload();
+            }
+            else {
+                $("#edit_error_alert").css("display", "block");
+            }
+        });
+    </script>
+}

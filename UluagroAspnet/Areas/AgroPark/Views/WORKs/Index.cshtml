@@ -1,0 +1,44 @@
+﻿@model IEnumerable<UluagroAspnet.Models.WORK>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between">
+        <h3>İşlərin siyahısı</h3>
+        <a href="@Url.Action("Create","WORKs")" class="u_btn sbm_btn mb-3">Yeni İş Əlavə Et</a>
+    </div>
+    <div class="table_con">
+        <table class="table table-bordered table-hover t_h_fixed">
+            <tr>
+                <th>
+                    Adı
+                </th>
+                <th>
+                    Kategoriyası
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WORKS_CATEGORY.NAME)
+                    </td>
+                    <td class="icon_center">
+                        <a href="@Url.Action("Edit","WORKs", new { id=item.OBJECTID})" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                        @*<a href="@Url.Action("Delete","WORKs",new { id=item.OBJECTID})" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>*@
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>

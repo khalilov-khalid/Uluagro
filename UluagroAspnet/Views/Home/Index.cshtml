@@ -1,0 +1,3710 @@
+﻿@model UluagroAspnet.Mainclasses.MainViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<header class="header clear w-100p">
+    <a href="/Home/Index" title="UluAgro" class="logo float-left" lang="en">
+        <img src="~/Public/assets/images/logo.png" alt="UluAgro Logo" height="50" width="">
+    </a>
+    <div id="temperature">
+        <span class="morning_temp"></span>
+        <span class="weather_ico"></span>
+    </div>
+</header>
+
+<!-- Right Side-->
+<aside class="right-side clear d-table text-center">
+    <div class="d-row">
+        <div class="d-cell">
+            @*<a href="#" class="account-toggle d-block" data-toggle="tooltip" data-placement="left" title="@Model._loginedUser.Worker.Name  @Model._loginedUser.Worker.Surname">
+                    <img src="~/Public/assets/images/user-avatar.png" alt="@Model._loginedUser.Worker.Name  @Model._loginedUser.Worker.Surname" width="45" height="45" class="radius-50p">
+                </a>*@
+            <a href="#" class="account-toggle side-toggle d-block relative" data-toggle="tooltip" data-placement="left" title="@Model._loginedUser.Worker.Name  @Model._loginedUser.Worker.Surname" aria-label="@Model._loginedUser.Worker.Name  @Model._loginedUser.Worker.Surname" id="account-menu" aria-haspopup="true" aria-expanded="false">
+
+                <span id="NotficationCount" class="notify-count badge animation-2s zoomIn infinite bg-orange radius-10" hidden="hidden">2</span>
+
+                <img src="~/Public/assets/images/user-avatar.png" alt="@Model._loginedUser.Worker.Name  @Model._loginedUser.Worker.Surname" width="45" height="45" class="radius-50p">
+            </a>
+        </div>
+    </div>
+
+    <div class="d-row h-100p">
+        <div class="d-cell menu-toggles">
+            <span class="side-toggle btn no-border" role="button"
+                  data-toggle="tooltip" data-placement="left"
+                  title="Bitkilər və Planlamalar" aria-label="Bitkilər və Planlamalar"
+                  id="side-menu-1" aria-haspopup="true" aria-expanded="false">
+                <i aria-hidden="true" class="icon-leaf v-align-middle"></i>
+            </span>
+
+            <span class="side-toggle btn no-border" role="button"
+                  data-toggle="tooltip" data-placement="left"
+                  title="Obyektlər" aria-label="Obyektlər"
+                  id="side-menu-2" aria-haspopup="true" aria-expanded="false">
+                <i aria-hidden="true" class="icon-th-circle v-align-middle"></i>
+            </span>
+
+            <span class="side-toggle btn no-border" role="button"
+                  data-toggle="tooltip" data-placement="left"
+                  title="Statistikalar" aria-label="Statistikalar"
+                  id="side-menu-3" aria-haspopup="true" aria-expanded="false">
+                <i aria-hidden="true" class="icon-survey-list v-align-middle"></i>
+            </span>
+
+            <span class="side-toggle btn no-border" role="button"
+                  data-toggle="tooltip" data-placement="left"
+                  title="Kargüzarlıq" aria-label="Kargüzarlıq"
+                  id="side-menu-4" aria-haspopup="true" aria-expanded="false">
+                <i aria-hidden="true" class="icon-book v-align-middle"></i>
+                @if (Model.docmsgcount != 0)
+                {
+                    <span class="document_message_not"></span>
+                }
+            </span>
+
+            <span class="side-toggle btn no-border" role="button"
+                  aria-hidden="true" aria-label="Xəritə tarixçəsi"
+                  id="map-type" data-toggle="tooltip" data-placement="left"
+                  title="Xəritə tarixçəsi" aria-haspopup="true" aria-expanded="false">
+                <i aria-hidden="true" class="icon-history v-align-middle"></i>
+            </span>
+        </div>
+    </div>
+
+    <div class="d-row">
+        <div class="d-cell">
+            <a href="http://agrotv.az/" rel="external noopener noreferrer" class="d-block" data-toggle="tooltip" data-placement="left" title="AgroTv">
+                <i aria-hidden="true" class="icon-tv v-align-middle"></i>
+            </a>
+            <a href="http://agrobirja.az/" rel="external noopener noreferrer" class="d-block" data-toggle="tooltip" data-placement="left" title="Birja">
+                <i aria-hidden="true" class="icon-currency-usd v-align-middle"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="d-row">
+        <div class="d-cell">
+            <span class="side-toggle btn no-border" role="button" aria-hidden="true" aria-label="Haqqımızda" id="about-us" data-toggle="tooltip" data-placement="left" title="Haqqımızda" aria-haspopup="true" aria-expanded="false">
+                <i aria-hidden="true" class="icon-info-circle-thin v-align-middle"></i>
+            </span>
+            <a href="@Url.Action("Logout","LoginUser")" class="d-block" data-toggle="tooltip" data-placement="left" title="Çıxış">
+                <i aria-hidden="true" class="icon-power-1 v-align-middle"></i>
+            </a>
+        </div>
+    </div>
+
+</aside>
+
+<!-- Account -->
+<aside class="sidebar lg tr-3s" aria-labelledby="account-menu">
+    <div class="sidebar-head bg-special clear">
+        <h2 class="m-0 text-white bold float-left">Bildirişlər</h2>
+        <h2 class="m-0 text-white bold float-right">@Model._loginedUser.Worker.Name  @Model._loginedUser.Worker.Surname</h2>
+    </div>
+
+    <div class="sidebar-body p-20 text-white light font-16 scroll o-auto">
+
+        <div class="clear">
+            <div class="table-responsive no-border mb-40">
+                <table class="table bg-tr-2">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th class="no-wrap">Göndərən</th>
+                            <th class="no-wrap">Göndərilmə tarixi</th>
+                            <th>Bax</th>
+                        </tr>
+                    </thead>
+                    <tbody id="NotficationMessages">
+                        @*Bu da tamamlanmış bildiriş*@
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Side Menu 1-->
+<aside class="sidebar tr-3s" aria-labelledby="side-menu-1">
+    <div class="sidebar-head bg-special">
+        <h2 class="m-0 text-white bold">Bitkilər və planlamalar</h2>
+    </div>
+    <div class="sidebar-body scroll o-auto">
+        <ul class="side-menu type-none m-0 pl-0 pt-10 pb-10" role="menubar">
+
+            <li role="presentation" class="cereals clear">
+                <a href="#" role="menuitem" id="_crops" class="menu-title text-uppercase bold float-left" title="Dənli bitkilər">
+                    <i aria-hidden="true" class="icon-wheat mr-10"></i>Dənli bitkilər
+                </a>
+                <span class="menu-toggle pointer float-left text-center" id="menu-1">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+                <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-1">
+                    <li>
+                        <a href="#" class="menu-title float-left showmap">Yonca</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-11">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-11"></ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Soya</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-12">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-12">
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Türk</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Qarğıdalı</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-13">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-13">
+                            <li>
+                                <a href="#" class="menu-title float-left showmapkind">Mayami</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Buğda</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-14">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-14">
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Aleksiyevic Elit</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-title float-left showmapkind">Aran R1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Krupinka R1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Qarabağ 32 R1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Qrom Elit</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Tanya</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Tanya Elit</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Tanya R1</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Arpa</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-15">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-15">
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Qarabağ 22 R1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Qarabağ 32 R1</a>
+                            </li>
+                        </ul>
+                    </li>
+                    @*@foreach (var item in Model._Pvots.OrderByDescending(s=>s.EKIN))
+                        {
+                            if (item.ID==1)
+                            {
+                                <a href="#">@item.EKIN</a>
+                            }
+                        }*@
+                </ul>
+            </li>
+            <li role="presentation" class="gardens clear">
+                <a href="#" role="menuitem" id="_gardens" class="menu-title text-uppercase bold float-left" title="Bağlar">
+                    <i aria-hidden="true" class="icon-tree-11 mr-10"></i>Bağlar
+                </a>
+                <span class="menu-toggle pointer float-left text-center" id="menu-2">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+                <ul id="gardens" class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-2">
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Alça</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-21">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-21"></ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Alma</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-22">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-22"></ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Armud</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-23">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-23"></ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Badəm</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-24">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-24">
+                            <li>
+                                <a href="#" class="menu-title  float-left showmapkind">Viveros Veron</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Gilas</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-25">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-25"></ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Qaysı</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-26">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-26"></ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Qoz</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-27">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-27"></ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-title  float-left showmap">Şaftalı</a>
+                        <span class="menu-toggle pointer float-left text-center" id="menu-28">
+                            <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                        </span>
+                        <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="menu-28"></ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li role="presentation" class="planting-planning clear">
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" data-toggle="tooltip" title="Əkin planlaması" data-target-modal="planting-modal">
+                    <i aria-hidden="true" class="icon-planting mr-10"></i>Əkin planlaması
+                </a>
+                <span class="menu-toggle pointer float-left text-center" data-target-modal="planting-planning" id="plan_properties">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+            </li>
+
+            <li role="presentation" class="work-planning clear">
+                <a href="#" id="_ajxsWorkPlan" role="menuitem" class="menu-title text-uppercase bold float-left" data-toggle="tooltip" title="İş planlaması" data-target-modal="work-modal">
+                    <i aria-hidden="true" class="icon-work-planning mr-10"></i>İş planlaması
+                </a>
+                <span class="menu-toggle pointer float-left text-center" id="_ajsxAllWorkPlan" data-target-modal="work-planning">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+            </li>
+
+            <li role="presentation" class="work-planning clear" style="display:none">
+                <a href="#" id="_WorkPlanCreateAndUpdate" role="menuitem" class="menu-title text-uppercase bold float-left" data-toggle="tooltip" title="İş planlaması" data-target-modal="_workPlan">
+                    <i aria-hidden="true" class="icon-work-planning mr-10"></i>İş planlaması2
+                </a>
+                <span class="menu-toggle pointer float-left text-center" id="_ajsxAllWorkPlan" data-target-modal="work-planning">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+            </li>
+
+        </ul>
+    </div>
+
+</aside>
+
+<!-- Side Menu 2-->
+<aside class="sidebar tr-3s scroll o-auto" aria-labelledby="side-menu-2">
+
+    <div class="sidebar-head bg-special">
+        <h2 class="m-0 text-white bold">Obyektlər</h2>
+    </div>
+
+    <div class="sidebar-body scroll o-auto">
+        <ul class="side-menu type-none m-0 pl-0 pt-10 pb-10" role="menubar">
+
+            <li role="presentation" class="silo lg-icons clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Silolar">
+                    <i aria-hidden="true" class="icon-bunker mr-10"></i>
+                    Silolar
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="menu-4">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <div class="sub-menu type-none m-0 pl-10 pr-10 float-left w-100p" aria-labelledby="menu-4">
+                    <div class="row as-5">
+
+                        @foreach (var item in ViewBag.Silo)
+                        {
+                            <div class="col text-center p-10">
+                                <a href="#" class="d-block relative mysilo_info" data-toggle="tooltip" data-id="@item.OBJECTID" title="@item.NAME" data-target-modal="silo-info-1">
+                                    <i aria-hidden="true" class="icon-bunker" data-precent="20%"></i>
+                                </a>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+            </li>
+
+            <li role="presentation" class="depo lg-icons clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Anbarlar">
+                    <i aria-hidden="true" class="icon-warehouse mr-10"></i>
+                    Anbarlar
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center _depo" id="menu-5">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <div class="sub-menu type-none m-0 pl-10 pr-10 float-left w-100p" aria-labelledby="menu-5">
+                    <div class="row as-5" id="depoList">
+
+                        <!--<div class="col as-6 p-10 pb-0">
+                                <a href="#" class="d-block relative" data-toggle="tooltip" title="Anbar 1" data-target-modal="depo-1">
+                                    <i aria-hidden="true" class="icon-warehouse"></i>
+                                </a>
+                            </div>-->
+
+                    </div>
+                </div>
+
+            </li>
+
+            <li role="presentation" class="artisan clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Artizanlar">
+                    <i aria-hidden="true" class="icon-artisan-well mr-10"></i>
+                    Artizanlar
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="menu-6">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <div class="sub-menu type-none m-0 p-20 pt-10 pb-10 float-left w-100p" aria-labelledby="menu-6">
+                    <table class="w-100p">
+                        <tbody>
+                            <tr>
+                                <td>1. APT</td>
+                                <td>100</td>
+                                <td width="120px">
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2. APT</td>
+                                <td>50</td>
+                                <td width="120px">
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3. APT</td>
+                                <td>50</td>
+                                <td width="120px">
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4. APT</td>
+                                <td>50</td>
+                                <td width="120px">
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>5. APT</td>
+                                <td>50</td>
+                                <td width="120px">
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                    <i aria-hidden="true"
+                                       class="icon-info-circle-thin pointer"
+                                       data-toggle="tooltip"
+                                       title="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </li>
+
+            <li role="presentation" class="basin lg-icons clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Hovuz">
+                    <i aria-hidden="true" class="icon-reservoir mr-10"></i>
+                    Hovuz
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="menu-7">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <div class="sub-menu type-none m-0 pl-10 pr-10 float-left w-100p" aria-labelledby="menu-7">
+                    <div class="row as-5">
+                        <div class="col p-10">
+                            <a href="#" class="d-block relative" data-toggle="tooltip" data-target-modal="basin-1" title="Hovuz 1">
+                                <i aria-hidden="true" class="icon-reservoir"></i>
+                            </a>
+                        </div>
+                        <div class="col p-10">
+                            <a href="#" class="d-block relative" data-toggle="tooltip" data-target-modal="basin-2" title="Hovuz 2">
+                                <i aria-hidden="true" class="icon-reservoir"></i>
+                            </a>
+                        </div>
+                        <div class="col p-10">
+                            <a href="#" class="d-block relative" data-toggle="tooltip" data-target-modal="basin-3" title="Hovuz 3">
+                                <i aria-hidden="true" class="icon-reservoir"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+
+            <li role="presentation" class="pumping-station lg-icons clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Nasosxana">
+                    <i aria-hidden="true" class="icon-pump-station mr-10"></i>
+                    Nasosxana
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="menu-8">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <div class="sub-menu type-none m-0 pl-10 pr-10 float-left w-100p" aria-labelledby="menu-8">
+                    <div class="row as-5">
+                        <div class="col p-10">
+                            <a href="#" class="d-block relative" data-toggle="tooltip" data-target-modal="pumping-station-1" title="Nasosxana 1">
+                                <i aria-hidden="true" class="icon-pump-station"></i>
+                            </a>
+                        </div>
+                        <div class="col p-10">
+                            <a href="#" class="d-block relative" data-toggle="tooltip" data-target-modal="pumping-station-3" title="Nasosxana 2">
+                                <i aria-hidden="true" class="icon-pump-station"></i>
+                            </a>
+                        </div>
+                        <div class="col p-10">
+                            <a href="#" class="d-block relative" data-toggle="tooltip" data-target-modal="pumping-station-3" title="Nasosxana 3">
+                                <i aria-hidden="true" class="icon-pump-station"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+
+            <li role="presentation" class="garage lg-icons clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Qaraj">
+                    <i aria-hidden="true" class="icon-garage mr-10"></i>
+                    Qaraj
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" data-target-modal="garage-1" id="garage_opener">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+
+            </li>
+
+            <li role="presentation" class="oil-depo lg-icons clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Yanacaqdoldurma Məntəqəsi">
+                    <i aria-hidden="true" class="icon-fuel-pump mr-10"></i>
+                    Yanacaqdoldurma M.
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="menu-10">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <div class="sub-menu type-none m-0 p-20 pt-10 pb-10 float-left w-100p" aria-labelledby="menu-10">
+                    <table class="w-100p">
+                        <tbody>
+                            <tr>
+                                <td class="w-100p">Tutumu</td>
+                                <td class="no-wrap">60 ton</td>
+                            </tr>
+                            <tr>
+                                <td class="w-100p">Dizel</td>
+                                <td class="no-wrap">25 ton</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </li>
+
+            <li role="presentation" class="clear">
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Ehtiyatlar">
+                    <i aria-hidden="true" class="icon-cogs mr-10"></i>
+                    Ehtiyatlar
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="_ehtiyyat" data-target-modal="spare-part">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+            </li>
+
+        </ul>
+    </div>
+
+</aside>
+
+<!-- Side Menu 3-->
+<aside class="sidebar tr-3s scroll o-auto" aria-labelledby="side-menu-3">
+
+
+
+    <div class="sidebar-head bg-special">
+        <h2 class="m-0 text-white bold">Statistikalar</h2>
+    </div>
+
+    <div class="sidebar-body scroll o-auto">
+        <ul class="side-menu type-none m-0 pl-0 pt-10 pb-10" role="menubar">
+            <li role="presentation" class="camera clear">
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Kamera Nəzarəti">
+                    <i aria-hidden="true" class="icon-surveillance-video-camera mr-10"></i>
+                    Kamera Nəzarəti
+                </a>
+                <span class="menu-toggle pointer float-left text-center" id="menu-11">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+                <div class="sub-menu type-none m-0 p-20 pt-10 pb-10 float-left w-100p scroll o-auto" style="max-height: 250px;" aria-labelledby="menu-11">
+                    <div class="d-table w-100p">
+                        <div class="d-row ClickCamera" data-kamera-number="1" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">1</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Qapalı qaraj
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="2" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">2</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Açıq qaraj
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="3" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">3</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                1-ci Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="4" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">4</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                3-cü Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="5" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">5</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                4-cü Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="6" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">6</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Taxıl Terminalı
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="7" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">7</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                1-ci Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="8" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">8</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                3-cü Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="9" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">9</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                2-ci Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="10" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">10</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                3-cü Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="11" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">11</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Önyol
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="12" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">12</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                2-ci Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="13" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">13</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                2-ci Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="14" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">14</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                1-ci Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="15" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">15</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                4-cü Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="16" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">16</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Terazi Meydanı
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="17" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">17</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Elektron Tərəzi
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="18" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">18</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Arkakapı
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="19" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">19</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                3-cü Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="20" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">20</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Camera Name
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="21" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">21</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Taxıl Terminalı
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="22" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">22</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Arkayol
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="23" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">23</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                4-cü Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="24" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">24</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                2-ci Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="25" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">25</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Terazi Meydanı
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="26" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">26</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                1-ci Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="27" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">27</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Garaj meydanı
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="28" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">28</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Elektron Tərəzi
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="29" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">29</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Terazi Meydanı
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="30" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">30</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Yeməkxana
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="31" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">31</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Camera Name
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="32" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">32</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                60-tonluq dizel çəni
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="33" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">33</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                4-cü Anbar
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="34" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">34</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Açıq qaraj
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="35" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">35</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Camera Name
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="36" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">36</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Camera Name
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="37" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">37</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Otopark
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="38" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">38</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Garaj meydanı
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="39" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">39</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Qapalı qaraj
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="40" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">40</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Gözətçi köşkü
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="41" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">41</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Gözətçi köşkü
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="42" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">42</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Gözətçi köşkü
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                        <div class="d-row ClickCamera" data-kamera-number="43" data-target-modal="camera-modal">
+                            <div class="d-cell border-bottom v-align-middle">43</div>
+                            <div class="d-cell border-bottom w-100p p-15">
+                                Garaj meydanı
+                            </div>
+                            <div class="d-cell border-bottom v-align-middle">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+
+            <li role="presentation" class="pivot clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Pivotlar">
+                    <i aria-hidden="true" class="icon-pivot-irrigation mr-10"></i>
+                    Pivotlar
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="menu-12">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <div class="sub-menu type-none m-0 p-20 pt-10 pb-10 float-left w-100p" aria-labelledby="menu-12">
+                    <div class="row as-5 bold">
+                        <div class="col as-2">
+                            <a href="#" class="active" data-toggle="tooltip" title="Pivot 1">1</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 2">2</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 3">3</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 4">4</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 5">5</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 6">6</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 7">7</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 8">8</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 9">9</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 10">10</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 11">11</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 12">12</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 13">13</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 14">14</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 15">15</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 16">16</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 17">17</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 18">18</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 19">19</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 20">20</a>
+                        </div>
+                        <div class="col as-2">
+                            <a href="#" data-toggle="tooltip" title="Pivot 21">21</a>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+
+            <li role="presentation" class="car clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Avtomobillər">
+                    <i aria-hidden="true" class="icon-tractor mr-10"></i>
+                    Avtomobillər
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="menu-13" data-toggle="tooltip" data-target-modal="avto-modal">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+
+                @*<div class="sub-menu type-none m-0 p-20 pt-10 pb-10 float-left w-100p" aria-labelledby="menu-13">
+                <table class="w-100p">
+                    <tbody>
+                        <tr>
+                            <td width="100%">Traktor</td>
+                            <td><span class="badge bg-special float-right">7</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kombayn</td>
+                            <td><span class="badge bg-special float-right">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>VAZ - 21214</td>
+                            <td><span class="badge bg-special float-right">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>UAZ-469</td>
+                            <td><span class="badge bg-special float-right">1</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>*@
+
+            </li>
+
+            <li role="presentation" class="hr clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="İşə davamiyyət">
+                    <i aria-hidden="true" class="icon-workers mr-10"></i>
+                    İşə davamiyyət
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="menu-work-control" data-toggle="tooltip" data-target-modal="work-control-modal">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+
+            </li>
+
+            <li role="presentation" class="analytics-forecast lg-icons clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Analiz və Proqnoz">
+                    <i aria-hidden="true" class="icon-analysis mr-10"></i>
+                    Analiz və Proqnoz
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="menu-14">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <div class="sub-menu type-none m-0 pl-10 pr-10 float-left w-100p" aria-labelledby="menu-14">
+                    <div class="row as-5">
+                        <div class="col p-10">
+                            <a href="#" class="d-block relative agrostation" data-id="1" data-toggle="tooltip" data-target-modal="analytics-forecast" title="ULUAGRO 1" style="margin-bottom:10px;">
+                                <i aria-hidden="true" class="icon-antenna"></i>
+                            </a>
+                            <div style="text-align:center;">Stansiya 1</div>
+                        </div>
+                        <div class="col p-10">
+                            <a href="#" class="d-block relative agrostation" data-id="2" data-toggle="tooltip" data-target-modal="analytics-forecast" title="ULUAGRO 2" style="margin-bottom:10px;">
+                                <i aria-hidden="true" class="icon-antenna"></i>
+                            </a>
+                            <div style="text-align:center;">Stansiya 2</div>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+
+            <li role="presentation" class="main-plan clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Agropark Baş Planlar">
+                    <i aria-hidden="true" class="icon-test-answer mr-10"></i>Agropark Baş Planlar
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="main-plan">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="main-plan">
+                    <li role="presentation" class="clear">
+                        <a href="#" role="menuitem" class="sub-menu-title text-uppercase bold float-left" title="İnzibati Ərazinin Baş planı">
+                            İnzibati Ərazinin Baş planı
+                        </a>
+                        <span class="menu-toggle pointer float-left text-center glisse-image" rel="plan" data-glisse-big="~/Public/assets/images/main-plan.jpg">
+                            <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                        </span>
+                    </li>
+                    <li role="presentation" class="clear">
+                        <a href="#" role="menuitem" class="sub-menu-title text-uppercase bold float-left" title="Ümumi Sahənin Planı">Ümumi Sahənin Planı</a>
+                        <span class="menu-toggle pointer float-left text-center glisse-image" rel="plan" data-glisse-big="~/Public/assets/images/general-plan.jpg">
+                            <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                        </span>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li role="presentation" class="all_cars clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Nəqliyyatlar">
+                    <i aria-hidden="true" class="fas fa-car mr-10"></i>Nəqliyyatlar
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" id="all_cars">
+                    <i aria-hidden="true" class="icon-arrow-down v-align-middle tr-3s"></i>
+                </span>
+
+                <ul class="sub-menu type-none m-0 float-left w-100p" role="menu" aria-labelledby="all_cars">
+                    @* Cars loader *@
+                    <li role="presentation" class="map_car clear">
+
+                        <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Xəritə nəzarəti">Xəritə nəzarəti</a>
+
+                        <span class="menu-toggle switch pointer float-left text-center" id="map_car_show">
+                            <i aria-hidden="true" class="fas fa-toggle-off v-align-middle tr-3s"></i>
+                        </span>
+
+                    </li>
+                    <li role="presentation" class="clear">
+                        <a href="#" role="menuitem" class="sub-menu-title text-uppercase bold float-left" title="Arxiv">Arxiv</a>
+                        <span class="menu-toggle pointer float-left text-center" rel="car" data-toggle="tooltip" data-target-modal="car-info-modal">
+                            <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                        </span>
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+    </div>
+
+</aside>
+
+<!-- Side Menu 4-->
+<aside class="sidebar tr-3s scroll o-auto" aria-labelledby="side-menu-4">
+
+    <div class="sidebar-head bg-special">
+        <h2 class="m-0 text-white bold">Kargüzarlıq</h2>
+    </div>
+
+    <div class="sidebar-body scroll o-auto">
+        <ul class="side-menu type-none m-0 pl-0 pt-10 pb-10" role="menubar">
+
+            <li role="presentation" class="financial-planning clear">
+                <a href="javascript:void(0)" role="menuitem" class="menu-title text-uppercase bold float-left" title="Maliyyə hesabatı">
+                    <i aria-hidden="true" class="icon-money mr-10"></i>
+                    Maliyyə hesabatı
+                </a>
+                <span class="menu-toggle pointer float-left text-center" id="_OpenFinancalReport" data-target-modal="new-financial-report">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+            </li>
+
+            <li role="presentation" class="hr clear">
+
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="İnsan Resursları">
+                    <i aria-hidden="true" class="icon-workers mr-10"></i>
+                    İnsan Resursları
+                </a>
+
+                <span class="menu-toggle pointer float-left text-center" data-target-modal="hr-modal">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+
+            </li>
+
+            <li role="separator" class="separator"></li>
+
+            <li role="presentation" class="clear">
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Gələn sənədlər">
+                    <i aria-hidden="true" class="icon-arrow-down mr-10"></i>
+                    Gələn sənədlər
+                </a>
+                <span class="menu-toggle pointer float-left text-center" id="show_recived_msgs" data-target-modal="receive-files">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+            </li>
+
+            <li role="presentation" class="clear">
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Göndərilən sənədlər">
+                    <i aria-hidden="true" class="icon-arrow-up mr-10"></i>
+                    Göndərilən sənədlər
+                </a>
+                <span class="menu-toggle pointer float-left text-center" id="show_sended_msgs" data-target-modal="send-files">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+            </li>
+
+            <li role="presentation" class="clear">
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Arxiv Sənədlər">
+                    <i aria-hidden="true" class="icon-archive mr-10"></i>
+                    Arxiv Sənədlər
+                </a>
+                <span class="menu-toggle pointer float-left text-center" data-target-modal="archive-file" id="show_arc_docs">
+                    <i aria-hidden="true" class="icon-eye v-align-middle tr-3s"></i>
+                </span>
+            </li>
+
+            <li role="separator" class="separator"></li>
+
+            <li role="presentation" class="clear">
+                <a href="#" role="menuitem" class="menu-title text-uppercase bold float-left" title="Yeni sənəd yarat">
+                    <i aria-hidden="true" class="icon-file mr-10"></i>
+                    Yeni sənəd yarat
+                </a>
+                <span class="menu-toggle pointer float-left text-center" data-target-modal="new-file">
+                    <i aria-hidden="true" class="icon-plus v-align-middle tr-3s"></i>
+                </span>
+            </li>
+
+            <li role="separator" class="separator"></li>
+
+        </ul>
+    </div>
+
+</aside>
+
+<!-- Side Menu 5-->
+<aside class="sidebar lg tr-3s" aria-labelledby="about-us">
+
+    <div class="sidebar-head bg-special">
+        <h2 class="m-0 text-white bold">ULUAGRO</h2>
+    </div>
+
+    <div class="sidebar-body p-40 text-white light font-16 scroll o-auto">
+        <p class="text-center"><img src="~/Public/assets/images/line.png" alt="line" height="51" width="300"></p>
+        <p>Uluagro LLC is an agricultural management company.  We are the developer of an agricultural hub on over 2000 hectares of land consisting of various cultivation samples in Gakh region, Azerbaijan.   Our vision is to revolutionize the agricultural practices in Azerbaijan and lead a new era of agricultural development.</p>
+        <p>The cultivations consist of grain crops and fruit gardens, of which we highlight the growing of almonds trees with the help of Turkish and Spanish expertise and material.</p>
+        <p>Our fundamental development philosophy is to build diversified agricultural investment portfolios customized to meet specific requirements by optimizing performance of farmland assets that are best identified and managed through the integration of both agricultural and financial expertise to provide maximum results.</p>
+        <p class="text-center"><img src="~/Public/assets/images/line.png" alt="line" height="51" width="300"></p>
+        <p>Uluagro LLC is one of the first agricultural projects such format in the region.  It is a complex business project oriented to operate internationally. Our business is based on modern technologies for production, logistics and sales. The establishment of Uluagro will create an opportunity to provide the transition from small individual producer to wide-scale agricultural industrial production and steady and safe foreign market entry, and stipulate the use of innovative technologies, as well as unit standards and the achievement of sustainable quality of result products. </p>
+        <p class="text-center"><img src="~/Public/assets/images/line.png" alt="line" height="51" width="300"></p>
+        <p>Uluagro’s territory lays on over 2000 hectares. The works considered for the initial stage of Uluagro’s construction have been completed. During this first stage we constructed 15 pivotal irrigation systems from Valley, USA over the territory of 500 Ha and successfully planted various grain types under them.  Another 500 Ha of land is planned to be irrigated by the same pivot technology by the end of year.</p>
+        <p>The cereal crops cultivated on the territory are: wheat, barley, buckwheat, corn and soybeans.  Fruit types are: nuts, almonds, walnuts, apples, pears and plums.  The fruit bearing lands are irrigated by fully-automated drip irrigation technology from Spain and Turkey.</p>
+        <p>The Agro-park is centered on logistics center with 4500 ton silo storage and dryer, covered parking lot, office center, warehouse and hospitality center.  Uluagro possesses various planting and irrigation equipment, harvesters, fertilizers and multi-purpose tractors.</p>
+        <p class="text-center"><img src="~/Public/assets/images/line.png" alt="line" height="51" width="300"></p>
+        <p>Distinguished by quality management and highly sophisticated irrigation, fertilizer, growth and harvesting systems, we plan to increase the area of fertile lands of our Agro-park in the future.  We believe it will serve an important part on the total scale of Azerbaijan’s agricultural development and assist in increasing the levels of expertise on the international export markets.</p>
+        <p>As the situation develops rapidly we observe a shortage of human resources in certain fields.  Local staff is well experienced with earth and plant science but lack managerial, planning and control skills.  Also a language barrier creates delays during communication with foreign contractors.</p>
+        <p>We would gladly greet an opportunity to interview managers of the agricultural field with enough expertise to control and develop the processes so far implemented and started in Uluagro.  We require a person(s) with language skills (English, Turkish, Spanish or French) and good experience in plant growing, irrigation and fertilization techniques.  The person(s) has to be mobile and able to travel over the territory of Azerbaijan and foreign countries when needed.</p>
+        <p class="text-center"><img src="~/Public/assets/images/line.png" alt="line" height="51" width="300"></p>
+    </div>
+
+</aside>
+
+<!-- Side Menu 5-->
+<aside class="sidebar lg tr-3s" aria-labelledby="map-type">
+
+    <div class="sidebar-head bg-special">
+        <h2 class="m-0 text-white bold">Xəritə tarixçəsi</h2>
+    </div>
+
+    <div class="sidebar-body p-20 pb-0 scroll o-auto">
+
+        <div class="row as-5">
+            <div class="col as-4">
+                <label for="map-view-type" class="text-white">Növü</label>
+                <select name="" class="bg-tr-2 input" id="map-view-type">
+                    <option selected disabled>Seç</option>
+                </select>
+            </div>
+            <div class="col as-4">
+                <label for="map-view-mounth" class="text-white">Ay</label>
+                <select name="" class="bg-tr-2 input" id="map-view-mounth">
+                    <option selected disabled>Seç</option>
+                    <option value="Yanvar">Yanvar</option>
+                    <option value="Fevral">Fevral</option>
+                    <option value="Mart">Mart</option>
+                    <option value="Aprel">Aprel</option>
+                    <option value="May">May</option>
+                    <option value="İyun">İyun</option>
+                    <option value="İyul">İyul</option>
+                    <option value="Avqust">Avqust</option>
+                    <option value="Sentyabr">Sentyabr</option>
+                    <option value="Oktyabr">Oktyabr</option>
+                    <option value="Noyabr">Noyabr</option>
+                    <option value="Dekabr">Dekabr</option>
+                </select>
+            </div>
+            <div class="col as-4">
+                <label for="map-view-year" class="text-white">İl</label>
+                <select name="" class="bg-tr-2 input" id="map-view-year">
+                    <option selected disabled>Seç</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+        </div>
+
+        <div role="separator" class="separator"></div>
+
+        <table class="table bg-tr-2 mb-40 map-details">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Xəritə</th>
+                    <th>Növü</th>
+                    <th>Ay</th>
+                    <th>İl</th>
+                    <th>Bax</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*<tr>
+                        <td class="text-center">1</td>
+                        <td class="text-center">
+                            <img src="~/Public/assets/images/login-bg.png" alt="Növü" width="40" height="40" class="radius-50">
+                        </td>
+                        <td width="100%">Xəritənin Növü</td>
+                        <td>Oktybr</td>
+                        <td>2018</td>
+                        <td>
+                            <button class="map-history btn xs circle bg-tr-2" data-nov="0">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td class="text-center">
+                            <img src="~/Public/assets/images/login-bg.png" alt="Növü" width="40" height="40" class="radius-50">
+                        </td>
+                        <td width="100%">Xəritənin Növü</td>
+                        <td>Oktybr</td>
+                        <td>2018</td>
+                        <td>
+                            <button class="map-history btn xs circle bg-tr-2" data-nov="1">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">3</td>
+                        <td class="text-center">
+                            <img src="~/Public/assets/images/login-bg.png" alt="Növü" width="40" height="40" class="radius-50">
+                        </td>
+                        <td width="100%">Xəritənin Növü</td>
+                        <td>Oktybr</td>
+                        <td>2018</td>
+                        <td>
+                            <button class="map-history btn xs circle bg-tr-2" data-nov="2">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">4</td>
+                        <td class="text-center">
+                            <img src="~/Public/assets/images/login-bg.png" alt="Növü" width="40" height="40" class="radius-50">
+                        </td>
+                        <td width="100%">Xəritənin Növü</td>
+                        <td>Oktybr</td>
+                        <td>2018</td>
+                        <td>
+                            <button class="map-history btn xs circle bg-tr-2" data-nov="3">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">5</td>
+                        <td class="text-center">
+                            <img src="~/Public/assets/images/login-bg.png" alt="Növü" width="40" height="40" class="radius-50">
+                        </td>
+                        <td width="100%">Xəritənin Növü</td>
+                        <td>Oktybr</td>
+                        <td>2018</td>
+                        <td>
+                            <button class="map-history btn xs circle bg-tr-2" data-nov="4">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">6</td>
+                        <td class="text-center">
+                            <img src="~/Public/assets/images/login-bg.png" alt="Növü" width="40" height="40" class="radius-50">
+                        </td>
+                        <td width="100%">Xəritənin Növü</td>
+                        <td>Oktybr</td>
+                        <td>2018</td>
+                        <td>
+                            <button class="map-history btn xs circle bg-tr-2" data-nov="5">
+                                <i aria-hidden="true" class="icon-eye"></i>
+                            </button>
+                        </td>
+                    </tr>*@
+            </tbody>
+        </table>
+    </div>
+
+</aside>
+
+<div class="map responsive" id="mapDiv"></div>
+
+<!-- My modal -->
+<!-- Info Nov Modal -->
+<div class="modal info-modal tr-3s"
+     id="info-nov-modal"
+     data-modal="info-nov-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header">
+            <h4 class="panel-title">Sulanma, gübrələnmə, dərmanlanma</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Sort</th>
+                        <th scope="col">Sahəsi</th>
+                        <th scope="col">Umumi gübrələnmə</th>
+                        <th scope="col">Umumi sulama</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="info-nov-modal">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Info Sort Modal -->
+<div class="modal info-modal tr-3s"
+     id="info-sort-modal"
+     data-modal="info-sort-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header">
+            <h4 class="panel-title">Sulanma, gübrələnmə, dərmanlanma</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Sahəsi</th>
+                        <th scope="col">Ümumi gübrələnmə</th>
+                        <th scope="col">Ümumi sulama</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="info-sort-modal">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Detail Nov Modal -->
+<div class="modal detail-modal tr-3s"
+     id="detail-nov-modal"
+     data-modal="detail-nov-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header">
+            <h4 class="panel-title">Əkin haqqında məlumat</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Sort</th>
+                        <th scope="col">Sahəsi</th>
+                        <th scope="col">Ümumi əkilən bitki miqdarı</th>
+                        <th scope="col">Ümumi məbləğ</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="detail-nov-modal">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Detail Sort Modal -->
+<div class="modal detail-modal tr-3s"
+     id="detail-sort-modal"
+     data-modal="detail-sort-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header">
+            <h4 class="panel-title">Əkin haqqında məlumat</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Sahəsi</th>
+                        <th scope="col">Ümumi əkilən bitki miqdarı</th>
+                        <th scope="col">Ümumi məbləğ</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="detail-sort-modal">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Report Nov Modal -->
+<div class="modal report-modal tr-3s"
+     id="report-nov-modal"
+     data-modal="report-nov-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header">
+            <h4 class="panel-title">Maliyyə hesabatı</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Sort</th>
+                        <th scope="col">Sahəsi</th>
+                        <th scope="col">Gübrələmə məbləği</th>
+                        <th scope="col">Sulama xərci</th>
+                        <th scope="col">Toxum dəyəri</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="report-nov-modal">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Report Sort Modal -->
+<div class="modal report-modal tr-3s"
+     id="report-sort-modal"
+     data-modal="report-sort-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header">
+            <h4 class="panel-title">Maliyyə hesabatı</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Gübrələmə məbləği</th>
+                        <th scope="col">Sulama xərci</th>
+                        <th scope="col">Toxum dəyəri</th>
+                        <th scope="col">Ümumi məbləğ</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="report-sort-modal">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Open Planting Planning -->
+<div class="modal planting-planning-modal tr-3s"
+     data-modal="planting-planning"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Əkin Planlaması</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-5">
+                <div class="col as-12">
+                    <div id="loadingPlanningPlan" class="text-center">
+                        <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+                    </div>
+                </div>
+            </div>
+            <div class="row as-5">
+                <div class="col as-12">
+                    <table class="table bordered hovered no-wrap text-center no-footer mb-20" id="planning_plan_table">
+                        <thead>
+                            <tr>
+                                <th>Sahə</th>
+                                <th>Bitki</th>
+                                <th>Sort</th>
+                                <th>Planlama tarixi</th>
+                                <th>Planlanmış tarix</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="planting-planning">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Details Planting Planning -->
+<div class="modal planting-planning-details-modal tr-3s"
+     data-modal="planting-planning-details"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Planlama haqqında ətraflı məlumat</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-5">
+                <div class="col as-12">
+                    <div id="loadingPlanningPlanDetail" class="text-center">
+                        <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+                    </div>
+                </div>
+            </div>
+            <div class="row as-5" id="planning_detail">
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="planting-planning-details">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- See Planting Modal -->
+<div class="modal tr-3s"
+     id="see-planting-modal"
+     data-modal="see-planting-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-center">
+            <h4 class="panel-title">Ətraflı</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="bg-gray p-10">
+                <div class="panel mb-10">
+                    <table class="see-planting-table table bordered m-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sahə</th>
+                                <th scope="col">Tarix</th>
+                                <th scope="col">Data</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="panel">
+                    <table class="report-planting-table table hovered bordered">
+                        <thead>
+                            <tr>
+                                <th width="50">№</th>
+                                <th>Ay</th>
+                                <th>Görüləcək iş</th>
+                                <th>Ehtiyac</th>
+                                <th>Vəsait</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                    <table class="common-planting-table table hovered bordered mt-50">
+                        <thead>
+                            <tr>
+                                <th width="50">№</th>
+                                <th>Sort</th>
+                                <th>Miqdarı</th>
+                                <th>Qiyməti</th>
+                                <th>Ümumi dəyəri</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer text-center mt-30">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="see-planting-modal">Bağla</span>
+            <button class="btn xs bg-green" aria-label="Bağla" aria-hidden="true" data-target-modal="planting-modal" data-close="see-planting-modal">Redaktə et</button>
+            <button class="btn xs bg-red dark delete" aria-label="Bağla" aria-hidden="true" data-close="see-planting-modal">Silin</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- Add and Update Planting Modal -->
+<div class="modal tr-3s lg"
+     id="planting-modal"
+     data-modal="planting-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1"
+     action-type="add">
+
+    <form action="#" method="post" class="modal-content panel tr-3s">
+
+        <div class="panel-header">
+            <h4 class="panel-title">Əkin planlaması</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-5">
+                @* Vaxt *@
+                <div class="col as-2 xs-6 xxs-6 mb-15">
+                    <label class="control-label">Tarix</label>
+                    <input type="date" name="name" value="" id="plan_date" class="input" />
+                </div>
+            </div>
+            <div class="row as-5">
+                @* Kateqoriya *@
+                <div class="col as-2 xs-6 xxs-6 mb-15">
+                    <label class="control-label">Kateqoriya</label>
+                    <select class="input" id="category" required>
+                        <option value="" disabled selected>Seçin</option>
+                    </select>
+                </div>
+                @* Parcel *@
+                <div class="col as-2 xs-6 xxs-6 mb-15">
+                    <label class="control-label">Sahə</label>
+                    <select class="input" id="parcel" required disabled>
+                        <option value="" disabled selected>Seçin</option>
+                    </select>
+                </div>
+                @* Bitki *@
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label class="control-label">Bitki</label>
+                    <select class="input" id="crops" required disabled>
+                        <option value="" disabled selected>Seçin</option>
+                    </select>
+                </div>
+                @* Sortlar *@
+                <div class="col as-2 xs-6 xxs-6 mb-15">
+                    <label class="control-label">Sort</label>
+                    <select class="input" id="sorts" required disabled>
+                        <option value="" disabled selected>Seçin</option>
+                    </select>
+                </div>
+                @* Reproduction *@
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label class="control-label">Reproduksiya</label>
+                    <select class="input" id="repr" required>
+                        <option value="" disabled selected>Seçin</option>
+                    </select>
+                </div>
+                @* Show Button *@
+                <div class="col as-3">
+                    <button class="btn xs bg-green dark confirm" id="show_plan" type="button">Göstər</button>
+                </div>
+            </div>
+            <div class="row as-5 pt-5 pb-5" id="plandata_show_con">
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="planting-modal">Bağla</span>
+            <button class="btn xs bg-blue dark" id="save_plan_settings" type="button">Yadda saxla</button>
+        </div>
+
+    </form>
+
+</div>
+
+<!--New Work Plan-->
+<!-- Main Works Modal -->
+<div class="modal lg tr-3s"
+     id="_workPlan"
+     data-modal="_workPlan"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+</div>
+
+<!--Work Task Modal-->
+<div class="modal lg tr-3s"
+     id="_workPlanTask"
+     data-modal="_workPlanTask"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+    <div class="modal-content panel tr-3s" role="document">
+
+    </div>
+</div>
+
+
+<!--End New Work Plan-->
+<!-- Open Works Modal -->
+<div class="modal tr-3s"
+     id="work-planning"
+     data-modal="work-planning"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-center">
+            <h4 class="panel-title">İş planlaması</h4>
+        </div>
+
+        <div class="panel-body">
+            <table id="_AllWorkPlanModal" class="work-planning-table table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Mehsuldar Şəxs</th>
+                        <th scope="col">Baslama Tarix</th>
+                        <th scope="col">Bitməsi Gözlənilən Tarik</th>
+                        <th scope="col" width="50px">Bax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model._workPlanList)
+                    {
+                        <tr>
+                            <td>@item.Worker.Name  @item.Worker.Surname</td>
+                            <td>@item.START_DATE.Value.ToString("MM/dd/yyyy")</td>
+                            <td>@item.END_DATE.Value.ToString("MM/dd/yyyy")</td>
+                            <td>
+                                <button class="btn circle xs bg-green _WorkplanWatch" id="@item.OBJECTID" data-target-modal="see-work-modal">
+                                    <i aria-hidden="true" class="icon-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="work-planning">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- See Work Modal -->
+<div class="modal lg tr-3s"
+     id="see-work-modal"
+     data-modal="see-work-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-center">
+            <h4 class="panel-title">Ətraflı</h4>
+        </div>
+
+        <div class="panel-body">
+            <table id="_WorkPlanDetails" class="table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Tapşırıqlar</th>
+                        <th scope="col">Başlama Tarixi</th>
+                        <th scope="col">Bitmə Tarixi</th>
+                        <th scope="col">Texnikanın adı</th>
+                        <th scope="col">Sürücü</th>
+                        <th scope="col">Qoşqu</th>
+                        <th scope="col">Derman & Gübrə</th>
+                        <th scope="col">Suyun Miqdarı</th>
+                        <th scope="col">Dərmanın Miqdarı</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="see-work-modal">Bağla</span>
+            <button class="btn xs bg-green dark" data-planId="" id="_EditWorkPlan" aria-label="Bağla" aria-hidden="true" data-target-modal="work-modal" data-close="see-work-modal">Redaktə et</button>
+            <button class="btn xs bg-red dark delete" data-planId="" id="_DeleteWorkPlan" aria-label="Bağla" aria-hidden="true" data-close="see-work-modal">Silin</button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Add and update Work Modal -->
+<div class="modal lg tr-3s"
+     id="work-modal"
+     data-modal="work-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1"
+     action-type="add">
+
+    <form action="#" method="post" role="document" id="WorkPlanForm" class="modal-content panel tr-3s">
+        <div class="panel-header">
+            <h4 class="panel-title">İş planlaması</h4>
+        </div>
+        <div class="panel-body pb-0">
+            <div class="row as-5">
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label for="_StartDate">Başlama Tarixi</label>
+                    <input required type="datetime-local" id="_StartDate" class="input" name="mainstartdate" placeholder="Başlama Tarixi">
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label for="_EndDate">Bitmə Tarixi</label>
+                    <input required type="datetime-local" id="_EndDate" class="input dateTime" name="mainenddate" placeholder="Bitmə Tarixi">
+                </div>
+                <div class="col as-3 xs-6 xxs-6">
+                    <label for="_ParelCategory">Sahe Cateqoriyası</label>
+                    <select required class="input" id="_ParelCategory">
+                        <option selected disabled value="">Seç</option>
+                    </select>
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label for="_Parel">Sahe</label>
+                    <select required class="input" id="_Parcel" disabled name="parcelId">
+                        <option selected disabled value="">Seç</option>
+                    </select>
+                </div>
+                <div class="col as-12 show-lg show-md"></div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label for="_ParselArea">Sahə (ha)</label>
+                    <input required rows="4" cols="50" id="_ParselArea" class="input" name="area" placeholder="Sahə (ha)" disabled>
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label for="_Responder">cavabdeh şəxs</label>
+                    <select required class="input" id="_Responder" name="responderTd">
+                        <option value="">Seç</option>
+                    </select>
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label for="_WorkCategory">İşlərin Cateqoriyası</label>
+                    <select required class="input" id="_WorkCategory">
+                        <option value="">Seç</option>
+                    </select>
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label for="_Works">Görüləcək İş</label>
+                    <select required class="input" id="_Works" disabled name="WorkId">
+                        <option value="">Seç</option>
+                    </select>
+                </div>
+            </div>
+            <div class="bg-gray p-10">
+                <div id="_dailyPlanGroup">
+                    <div class="panel mb-10" id="dailyline0">
+                        <div class="panel-header">
+                            <span class="panel-title bold float-left">Növbəli tapşırıq</span>
+                            <span class="text-red float-right p-3 pointer" aria-label="Sil">
+                                <i aria-hidden="true" class="icon-trash mr-5"></i>
+                                Sil
+                            </span>
+                        </div>
+                        <div class="panel-header bg-gray pb-0">
+                            <div class="row as-5">
+                                <div class="col as-4 xs-6 xxs-6 mb-10">
+                                    <label for="_StartDate">Başlama Tarixi</label>
+                                    <input required type="datetime-local" id="_StartDate" class="input" name="startdate" placeholder="Başlama Tarixi">
+                                </div>
+                                <div class="col as-4 xs-6 xxs-6 mb-10">
+                                    <label for="_EndDate">Bitmə Tarixi</label>
+                                    <input required type="datetime-local" id="_EndDate" class="input" name="enddate" placeholder="Bitmə Tarixi">
+                                </div>
+                                <div class="col as-4 xs-12 xxs-12 mb-10">
+                                    <label for="Queue">Növbə</label>
+                                    <select required class="input _selectqueue" id="Queue" onchange="AddQueue(this.value,'_queueGroup')" name="queueId">
+                                        <option value="0">Növbəsiz</option>
+                                        <option value="2">2 Növbəli</option>
+                                        <option value="3">3 Növbəli</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="_queueGroup">
+                            <div class='pt-10 pl-10 pr-10' id="queueline0">
+                                <div class='row as-5'>
+                                    <div class='col as-6 xs-6 xxs-12 mb-10'>
+                                        <label for='_WorkProfessions'>Vəzifələr</label>
+                                        <select required class='input' onchange="getWorker(this.value,'Workers')" id='_WorkProfessions'>
+                                            <option selected disabled value=''>Seç</option>
+                                        </select>
+                                    </div>
+                                    <div class='col as-6 xs-6 xxs-12 mb-10'>
+                                        <label for='_Workers'>İşçilər</label>
+                                        <div class='drop w-100p'>
+                                            <span role='button' disabled class='input drop-toggle pointer caret'>İşciləri seç</span>
+                                            <div class='drop-menu static animated fadeInUp' id="Workers">
+                                                <ul class='menu-body' role='menu'>
+                                                    <li role='presentation'>
+                                                        <span class='menu-item ckbox' role='menuitem'>
+                                                            <input type='checkbox' id='worker-1'>
+                                                            <label for='worker-1'>İşçi adı 1</label>
+                                                        </span>
+                                                    </li>
+                                                    <li role='presentation'>
+                                                        <span class='menu-item ckbox' role='menuitem'>
+                                                            <input type='checkbox' id='worker-2'>
+                                                            <label for='worker-2'>İşçi adı 2</label>
+                                                        </span>
+                                                    </li>
+                                                    <li role='presentation'>
+                                                        <span class='menu-item ckbox' role='menuitem'>
+                                                            <input type='checkbox' id='worker-3'>
+                                                            <label for='worker-3'>İşçi adı 3</label>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='col as-12 mb-10'>
+                                        <label for='_WorkPlanNote'>Qeyd</label>
+                                        <textarea required rows='3' cols='50' id='_WorkPlanNote' class='input no-resize' name='note' placeholder='Qeyd'></textarea>
+                                    </div>
+                                    <div class='col as-3 xs-6 xxs-6 mb-10'>
+                                        <label for=''>label</label>
+                                        <input type='number' class='input' id=''>
+                                    </div>
+                                </div>
+                                <div class='row as-10 bg-gray'>
+                                    <div class='col as-12 pt-10 pl-10 pr-10'>
+                                        <div class='panel pt-10 pl-10 pr-10 mb-10'>
+                                            <div id='technicalGroup'>
+                                            </div>
+                                            <div class='clear pb-10'>
+                                                <button type='button' class='btn xs bg-orange' onclick="Addtechical('technicalGroup')">Texnika əlavə et</button>
+                                            </div>
+                                        </div>
+                                        <div class='panel pt-10 pl-10 pr-10 mb-10'>
+                                            <div id='feltilizergroup'>
+
+                                            </div>
+                                            <div class='clear pb-10'>
+                                                <button type='button' onclick="AddFeltilizer('feltilizergroup')" class='btn xs bg-orange'>Dərman / Gübrə əlavə et</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel p-10">
+                    <button type="button" class="btn bg-blue xs" id="_addDailyPlan">
+                        <i aria-hidden="true" class="icon-plus mr-10"></i>
+                        Tapşırıq əlavə et
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" id="_closeWorkPlan" data-close="work-modal">Bağla</span>
+            <button type="submit" id="_ajxsCreateWorkPlan" class="btn xs bg-green dark confirm">Yadda saxla</button>
+            <button id="_ajxsUpdateWorkPlan" data-planId="" style="display:none;" class="btn xs bg-blue dark confirm">Yenilə</button>
+        </div>
+    </form>
+</div>
+
+<!-- Financial Report -->
+<div class="modal lg fulued financial-report-modal tr-3s"
+     id="financial-report-modal"
+     data-modal="new-financial-report"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">"Ulu Agro" MMC Maliyyə və Anbar hesabatı</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-10">
+                <div class="col as-6 mb-40">
+                    <h5>Cari Hesab</h5>
+                    <table class="table bordered hovered">
+                        <tbody>
+                            <tr style="display:none">
+                                <td class="no-wrap" width="100%">Tarix</td>
+                                <td colspan="2" class="text-right">
+                                    <select class="input float-right">
+                                        <option value="<?= date('d-m-Y') ?>"><?= date('d-m-Y') ?></option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="no-wrap">Cari Bank Hesabı</td>
+                                <td><input type="text" value="@Model._CurrentAccount.CURRENT_BANK_CASH" readonly class="no-border no-shadow text-right float-right"></td>
+                                <td><i aria-hidden="true" class="icon-currency-azn"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="no-wrap">Ümumi Hesab</td>
+                                <td><input type="number" value="@Model._CurrentAccount.MAIN_CASH" min="0" readonly class="no-border no-shadow text-right float-right"></td>
+                                <td><i aria-hidden="true" class="icon-currency-azn"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="no-wrap">ƏDV</td>
+                                <td><input type="number" value="@Model._CurrentAccount.VAT" min="0" readonly class="no-border no-shadow text-right float-right"></td>
+                                <td><i aria-hidden="true" class="icon-currency-azn"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="no-wrap">Kassadakı məbləğ</td>
+                                <td><input type="number" value="@Model._CurrentAccount.HAND_CASH" readonly min="0" class="no-border no-shadow text-right float-right"></td>
+                                <td><i aria-hidden="true" class="icon-currency-azn"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button id="_addNewFinancial" class="btn bg-green mb-15" data-target-modal="create-financial-report">Yeni əlavə et</button>
+
+            <div class="table-responsive o-auto">
+                <table class="dataTable table bordered hovered no-wrap text-center" id="_AllFinancialReports">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Tarixi</th>
+                            <th>Mədaxil / Məxaric</th>
+                            <th>Ödəmə növü</th>
+                            <th>Əsas Məbləğdən</th>
+                            <th>Ədv</th>
+                            <th>Cəmi ödəmə</th>
+                            <th>Qalıq Məbləğ</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>03.11.2019, 12:00</td>
+                            <td>Mədaxil</td>
+                            <td>Kapital Bank</td>
+                            <td>1500 <i class="icon-currency-azn"></i></td>
+                            <td>00 %</td>
+                            <td>200 <i class="icon-currency-azn"></i></td>
+                            <td>1500 <i class="icon-currency-azn"></i></td>
+                            <td>
+                                <button class="btn xs circle bg-blue" data-target-modal="detail-financial-report">
+                                    <i aria-hidden="true" class="icon-info-circle-1"></i>
+                                </button>
+                                <button class="btn xs circle bg-orange" data-target-modal="create-financial-report">
+                                    <i aria-hidden="true" class="icon-pen-5"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" id="_closeAllRaport" aria-hidden="true" data-close="new-financial-report">Bağla</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- Financial Report Create and Update-->
+<div class="modal financial-report-detail-modal tr-3s"
+     id="financial-report-create"
+     data-modal="create-financial-report"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <form action="/" method="post" id="_FinancialRaport" data-id="">
+            <div class="panel-header text-uppercase text-center p-20">
+                <h4 class="panel-title">Hesabat</h4>
+            </div>
+
+            <div class="panel-body">
+                <div class="row as-7 xs-5 xxs-5">
+                    <div class="col as-4 xs-6 xxs-6 mb-15">
+                        <label for="_raportdate">Tarixi</label>
+                        <input id="_raportdate" type="text" class="input" name="DATE" value="" readonly required />
+                    </div>
+                    <div class="col as-4 xs-6 xxs-6 mb-15">
+                        <label for="_raportInout">Mədaxil / Məxaric</label>
+                        <select id="_raportInout" class="input select" required name="ID_INOUT">
+                            <option value="1">Mədaxil</option>
+                            <option value="2">Məxaric</option>
+                        </select>
+                    </div>
+                    <div class="col as-4 xs-6 xxs-6 mb-15">
+                        <label for="_raportType">Ödəmə növü</label>
+                        <select id="_raportType" class="input select" required name="PAYMENT_TYPE_ID">
+                            <option value="1">Kassadan</option>
+                            <option value="2">Kapital Bank</option>
+                        </select>
+                    </div>
+                    <div class="col as-3 xs-6 xxs-6 mb-15">
+                        <label for="">Əsas Məbləğdən</label>
+                        <input id="_raportMainPay" type="text" oninput="totalPayment('_raportMainPay','_raportVat','_raportTotalPay')" class="input" name="MAIN_PAYMENT" value="" required />
+                    </div>
+                    <div class="col as-3 xs-6 xxs-6 mb-15">
+                        <label for="">Ədv</label>
+                        <input id="_raportVat" type="text" oninput="totalPayment('_raportMainPay','_raportVat','_raportTotalPay')" class="input" name="VAT" value="" required />
+                    </div>
+                    <div class="col as-3 xs-6 xxs-6 mb-15">
+                        <label for="">Cəmi ödəmə</label>
+                        <input id="_raportTotalPay" type="text" class="input" name="ALL_PAYMENT" value="" required />
+                    </div>
+                    <div class="col as-3 xs-6 xxs-6 mb-15">
+                        <label for="">Təyinat</label>
+                        <input type="text" class="input" name="RELEASE" value="" required />
+                    </div>
+                    <div class="col as-12">
+                        <label for="">Qeyd</label>
+                        <textarea class="input no-resize" name="NOTE" cols="30" rows="5" required></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-center">
+                <span class="btn xs" aria-label="Bağla" id="_closeRaport" aria-hidden="true" data-close="create-financial-report">Bağla</span>
+                <button type="submit" id="_createFinancialRaport" class="btn xs bg-green dark confirm">Yadda Saxla</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- Financial Report Detail-->
+<div class="modal financial-report-detail-modal tr-3s"
+     id="financial-report-detail"
+     data-modal="detail-financial-report"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Hesabata ətraflı baxış</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="table-responsive o-auto">
+                <table class="table bordered hovered no-wrap">
+                    <tbody>
+                        <tr>
+                            <td>№</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Tarixi</td>
+                            <td>11.03.2019, 12:00</td>
+                        </tr>
+                        <tr>
+                            <td>Mədaxil / Məxaric</td>
+                            <td>Mədaxil</td>
+                        </tr>
+                        <tr>
+                            <td>Ödəmə növü</td>
+                            <td>Kapital Bankdan</td>
+                        </tr>
+                        <tr>
+                            <td>Əsas Məbləğdən</td>
+                            <td>1500 <i aria-hidden="true" class="icon-currency-azn"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Ədv</td>
+                            <td>0.0 %</td>
+                        </tr>
+                        <tr>
+                            <td>Cəmi ödəmə</td>
+                            <td>1000 </td>
+                        </tr>
+                        <tr>
+                            <td>Qalıq Məbləğ</td>
+                            <td>500 <i aria-hidden="true" class="icon-currency-azn"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>Təyinat</td>
+                            <td>Lorem ipsum dolor sit amet</td>
+                        </tr>
+
+                        <tr>
+                            <td>Qeyd</td>
+                            <td>Lorem ipsum dolor sit amet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" id="_closeRaport" aria-hidden="true" data-close="detail-financial-report">Bağla</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Risk Modal -->
+<div class="modal risk-modal tr-3s"
+     data-modal="risk-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Xəstəlik riskləri</h4>
+        </div>
+
+        <div class="panel-body p-0">
+            <canvas id="risk-graph"></canvas>
+            <div class="p-20 pt-0">
+                <div class="row as-10 mb-20">
+                    <div class="col as-3">
+                        <span class="btn circle xs mr-5"></span>
+                        Risk Yoxdur
+                    </div>
+                    <div class="col as-3">
+                        <span class="btn circle xs bg-yellow mr-5"></span>
+                        Aşağı Risk
+                    </div>
+                    <div class="col as-3">
+                        <span class="btn circle xs bg-orange mr-5"></span>
+                        Orta Risk
+                    </div>
+                    <div class="col as-3">
+                        <span class="btn circle xs bg-red mr-5"></span>
+                        Yüksək Risk
+                    </div>
+                </div>
+
+                <div class="bg-gray p-10">
+                    <div class="panel p-15">
+                        <span>Hal-hazırda <span class="btn circle xs mr-5"></span>Risk Yoxdur</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="risk-modal">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Work Control Modal -->
+<div class="modal fulued work-control-modal tr-3s"
+     data-modal="work-control-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">İşə Davamiyyət</h4>
+        </div>
+        <div class="panel-body">
+            <div class="container">
+                <div class="col-md-12 mb-2">
+                    <div id="loadingwork" class="text-center">
+                        <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+                    </div>
+                </div>
+                <div class="row">
+                    @* User Select *@
+                    <div class="col as-6 mb-10">
+                        <div class="user_select_con row">
+                            <div class="col as-6 p-10">
+                                <label for="">İxtisas</label>
+                                <select name="" id="slct_prof" class="input">
+                                    <option value="" disabled selected>Seç</option>
+                                    @foreach (var item in ViewBag.ProfessionsAll)
+                                    {
+                                        <option value="@item.ID">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col as-6 p-10">
+                                <label for="">İşçi</label>
+                                <select name="" id="slct_wrkr" class="input">
+                                    <option value="" disabled selected>Seç</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    @* Date interval select *@
+                    <div class="col as-4 mb-10">
+                        <div class="date_select_con p-10">
+                            <label for="">Zaman aralığı</label>
+                            <input type="hidden" id="date_start" value="" />
+                            <input type="hidden" id="date_finish" value="" />
+                            <input class="input" id="date_ranger" type="text" name="daterange" value="" />
+                        </div>
+                    </div>
+                    @* Reset button *@
+                    <div class="col as-2 mb-10">
+                        <div class="inner p-10">
+                            <label for="">Filteri Sıfırla</label>
+                            <button type="button" class="btn xs input" id="reset_filter">Sıfırla</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" id="data_loader_workers">
+
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" id="loader_close" aria-label="Bağla" aria-hidden="true" data-close="work-control-modal">Bağla</span>
+        </div>
+    </div>
+</div>
+<!--  ############################################################################################################## -->
+<!-- Silo 1 -->
+<div class="modal silo-modal tr-3s"
+     data-modal="silo-info-1"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-body">
+            <div class="row as-7 justify-content-center">
+                <div id="loadingsiloDetail" class="text-center">
+                    <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+                </div>
+            </div>
+            <div class="row as-7 justify-content-center" id="silo_detail">
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="silo-info-1">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bunker 3 -->
+<div class="modal silo-modal tr-3s"
+     data-modal="silo-info-3"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Silo - 3</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-7 justify-content-center">
+
+                <div class="col as-5 xxs-8">
+                    <div class="thumb responsive pb-in-100">
+                        <img src="~/Public/assets/images/silo-icon.png" alt="Silo" width="450" height="450">
+                    </div>
+                </div>
+
+                <div class="col as-7 xxs-12 d-flex-center">
+                    <div class="bg-gray p-10">
+                        <div class="panel mb-10">
+                            <div class="panel-header">
+                                <span class="bold">Silonun məlumatları</span>
+                            </div>
+                            <div class="panel-body">
+                                <table class="w-100p">
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Tutumu:</td>
+                                            <td class="no-wrap">1500 ton</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Nəmlik:</td>
+                                            <td class="no-wrap">10%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p bold">İstilik:</td>
+                                            <td class="no-wrap">10<sup>o</sup></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-header">
+                                <span class="bold">Silonun içindəki</span>
+                            </div>
+                            <div class="panel-body">
+                                <table class="w-100p">
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Adı:</td>
+                                            <td class="no-wrap">Buğda</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Növü:</td>
+                                            <td class="no-wrap">Pitakor</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p bold">Miqdarı:</td>
+                                            <td class="no-wrap">30 ton</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="silo-info-3">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Brewery -->
+<div class="modal brewery-modal tr-3s"
+     data-modal="brewery-info"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Qazanxana</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Bitki adı</th>
+                        <th scope="col">Növü</th>
+                        <th scope="col">Miqdarı</th>
+                        <th scope="col">Nəmişlik</th>
+                        <th scope="col">İstilik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Data</td>
+                        <td>Data</td>
+                        <td>Data</td>
+                        <td>Data</td>
+                        <td>Data</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="brewery-info">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Depo 1 -->
+<div class="modal depo-modal tr-3s"
+     data-modal="depo-1"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20" id="_depoName">
+            <h4 class="panel-title">Anbar - 1</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-7 justify-content-center">
+
+                <div class="col as-5 xxs-8">
+                    <div class="thumb responsive pb-in-100">
+                        <img src="~/Public/assets/images/depo-icon.png" alt="Anbar" width="450" height="450">
+                    </div>
+                </div>
+
+                <div class="col as-7 xxs-12 d-flex-center">
+                    <div class="bg-gray p-10">
+                        <div class="panel mb-10">
+                            <div class="panel-header">
+                                <span class="bold">Anbar məlumatları</span>
+                            </div>
+                            <div class="panel-body">
+                                <table class="w-100p">
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-100p bold">Tutumu:</td>
+                                            <td class="no-wrap text-right">2765 ton</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="panel" id="_depoContent">
+                            <div class="panel-header">
+                                <span class="bold">Anbarın içindəkilər</span>
+                            </div>
+                            <div class="panel-body p-0">
+                                <table class="table bordered hovered m-0">
+                                    <thead>
+                                        <tr>
+                                            <th>№</th>
+                                            <th>Adı</th>
+                                            <th>Miqdarı</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center pl-5">1</td>
+                                            <td>Buğda</td>
+                                            <td>300 ton</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="depo-1">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Basin 1 -->
+<div class="modal basin-modal tr-3s"
+     data-modal="basin-1"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Hovuz - 1</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-7 justify-content-center">
+
+                <div class="col as-5 xxs-8">
+                    <div class="thumb responsive pb-in-100">
+                        <img src="~/Public/assets/images/basin-icon.png" alt="Hovuz" width="450" height="450">
+                    </div>
+                </div>
+
+                <div class="col as-7 xxs-12 d-flex-center">
+                    <div class="bg-gray p-10">
+                        <div class="panel">
+                            <div class="panel-header">
+                                <span class="bold">Hovuz məlumatları</span>
+                            </div>
+                            <div class="panel-body">
+                                <table class="w-100p">
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Tutumu:</td>
+                                            <td class="no-wrap text-right">150 m<sup>3</sup></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Şəraiti:</td>
+                                            <td class="no-wrap text-right">Qapalı</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p bold">İstifadə:</td>
+                                            <td class="no-wrap text-right">Yanğın üçün</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="basin-1">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Basin 2 -->
+<div class="modal basin-modal tr-3s"
+     data-modal="basin-2"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Hovuz - 2</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-7 justify-content-center">
+
+                <div class="col as-5 xxs-8">
+                    <div class="thumb responsive pb-in-100">
+                        <img src="~/Public/assets/images/basin-icon.png" alt="Hovuz" width="450" height="450">
+                    </div>
+                </div>
+
+                <div class="col as-7 xxs-12 d-flex-center">
+                    <div class="bg-gray p-10">
+                        <div class="panel">
+                            <div class="panel-header">
+                                <span class="bold">Hovuz məlumatları</span>
+                            </div>
+                            <div class="panel-body">
+                                <table class="w-100p">
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Tutumu:</td>
+                                            <td class="no-wrap text-right">45 m<sup>3</sup></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Şəraiti:</td>
+                                            <td class="no-wrap text-right">Açıq</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p bold">İstifadə:</td>
+                                            <td class="no-wrap text-right">Yanğın su rezervi</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="basin-2">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Basin 3 -->
+<div class="modal basin-modal tr-3s"
+     data-modal="basin-3"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Hovuz - 3</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-7 justify-content-center">
+
+                <div class="col as-5 xxs-8">
+                    <div class="thumb responsive pb-in-100">
+                        <img src="~/Public/assets/images/basin-icon.png" alt="Hovuz" width="450" height="450">
+                    </div>
+                </div>
+
+                <div class="col as-7 xxs-12 d-flex-center">
+                    <div class="bg-gray p-10">
+                        <div class="panel">
+                            <div class="panel-header">
+                                <span class="bold">Hovuz məlumatları</span>
+                            </div>
+                            <div class="panel-body">
+                                <table class="w-100p">
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Tutumu:</td>
+                                            <td class="no-wrap text-right">50 m<sup>3</sup></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p pb-10 bold">Şəraiti:</td>
+                                            <td class="no-wrap text-right">Qapalı</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-100p bold">İstifadə:</td>
+                                            <td class="no-wrap text-right">İçməli su</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="basin-3">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Pumping Station 1 -->
+<div class="modal pumping-modal tr-3s"
+     data-modal="pumping-station-1"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Birinci Nasosxana</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-7 justify-content-center">
+
+                <div class="col as-5 xxs-8">
+                    <div class="thumb responsive pb-in-100">
+                        <img src="~/Public/assets/images/pumping-station-icon.png" alt="Nasosxana" width="450" height="450">
+                    </div>
+                </div>
+
+                <div class="col as-7 xxs-12 d-flex-center">
+                    <span class="d-block mb-10 bold">Nasosxana məlumatları</span>
+                    table
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="pumping-station-1">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Pumping Station 1 -->
+<div class="modal pumping-modal tr-3s"
+     data-modal="pumping-station-2"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">İkinci Nasosxana</h4>
+        </div>
+        <div class="panel-body">
+            <div class="row as-7 justify-content-center">
+                <div class="col as-5 xxs-8">
+                    <div class="thumb responsive pb-in-100">
+                        <img src="~/Public/assets/images/pumping-station-icon.png" alt="Nasosxana" width="450" height="450">
+                    </div>
+                </div>
+                <div class="col as-7 xxs-12 d-flex-center">
+                    <span class="d-block mb-10 bold">Nasosxana məlumatları</span>
+                    table
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="pumping-station-2">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Garage 1 -->
+<div class="modal garage-modal tr-3s"
+     data-modal="garage-1"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Qarajlar</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-12 justify-content-center">
+                <div id="loadingGarage" class="text-center">
+                    <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+                </div>
+            </div>
+            <div class="row as-12 justify-content-center" id="garage_con">
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="garage-1">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- HR Modal 1 -->
+<div class="modal hr-modal tr-3s"
+     data-modal="hr-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">İnsan Resursları</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="bg-gray p-10">
+                <div class="panel">
+                    <div class="panel-body p-0">
+                        <table class="table bordered hovered m-0">
+                            <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th>A.S.A</th>
+                                    <th>Vəzifə</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ var a = 1;}
+                                @foreach (var item in Model._workers)
+                                {
+                                    <tr>
+                                        <td class="text-center pl-5">@a</td>
+                                        <td>@item.Name  @item.Surname  @item.Fathername</td>
+                                        <td>@item.Profession.Name</td>
+                                    </tr>
+                                    a++;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="hr-modal">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Receive Files -->
+<div class="modal files-modal tr-3s"
+     data-modal="receive-files"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Qəbul edilən sənədlər</h4>
+        </div>
+
+        <div class="panel-body o-s-body">
+            <div class="bg-gray p-10">
+                <div class="panel">
+                    <div id="loading_rec_msg" class="text-center">
+                        <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+                    </div>
+                    <div class="panel-body p-0" id="recived_doc_msgs">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="receive-files">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Send Files -->
+<div class="modal files-modal tr-3s"
+     data-modal="send-files"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Göndərilən sənədlər</h4>
+        </div>
+
+        <div class="panel-body o-s-body">
+            <div class="bg-gray p-10">
+                <div class="panel">
+                    <div id="loading_send_msg" class="text-center">
+                        <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+                    </div>
+                    <div class="panel-body p-0" id="sended_doc_msgs">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="send-files">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Archive Files -->
+<div class="modal files-modal tr-3s"
+     data-modal="archive-file"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+    <div class="modal-content panel tr-3s" id="arc_doc_form">
+        <div id="loading_arc_doc" class="text-center">
+            <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+        </div>
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Cavablanmış və ya Arxiv sənədlər</h4>
+        </div>
+
+        <div class="panel-body o-s-body" id="arch_file_con">
+
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="archive-file">Bağla</span>
+        </div>
+    </div>
+</div>
+
+<!-- Archive Files -->
+<div class="modal files-modal tr-3s"
+     data-modal="doc-msg-view"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div id="sending_doc_to_more" class="text-center">
+            <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+        </div>
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Sənədin ətraflı məlumatı</h4>
+        </div>
+
+        <div class="panel-body o-s-body">
+            <div class="bg-gray p-10">
+                <div class="panel">
+                    <div class="panel-body p-0" id="doc_msg_content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="doc-msg-view">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Archive Files -->
+<div class="modal new-file-modal tr-3s"
+     data-modal="new-file"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+    <form class="modal-content panel tr-3s" id="doc_msg_send_form">
+        <div id="sending_doc_msg" class="text-center">
+            <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+        </div>
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Yeni sənəd yarat</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-7">
+                <div class="col as-6 mb-15">
+                    <label for="file-category">İxtisas</label>
+                    <select name="" id="file-profession" class="input" required>
+                        <option value="" disabled>Seç</option>
+                        @foreach (var item in ViewBag.Professions)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col as-6 mb-15">
+                    <label for="file-address">İşçi</label>
+                    <select name="" id="file-worker" class="input">
+                        <option value="" disabled>Seç</option>
+                    </select>
+                </div>
+                <div class="col as-12">
+                    <label for="file-content">Sənədin başlığı</label>
+                    <input type="text" name="" id="file-title" value="" class="input mb-15" required placeholder="Başlıq əlavə edin..." />
+                    <label for="file-content">Sənəd üçün qeyd</label>
+                    <input type="text" name="" id="file-note" value="" class="input mb-15" placeholder="Qeyd əlavə edin..." />
+                    <label for="file-content">Sənədin məzmunu</label>
+                    <textarea name="" id="file-content" cols="30" rows="10" class="input no-resize" required placeholder="Mətni daxil edin..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="new-file">Bağla</span>
+            <button type="button" class="btn xs bg-blue dark" id="send_document">Göndər</button>
+        </div>
+    </form>
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Camera modal -->
+<div class="modal lg camera-modal tr-3s"
+     data-modal="camera-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 style="display:inline-block" class="panel-title _cameratitle">Kamera 1</h4>
+            <span style="float:right" class="btn xs _clearcameraUrl fas fa-times" aria-label="Bağla" aria-hidden="true" data-close="camera-modal"></span>
+        </div>
+        <div class="panel-body">
+            <div class="responsive pb-in-60 _dinamicVideo">
+                @*<canvas id="videoCanvas" width="30%" height="30%"></canvas>*@
+                <iframe id='fp_embed_player' src='' marginwidth='0' autoplay marginheight='0' frameborder='0' width='30%' height='30%' scrolling='no' allowfullscreen='allowfullscreen'></iframe>
+            </div>
+        </div>
+        <div class="panel-footer text-right">
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Analytics Forecast -->
+<div class="modal fulued analytics-forecast-modal-1 tr-3s"
+     data-modal="analytics-forecast"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title chart-panel"></h4>
+        </div>
+
+        <div class="panel-body">
+            <div id="loadingWheather" class="text-center">
+                <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+            </div>
+            <canvas id="myChart_temp"></canvas>
+            <canvas id="myChart_solar_rad"></canvas>
+            <canvas id="myChart_humidity"></canvas>
+            <canvas id="myChart_ET"></canvas>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="analytics-forecast">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Avtomobil Modal -->
+<div class="modal fulued avto-modal tr-3s"
+     data-modal="avto-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Avtomobillər</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="container">
+                <div class="col-md-4 mb-3 offset-md-8">
+                    <input id="search" class="input" type="text" name="query" value="" placeholder="Axtarış üçün plaka nömrəsinin ilk 4 simvolunu daxil edin..." />
+                </div>
+            </div>
+            <div class="container">
+                <div id="loadingavto" class="text-center">
+                    <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+                </div>
+            </div>
+            <div class="container" id="data_loader_avto">
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" id="loader_close" aria-label="Bağla" aria-hidden="true" data-close="avto-modal">Bağla</span>
+            <span class="btn xs" id="arxiv_avto">Arxiv</span>
+            <span class="btn xs" id="back_to_avto">Geri qayıt</span>
+        </div>
+
+    </div>
+
+</div>
+<!--  ############################################################################################################## -->
+<!-- Garage 1 -->
+<div class="modal spare-modal tr-3s"
+     data-modal="spare-part"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Ehtiyatlar</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="row as-7 justify-content-center">
+
+                <div class="col as-5 xxs-8">
+                    <div class="thumb responsive pb-in-100">
+                        <img src="~/Public/assets/images/spare-icon.png" alt="Ehtiyatlar" width="450" height="450">
+                    </div>
+                </div>
+
+                <div class="col as-7 xxs-12 d-flex-center">
+                    <div class="bg-gray p-10">
+                        <div class="panel">
+                            <div class="panel-header">
+                                <span class="bold">Ehtiyatda olanlar</span>
+                            </div>
+                            <div class="panel-body p-0">
+                                <table class="table bordered hovered m-0">
+                                    <thead>
+                                        <tr>
+                                            <th>№</th>
+                                            <th>Ehtiyatın adı</th>
+                                            <th>Sayı</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{ var b = 1;}
+                                        @foreach (var item in Model._ehtiyyat)
+                                        {
+                                            <tr>
+                                                <td class="text-center pl-5">@b</td>
+                                                <td>@item.FERTILIZER.NAME</td>
+                                                <td class="text-center">@item.UNIT</td>
+                                            </tr>
+                                            b++;
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="spare-part">Bağla</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ############################################################################################################### -->
+<!-- Car Info Modal -->
+<div class="modal fulued car-info-modal tr-3s"
+     data-modal="car-info-modal"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+
+        <div class="panel-header text-uppercase text-center p-20">
+            <h4 class="panel-title">Nəqliyyat məlumatı</h4>
+        </div>
+        <div class="panel-body">
+            <div class="container">
+                <div class="row">
+                    @* Car Select *@
+                    <div class="col as-4 mb-10">
+                        <div class="user_select_con row">
+                            <div class="col as-12 p-10">
+                                <label for="">Maşın</label>
+                                <select name="" id="slct_car" class="input">
+                                    <option value="" disabled selected>Seç</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    @* Date interval select *@
+                    <div class="col as-4 mb-10">
+                        <div class="date_select_con p-10">
+                            <label for="">Zaman aralığı</label>
+                            <input type="hidden" id="car_date_start" value="" />
+                            <input type="hidden" id="car_date_finish" value="" />
+                            <input class="input" id="car_date_ranger" type="text" name="daterange" value="" />
+                        </div>
+                    </div>
+                    @* Show button *@
+                    <div class="col as-4 mb-10">
+                        <div class="inner p-10">
+                            <label for="">Nəticəni göstər</label>
+                            <button type="button" class="btn xs input bg-green" id="show_result">Göstər</button>
+                        </div>
+                    </div>
+                </div>
+                @* Loader *@
+                <div class="col-md-12 mb-2">
+                    <div id="loadingcarinfo" class="text-center" style="display: none;">
+                        <img src="~/Public/assets/images/Spin-1s-200px.gif" alt="Alternate Text" />
+                    </div>
+                </div>
+                <div class="container" id="data_load_car_info">
+
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" id="loader_close" aria-label="Bağla" aria-hidden="true" data-close="car-info-modal">Bağla</span>
+        </div>
+    </div>
+</div>
+<!-- ############################################################################################################### -->
+<!-- Left ToolBar -->
+<div class="left-toolbar">
+    <div class="drop">
+
+        <span class="drop-toggle btn" role="button" aria-haspopup="true" aria-expanded="false" id="change-map">
+            <i aria-hidden="true" class="icon-map"></i>
+        </span>
+
+        <div class="drop-menu xs animated fadeInUp" aria-labelledby="change-map">
+            <ul class="menu-body" role="toolbar">
+                <li role="presentation">
+                    <span class="menu-item" role="button">
+                        <img src="~/Public/assets/images/login-bg.png" alt="Google" width="30" height="30" class="radius-50p mr-10">
+                        <span>Google</span>
+                    </span>
+                </li>
+                <li role="presentation">
+                    <span class="menu-item" role="button">
+                        <img src="~/Public/assets/images/login-bg.png" alt="Google" width="30" height="30" class="radius-50p mr-10">
+                        <span>Bing</span>
+                    </span>
+                </li>
+                <li role="presentation">
+                    <span class="menu-item" role="button">
+                        <img src="~/Public/assets/images/login-bg.png" alt="Google" width="30" height="30" class="radius-50p mr-10">
+                        <span>Yandex</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- ############################################################################################################### -->

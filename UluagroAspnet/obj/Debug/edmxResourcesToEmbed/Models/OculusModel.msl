@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OculusModelStoreContainer" CdmEntityContainer="OculusEntities">
+    <EntitySetMapping Name="Actions">
+      <EntityTypeMapping TypeName="OculusModel.Action">
+        <MappingFragment StoreEntitySet="Action">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATEGORIES">
+      <EntityTypeMapping TypeName="OculusModel.CATEGORy">
+        <MappingFragment StoreEntitySet="CATEGORIES">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATEGORIES_WORK_CATEGORY">
+      <EntityTypeMapping TypeName="OculusModel.CATEGORIES_WORK_CATEGORY">
+        <MappingFragment StoreEntitySet="CATEGORIES_WORK_CATEGORY">
+          <ScalarProperty Name="CATEGORIES_ID" ColumnName="CATEGORIES_ID" />
+          <ScalarProperty Name="WORK_CATEGORY_ID" ColumnName="WORK_CATEGORY_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAYLY_WORK_PLAN">
+      <EntityTypeMapping TypeName="OculusModel.DAYLY_WORK_PLAN">
+        <MappingFragment StoreEntitySet="DAYLY_WORK_PLAN">
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="WORKPLAN_ID" ColumnName="WORKPLAN_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FERTILIZERs">
+      <EntityTypeMapping TypeName="OculusModel.FERTILIZER">
+        <MappingFragment StoreEntitySet="FERTILIZER">
+          <ScalarProperty Name="WATER_PER_KG" ColumnName="WATER_PER_KG" />
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="UNIT_TYPE_ID" ColumnName="UNIT_TYPE_ID" />
+          <ScalarProperty Name="PACKING_ID" ColumnName="PACKING_ID" />
+          <ScalarProperty Name="MAIN_COMPONENT_ID" ColumnName="MAIN_COMPONENT_ID" />
+          <ScalarProperty Name="MARK_ID" ColumnName="MARK_ID" />
+          <ScalarProperty Name="FIRM_ID" ColumnName="FIRM_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FERTILIZER_STOCK">
+      <EntityTypeMapping TypeName="OculusModel.FERTILIZER_STOCK">
+        <MappingFragment StoreEntitySet="FERTILIZER_STOCK">
+          <ScalarProperty Name="USED_DATE" ColumnName="USED_DATE" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="FERTILIZER_ID" ColumnName="FERTILIZER_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FERTILIZER_WORK_PLAN">
+      <EntityTypeMapping TypeName="OculusModel.FERTILIZER_WORK_PLAN">
+        <MappingFragment StoreEntitySet="FERTILIZER_WORK_PLAN">
+          <ScalarProperty Name="FERTILIZER_UNIT" ColumnName="FERTILIZER_UNIT" />
+          <ScalarProperty Name="WATER_UNIT" ColumnName="WATER_UNIT" />
+          <ScalarProperty Name="FERTILIZER_ID" ColumnName="FERTILIZER_ID" />
+          <ScalarProperty Name="DAYLY_WORK_PLAN_ID" ColumnName="DAYLY_WORK_PLAN_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FIRMS">
+      <EntityTypeMapping TypeName="OculusModel.FIRM">
+        <MappingFragment StoreEntitySet="FIRMS">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="OculusModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GROUPs">
+      <EntityTypeMapping TypeName="OculusModel.GROUP">
+        <MappingFragment StoreEntitySet="GROUP">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAIN_COMPONENTS">
+      <EntityTypeMapping TypeName="OculusModel.MAIN_COMPONENTS">
+        <MappingFragment StoreEntitySet="MAIN_COMPONENTS">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARKS">
+      <EntityTypeMapping TypeName="OculusModel.MARK">
+        <MappingFragment StoreEntitySet="MARKS">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PACKINGs">
+      <EntityTypeMapping TypeName="OculusModel.PACKING">
+        <MappingFragment StoreEntitySet="PACKING">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARCELs">
+      <EntityTypeMapping TypeName="OculusModel.PARCEL">
+        <MappingFragment StoreEntitySet="PARCEL">
+          <ScalarProperty Name="REPRODUCTION_ID" ColumnName="REPRODUCTION_ID" />
+          <ScalarProperty Name="SORT_ID" ColumnName="SORT_ID" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="RESPONSER_ID" ColumnName="RESPONSER_ID" />
+          <ScalarProperty Name="PARCEL_CATEGORY_ID" ColumnName="PARCEL_CATEGORY_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARCEL_CATEGORY">
+      <EntityTypeMapping TypeName="OculusModel.PARCEL_CATEGORY">
+        <MappingFragment StoreEntitySet="PARCEL_CATEGORY">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professions">
+      <EntityTypeMapping TypeName="OculusModel.Profession">
+        <MappingFragment StoreEntitySet="Professions">
+          <ScalarProperty Name="CanResponser" ColumnName="CanResponser" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QueuePlans">
+      <EntityTypeMapping TypeName="OculusModel.QueuePlan">
+        <MappingFragment StoreEntitySet="QueuePlan">
+          <ScalarProperty Name="dailyPlanId" ColumnName="dailyPlanId" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="OculusModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ownerdata" ColumnName="ownerdata" />
+          <ScalarProperty Name="can_delete" ColumnName="can_delete" />
+          <ScalarProperty Name="can_add" ColumnName="can_add" />
+          <ScalarProperty Name="can_update" ColumnName="can_update" />
+          <ScalarProperty Name="can_view" ColumnName="can_view" />
+          <ScalarProperty Name="Group_id" ColumnName="Group_id" />
+          <ScalarProperty Name="Action_id" ColumnName="Action_id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STATUSMODIFies">
+      <EntityTypeMapping TypeName="OculusModel.STATUSMODIFY">
+        <MappingFragment StoreEntitySet="STATUSMODIFY">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TECHNIQUE_CONDITION">
+      <EntityTypeMapping TypeName="OculusModel.TECHNIQUE_CONDITION">
+        <MappingFragment StoreEntitySet="TECHNIQUE_CONDITION">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TECHNIQUE_TRAILER">
+      <EntityTypeMapping TypeName="OculusModel.TECHNIQUE_TRAILER">
+        <MappingFragment StoreEntitySet="TECHNIQUE_TRAILER">
+          <ScalarProperty Name="TECHNIQUE_ID" ColumnName="TECHNIQUE_ID" />
+          <ScalarProperty Name="WORK_PLAN_TECHNIQUE_ID" ColumnName="WORK_PLAN_TECHNIQUE_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TECHNIQUE_TYPE">
+      <EntityTypeMapping TypeName="OculusModel.TECHNIQUE_TYPE">
+        <MappingFragment StoreEntitySet="TECHNIQUE_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TECHNIQUE_WORKING_TYPE">
+      <EntityTypeMapping TypeName="OculusModel.TECHNIQUE_WORKING_TYPE">
+        <MappingFragment StoreEntitySet="TECHNIQUE_WORKING_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TECHNIQUES">
+      <EntityTypeMapping TypeName="OculusModel.TECHNIQUE">
+        <MappingFragment StoreEntitySet="TECHNIQUES">
+          <ScalarProperty Name="WORKING_TYPE_ID" ColumnName="WORKING_TYPE_ID" />
+          <ScalarProperty Name="CONDITION_ID" ColumnName="CONDITION_ID" />
+          <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UNITS">
+      <EntityTypeMapping TypeName="OculusModel.UNIT">
+        <MappingFragment StoreEntitySet="UNITS">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERADMINSTATUS">
+      <EntityTypeMapping TypeName="OculusModel.USERADMINSTATU">
+        <MappingFragment StoreEntitySet="USERADMINSTATUS">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="OculusModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserAdmin_ID" ColumnName="UserAdmin_ID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="WorkerID" ColumnName="WorkerID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORK_PLAN">
+      <EntityTypeMapping TypeName="OculusModel.WORK_PLAN">
+        <MappingFragment StoreEntitySet="WORK_PLAN">
+          <ScalarProperty Name="FINISH_DATE" ColumnName="FINISH_DATE" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+          <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+          <ScalarProperty Name="PARCEL_ID" ColumnName="PARCEL_ID" />
+          <ScalarProperty Name="RESPONDER_ID" ColumnName="RESPONDER_ID" />
+          <ScalarProperty Name="WORKS_ID" ColumnName="WORKS_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORK_PLAN_MODIFY">
+      <EntityTypeMapping TypeName="OculusModel.WORK_PLAN_MODIFY">
+        <MappingFragment StoreEntitySet="WORK_PLAN_MODIFY">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="WORK_PLAN_ID" ColumnName="WORK_PLAN_ID" />
+          <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORK_PLAN_TECHNIQUE">
+      <EntityTypeMapping TypeName="OculusModel.WORK_PLAN_TECHNIQUE">
+        <MappingFragment StoreEntitySet="WORK_PLAN_TECHNIQUE">
+          <ScalarProperty Name="DRIVER_ID" ColumnName="DRIVER_ID" />
+          <ScalarProperty Name="TECHNIQUE_ID" ColumnName="TECHNIQUE_ID" />
+          <ScalarProperty Name="DAYLY_WORK_PLAN_ID" ColumnName="DAYLY_WORK_PLAN_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORK_PLAN_WORKERS">
+      <EntityTypeMapping TypeName="OculusModel.WORK_PLAN_WORKERS">
+        <MappingFragment StoreEntitySet="WORK_PLAN_WORKERS">
+          <ScalarProperty Name="WORKER_ID" ColumnName="WORKER_ID" />
+          <ScalarProperty Name="DAYLY_WORK_PLAN_ID" ColumnName="DAYLY_WORK_PLAN_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workers">
+      <EntityTypeMapping TypeName="OculusModel.Worker">
+        <MappingFragment StoreEntitySet="Workers">
+          <ScalarProperty Name="TurniketID" ColumnName="TurniketID" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="Serial_number" ColumnName="Serial_number" />
+          <ScalarProperty Name="Fin_number" ColumnName="Fin_number" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Create_data" ColumnName="Create_data" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Gerder_id" ColumnName="Gerder_id" />
+          <ScalarProperty Name="Fathername" ColumnName="Fathername" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Professions_id" ColumnName="Professions_id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKS">
+      <EntityTypeMapping TypeName="OculusModel.WORK">
+        <MappingFragment StoreEntitySet="WORKS">
+          <ScalarProperty Name="WORK_CAT_ID" ColumnName="WORK_CAT_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKS_CATEGORY">
+      <EntityTypeMapping TypeName="OculusModel.WORKS_CATEGORY">
+        <MappingFragment StoreEntitySet="WORKS_CATEGORY">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CURRENT_ACCOUNT">
+      <EntityTypeMapping TypeName="OculusModel.CURRENT_ACCOUNT">
+        <MappingFragment StoreEntitySet="CURRENT_ACCOUNT">
+          <ScalarProperty Name="WAITING_CASH" ColumnName="WAITING_CASH" />
+          <ScalarProperty Name="HAND_CASH" ColumnName="HAND_CASH" />
+          <ScalarProperty Name="VAT" ColumnName="VAT" />
+          <ScalarProperty Name="MAIN_CASH" ColumnName="MAIN_CASH" />
+          <ScalarProperty Name="CURRENT_BANK_CASH" ColumnName="CURRENT_BANK_CASH" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAYMENT_INOUT">
+      <EntityTypeMapping TypeName="OculusModel.PAYMENT_INOUT">
+        <MappingFragment StoreEntitySet="PAYMENT_INOUT">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAYMENT_TYPE">
+      <EntityTypeMapping TypeName="OculusModel.PAYMENT_TYPE">
+        <MappingFragment StoreEntitySet="PAYMENT_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAYMENTs">
+      <EntityTypeMapping TypeName="OculusModel.PAYMENT">
+        <MappingFragment StoreEntitySet="PAYMENT">
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="REMNANT" ColumnName="REMNANT" />
+          <ScalarProperty Name="RELEASE" ColumnName="RELEASE" />
+          <ScalarProperty Name="ALL_PAYMENT" ColumnName="ALL_PAYMENT" />
+          <ScalarProperty Name="VAT" ColumnName="VAT" />
+          <ScalarProperty Name="MAIN_PAYMENT" ColumnName="MAIN_PAYMENT" />
+          <ScalarProperty Name="PAYMENT_TYPE_ID" ColumnName="PAYMENT_TYPE_ID" />
+          <ScalarProperty Name="ID_INOUT" ColumnName="ID_INOUT" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PVOT_S">
+      <EntityTypeMapping TypeName="OculusModel.PVOT_S">
+        <MappingFragment StoreEntitySet="PVOT_S">
+          <ScalarProperty Name="AREAS" ColumnName="AREAS" />
+          <ScalarProperty Name="Shape" ColumnName="Shape" />
+          <ScalarProperty Name="INCOME_SALARY" ColumnName="INCOME_SALARY" />
+          <ScalarProperty Name="INCOME_SUM" ColumnName="INCOME_SUM" />
+          <ScalarProperty Name="PILL_SALARY" ColumnName="PILL_SALARY" />
+          <ScalarProperty Name="PILL_SUM" ColumnName="PILL_SUM" />
+          <ScalarProperty Name="SEED_SALARY" ColumnName="SEED_SALARY" />
+          <ScalarProperty Name="SEED_SUM" ColumnName="SEED_SUM" />
+          <ScalarProperty Name="WATER_SALARY" ColumnName="WATER_SALARY" />
+          <ScalarProperty Name="FERT_SALARY" ColumnName="FERT_SALARY" />
+          <ScalarProperty Name="FERT_SUM" ColumnName="FERT_SUM" />
+          <ScalarProperty Name="NOV_ID" ColumnName="NOV_ID" />
+          <ScalarProperty Name="EKIN_ID" ColumnName="EKIN_ID" />
+          <ScalarProperty Name="LAST_CONTR" ColumnName="LAST_CONTR" />
+          <ScalarProperty Name="LAST_FERTI" ColumnName="LAST_FERTI" />
+          <ScalarProperty Name="LAST_EXPRI" ColumnName="LAST_EXPRI" />
+          <ScalarProperty Name="LAST_WATER" ColumnName="LAST_WATER" />
+          <ScalarProperty Name="NOTE1" ColumnName="NOTE1" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="EKIN2" ColumnName="EKIN2" />
+          <ScalarProperty Name="NOV" ColumnName="NOV" />
+          <ScalarProperty Name="EKIN" ColumnName="EKIN" />
+          <ScalarProperty Name="RADIUS" ColumnName="RADIUS" />
+          <ScalarProperty Name="HK" ColumnName="HK" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="R" ColumnName="R" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OBJECTID_1" ColumnName="OBJECTID_1" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+          <ScalarProperty Name="OBJECTID_12" ColumnName="OBJECTID_12" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="StorkTest1" FunctionName="OculusModel.Store.StorkTest1" />
+    <FunctionImportMapping FunctionImportName="StorkTest" FunctionName="OculusModel.Store.StorkTest" />
+    <EntitySetMapping Name="STOCKPLACES">
+      <EntityTypeMapping TypeName="OculusModel.STOCKPLACE">
+        <MappingFragment StoreEntitySet="STOCKPLACES">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STOCKS">
+      <EntityTypeMapping TypeName="OculusModel.STOCK">
+        <MappingFragment StoreEntitySet="STOCKS">
+          <ScalarProperty Name="SPEC" ColumnName="SPEC" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STOCKMODIFies">
+      <EntityTypeMapping TypeName="OculusModel.STOCKMODIFY">
+        <MappingFragment StoreEntitySet="STOCKMODIFY">
+          <ScalarProperty Name="WORKERID" ColumnName="WORKERID" />
+          <ScalarProperty Name="PLACEID" ColumnName="PLACEID" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="MODIFYDATE" ColumnName="MODIFYDATE" />
+          <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+          <ScalarProperty Name="STOCKITEMID" ColumnName="STOCKITEMID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CROPs">
+      <EntityTypeMapping TypeName="OculusModel.CROP">
+        <MappingFragment StoreEntitySet="CROP">
+          <ScalarProperty Name="PARCEL_CATEGORY_ID" ColumnName="PARCEL_CATEGORY_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CROP_SORT">
+      <EntityTypeMapping TypeName="OculusModel.CROP_SORT">
+        <MappingFragment StoreEntitySet="CROP_SORT">
+          <ScalarProperty Name="CROP_ID" ColumnName="CROP_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CROP_REPRODUCTION">
+      <EntityTypeMapping TypeName="OculusModel.CROP_REPRODUCTION">
+        <MappingFragment StoreEntitySet="CROP_REPRODUCTION">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MESSAGENOTIFICATIONs">
+      <EntityTypeMapping TypeName="OculusModel.MESSAGENOTIFICATION">
+        <MappingFragment StoreEntitySet="MESSAGENOTIFICATION">
+          <ScalarProperty Name="SENDEDTIME" ColumnName="SENDEDTIME" />
+          <ScalarProperty Name="WORKPLANID" ColumnName="WORKPLANID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="RECIVERID" ColumnName="RECIVERID" />
+          <ScalarProperty Name="SENDERID" ColumnName="SENDERID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PLANNINGPLANs">
+      <EntityTypeMapping TypeName="OculusModel.PLANNINGPLAN">
+        <MappingFragment StoreEntitySet="PLANNINGPLAN">
+          <ScalarProperty Name="SEASON" ColumnName="SEASON" />
+          <ScalarProperty Name="CREATEDDATE" ColumnName="CREATEDDATE" />
+          <ScalarProperty Name="CROPREPRODUCTIONID" ColumnName="CROPREPRODUCTIONID" />
+          <ScalarProperty Name="CROPSORTID" ColumnName="CROPSORTID" />
+          <ScalarProperty Name="PARCELID" ColumnName="PARCELID" />
+          <ScalarProperty Name="PLANNINGDATE" ColumnName="PLANNINGDATE" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PLANNINGPLANDETAILS">
+      <EntityTypeMapping TypeName="OculusModel.PLANNINGPLANDETAIL">
+        <MappingFragment StoreEntitySet="PLANNINGPLANDETAILS">
+          <ScalarProperty Name="SEASON" ColumnName="SEASON" />
+          <ScalarProperty Name="CROPREPRODUCTIONID" ColumnName="CROPREPRODUCTIONID" />
+          <ScalarProperty Name="CROPSORTID" ColumnName="CROPSORTID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PLANNINGPLANDETAILSWORKS">
+      <EntityTypeMapping TypeName="OculusModel.PLANNINGPLANDETAILSWORK">
+        <MappingFragment StoreEntitySet="PLANNINGPLANDETAILSWORKS">
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="NEEDED" ColumnName="NEEDED" />
+          <ScalarProperty Name="WORKCANDO" ColumnName="WORKCANDO" />
+          <ScalarProperty Name="MONTH" ColumnName="MONTH" />
+          <ScalarProperty Name="PLANNINGPLANDETAILSID" ColumnName="PLANNINGPLANDETAILSID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PLANINGPLANBYDETAILS">
+      <EntityTypeMapping TypeName="OculusModel.PLANINGPLANBYDETAIL">
+        <MappingFragment StoreEntitySet="PLANINGPLANBYDETAILS">
+          <ScalarProperty Name="FINALLYPRICE" ColumnName="FINALLYPRICE" />
+          <ScalarProperty Name="PLANNINGDETAISWORKID" ColumnName="PLANNINGDETAISWORKID" />
+          <ScalarProperty Name="PLANNINGDETAISID" ColumnName="PLANNINGDETAISID" />
+          <ScalarProperty Name="PLANNINGPLANID" ColumnName="PLANNINGPLANID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MYSILOSTOCKs">
+      <EntityTypeMapping TypeName="OculusModel.MYSILOSTOCK">
+        <MappingFragment StoreEntitySet="MYSILOSTOCK">
+          <ScalarProperty Name="TOTALCOUNT" ColumnName="TOTALCOUNT" />
+          <ScalarProperty Name="CROPREPREDUCTIONID" ColumnName="CROPREPREDUCTIONID" />
+          <ScalarProperty Name="CROPSORTID" ColumnName="CROPSORTID" />
+          <ScalarProperty Name="MYSILOID" ColumnName="MYSILOID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MYSILOSTOCKDETAILS">
+      <EntityTypeMapping TypeName="OculusModel.MYSILOSTOCKDETAIL">
+        <MappingFragment StoreEntitySet="MYSILOSTOCKDETAILS">
+          <ScalarProperty Name="MYSILOID" ColumnName="MYSILOID" />
+          <ScalarProperty Name="COUNT" ColumnName="COUNT" />
+          <ScalarProperty Name="CROPREPREDUCTIONID" ColumnName="CROPREPREDUCTIONID" />
+          <ScalarProperty Name="CROPSORTID" ColumnName="CROPSORTID" />
+          <ScalarProperty Name="OPERATIONTYPE" ColumnName="OPERATIONTYPE" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCMESSAGEs">
+      <EntityTypeMapping TypeName="OculusModel.DOCMESSAGE">
+        <MappingFragment StoreEntitySet="DOCMESSAGE">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="OPRTYPE" ColumnName="OPRTYPE" />
+          <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="RECIVED" ColumnName="RECIVED" />
+          <ScalarProperty Name="SENDERID" ColumnName="SENDERID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUMENTS">
+      <EntityTypeMapping TypeName="OculusModel.DOCUMENT">
+        <MappingFragment StoreEntitySet="DOCUMENTS">
+          <ScalarProperty Name="CREATORID" ColumnName="CREATORID" />
+          <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MYSILOes">
+      <EntityTypeMapping TypeName="OculusModel.MYSILO">
+        <MappingFragment StoreEntitySet="MYSILO">
+          <ScalarProperty Name="CAPACITY" ColumnName="CAPACITY" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WOKRPLAN2TASKQUEUETECHNICAL">
+      <EntityTypeMapping TypeName="OculusModel.WOKRPLAN2TASKQUEUETECHNICAL">
+        <MappingFragment StoreEntitySet="WOKRPLAN2TASKQUEUETECHNICAL">
+          <ScalarProperty Name="TRAILERID" ColumnName="TRAILERID" />
+          <ScalarProperty Name="WORKERID" ColumnName="WORKERID" />
+          <ScalarProperty Name="TECHNICALID" ColumnName="TECHNICALID" />
+          <ScalarProperty Name="WORKPLANTASKQUEUEID" ColumnName="WORKPLANTASKQUEUEID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKPLAN2">
+      <EntityTypeMapping TypeName="OculusModel.WORKPLAN2">
+        <MappingFragment StoreEntitySet="WORKPLAN2">
+          <ScalarProperty Name="CREATORID" ColumnName="CREATORID" />
+          <ScalarProperty Name="ISDONE" ColumnName="ISDONE" />
+          <ScalarProperty Name="FINISDATE" ColumnName="FINISDATE" />
+          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="RESPONDERID" ColumnName="RESPONDERID" />
+          <ScalarProperty Name="WORKS_ID" ColumnName="WORKS_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKPLAN2PARCELS">
+      <EntityTypeMapping TypeName="OculusModel.WORKPLAN2PARCELS">
+        <MappingFragment StoreEntitySet="WORKPLAN2PARCELS">
+          <ScalarProperty Name="WORKPLAN2ID" ColumnName="WORKPLAN2ID" />
+          <ScalarProperty Name="PARCELID" ColumnName="PARCELID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKPLAN2QUEUEWORKERS">
+      <EntityTypeMapping TypeName="OculusModel.WORKPLAN2QUEUEWORKERS">
+        <MappingFragment StoreEntitySet="WORKPLAN2QUEUEWORKERS">
+          <ScalarProperty Name="WORKERID" ColumnName="WORKERID" />
+          <ScalarProperty Name="WORKPLAN2TASKQUEUEID" ColumnName="WORKPLAN2TASKQUEUEID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKPLAN2TASKFELTILIZER">
+      <EntityTypeMapping TypeName="OculusModel.WORKPLAN2TASKFELTILIZER">
+        <MappingFragment StoreEntitySet="WORKPLAN2TASKFELTILIZER">
+          <ScalarProperty Name="FELTILIZERCOUNT" ColumnName="FELTILIZERCOUNT" />
+          <ScalarProperty Name="WATERCOUNT" ColumnName="WATERCOUNT" />
+          <ScalarProperty Name="FELTILIZERID" ColumnName="FELTILIZERID" />
+          <ScalarProperty Name="WOKRPLAN2TASKID" ColumnName="WOKRPLAN2TASKID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKPLAN2TASKQUEUE">
+      <EntityTypeMapping TypeName="OculusModel.WORKPLAN2TASKQUEUE">
+        <MappingFragment StoreEntitySet="WORKPLAN2TASKQUEUE">
+          <ScalarProperty Name="WORKPLAN2TASKID" ColumnName="WORKPLAN2TASKID" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="ENDHOURS" ColumnName="ENDHOURS" />
+          <ScalarProperty Name="STARTHOURS" ColumnName="STARTHOURS" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORKPLAN2TASKS">
+      <EntityTypeMapping TypeName="OculusModel.WORKPLAN2TASKS">
+        <MappingFragment StoreEntitySet="WORKPLAN2TASKS">
+          <ScalarProperty Name="WORKPLAN2ID" ColumnName="WORKPLAN2ID" />
+          <ScalarProperty Name="FINISHDATE" ColumnName="FINISHDATE" />
+          <ScalarProperty Name="ISDONE" ColumnName="ISDONE" />
+          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+          <ScalarProperty Name="STARDATE" ColumnName="STARDATE" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<UluagroAspnet.Models.Role>
+@{
+    ViewBag.Title = "AllEdit";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+    int a = 0;
+}
+
+<div class="container-fluid mt-3">
+    <form action="AllEdit" method="post">
+        <table class="table table-hover">
+            <tr class="text-center">
+                <th></th>
+                <th>Actionun adi</th>
+                <th>Grupun adi</th>
+                <th>Görmək</th>
+                <th>Əlavə etmək</th>
+                <th>Deyişmək</th>
+                <th>Silmək</th>
+                <th>@Html.LabelFor(model => model.FirstOrDefault().ownerdata)</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr class="text-center">
+                    <td><input type="hidden" name="roles[@a].Id" value="@item.Id" /></td>
+                    <td>
+                        @item.Action.Name
+                        <input type="hidden" name="roles[@a].Action_id" value="@item.Action_id" />
+                    </td>
+                    <td>
+                        @item.GROUP.Name
+                        <input type="hidden" name="roles[@a].Group_id" value="@item.Group_id" />
+                    </td>
+                    <td>
+                        @if (item.can_view)
+                        {
+                            <input id="can_view" type="checkbox" checked value="true" name="roles[@a].can_view" />
+                            <input type="hidden" value="false" name="roles[@a].can_view" />
+                        }
+                        else
+                        {
+                            <input id="can_view" type="checkbox" value="true" name="roles[@a].can_view" />
+                            <input type="hidden" value="false" checked name="roles[@a].can_view" />
+                        }
+
+                    </td>
+                    <td>
+                        @if (item.can_add)
+                        {
+                            <input id="can_add" type="checkbox" checked value="true" name="roles[@a].can_add" />
+                            <input type="hidden" value="false" name="roles[@a].can_add" />
+                        }
+                        else
+                        {
+                            <input id="can_add" type="checkbox" value="true" name="roles[@a].can_add" />
+                            <input type="hidden" value="false" checked name="roles[@a].can_add" />
+                        }
+                    </td>
+                    <td>
+                        @if (item.can_update)
+                        {
+                            <input id="can_update" type="checkbox" checked value="true" name="roles[@a].can_update" />
+                            <input type="hidden" value="false" name="roles[@a].can_update" />
+                        }
+                        else
+                        {
+                            <input id="can_update" type="checkbox" value="true" name="roles[@a].can_update" />
+                            <input type="hidden" value="false" checked name="roles[@a].can_update" />
+                        }
+                    </td>
+                    <td>
+                        @if (item.can_delete)
+                        {
+                            <input id="can_delete" type="checkbox" checked value="true" name="roles[@a].can_delete" />
+                            <input type="hidden" value="false" name="roles[@a].can_delete" />
+                        }
+                        else
+                        {
+                            <input id="can_delete" type="checkbox" value="true" name="roles[@a].can_delete" />
+                            <input type="hidden" value="false" checked name="roles[@a].can_delete" />
+                        }
+                    </td>                    
+                    <td>
+                        @if (item.ownerdata)
+                        {
+                            <input id="ownerdata" type="checkbox" checked value="true" name="roles[@a].ownerdata" />
+                            <input type="hidden" value="false" name="roles[@a].ownerdata" />
+                        }
+                        else
+                        {
+                            <input id="ownerdata" type="checkbox" value="true" name="roles[@a].ownerdata" />
+                            <input type="hidden" value="false" checked name="roles[@a].ownerdata" />
+                        }
+                    </td>
+                </tr>
+                a++;
+            }
+        </table>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Yadda saxla</button>
+            <a class="btn btn-danger" href="@Url.Action("Index","GroupRoles")">Geriyə qayıt</a>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<UluagroAspnet.Models.PARCEL_CATEGORY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between">
+        <h3>Sahe Kategoriyalarının siyahısı</h3>
+        <a href="@Url.Action("Create","PARCEL_CATEGORY")" class="btn btn-primary mb-3">Yeni kategoriya əlavə et</a>
+    </div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                Adı
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit","PARCEL_CATEGORY",new { id = item.OBJECTID})" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                    @*<a href="@Url.Action("Delete","PARCEL_CATEGORY",new { id = item.OBJECTID})" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <form action="@Url.Action("Create","STOCK")" method="post">
+        <div class="form-group" id="_StorkFormGroup">
+            <div class="col-md-4 mb-4">
+                <label class="control-label" for="_type">Əməliyyatın təyinatı</label>
+                <select id="_type" class="form-control" required title="testdsasd dasd" oninvalid="this.setCustomValidity('Əməliyyatın növünü secin!!')" name="STATUSID">
+                    <option selected disabled value="">Sec</option>
+                    <option value="1">Medaxil</option>
+                    <option value="2">Mexaric</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-4">
+                <label class="control-label" for="_category">Kategoriya</label>
+                <select disabled id="_category" class="form-control" required name="TYPE">
+                    <option selected disabled value="">Sec</option>
+                    <option value="1">Derman</option>
+                    <option value="2">Gubre</option>
+                    <option value="3">Texnika</option>
+                    <option value="4">Denli Bitkiler</option>
+                    <option value="5">Meyve</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-4" style="display:none">
+                <label class="control-label" for="_techicalCategory">Texnika Növünü seçin</label>
+                <select class="form-control" required id="_techicalCategory">
+                    <option selected disabled value="0">Sec</option>
+                    @foreach (var item in ViewBag.Techicals)
+                    {
+                        <option value="@item.OBJECTID">@item.NAME</option>
+                    }
+                </select>
+            </div>
+            <div id="_cropDetals"></div>            
+            <div class="col-md-4 mb-4">
+                <label class="control-label" for="_productName">Mehsulun adı</label>
+                <select id="_productName" class="form-control" required  name="PRODUCT_ID">
+                    <option selected disabled value="">Sec</option>
+                </select>
+            </div>     
+            <div id="_cropRepreduc"></div>
+            <div class="col-md-4 mb-4">
+                <label class="control-label" for="_stockplace">Saxlandığı yer</label>
+                <select id="_stockplace" disabled class="form-control" required name="PLACEID">
+                    <option selected disabled value="">Sec</option>                   
+                </select>
+            </div>
+            <div class="col-md-4 mb-4">
+                <label class="control-label" for="_quantity">Miqdar</label>
+                <input id="_quantity" class="form-control" type="number" name="QUANTITY" value="" required />
+            </div>
+        </div>       
+        <button class="btn btn-primary" type="submit">Yadda saxla</button>
+        <a href="@Url.Action("Index","STOCK")" class="btn btn-danger">Geriyə qayıt</a>
+    </form>
+</div>
+

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<UluagroAspnet.Areas.AgroPark.ModelViews.StockModifyModel>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <table class="table table-hover">
+        <tr>
+            <th>Məhsulun adı</th>
+            <th>Təyinat</th>
+            <th>Tarix</th>
+            <th>Say</th>
+            <th>Saxlandığı yer</th>
+            <th>Məhsul Şəxs</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PRODUCTNAME</td>
+                <td>@item.DESTINATIONSTATUS</td>
+                <td>@item.MODIFYDATE</td>
+                <td>@item.QUANTITY</td>
+                <td>@item.PLACENAME</td>
+                <td>@item.WORKERNAME</td>
+            </tr>
+        }
+    </table>
+    <a class="btn btn-danger" href="@Url.Action("Index","STOCK")">Geriyə qayıt</a>
+</div>
+

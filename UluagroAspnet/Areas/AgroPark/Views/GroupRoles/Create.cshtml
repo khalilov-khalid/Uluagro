@@ -1,0 +1,58 @@
+﻿@model UluagroAspnet.Models.Role
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+    int a = 0;
+}
+
+<div class="container-fluid mt-4">
+    <form action="Create" method="post">
+        <h5>Grupun adın:</h5>
+        <input class="form-control mb-3" type="text" placeholder="Grup adini daxil edin" name="groupname" value="" />
+        <table class="table table-hover">
+            <tr class="text-center">
+                <th>İcazələrin adları</th>
+                <th>Görmək</th>
+                <th>Əlavə etmək</th>
+                <th>Deyişmək</th>
+                <th>Silmək</th>
+                <th>@Html.LabelFor(model => model.ownerdata)</th>
+            </tr>
+            @foreach (var item in ViewBag.Action_id)
+            {
+                <tr class="text-center">
+                    <td>
+                        @item.Name
+                        <input type="hidden" name="rs[@a].Action_id" value="@item.ID" />
+                    </td>
+                    <td>
+                        <input id="can_view" type="checkbox" value="true" name="rs[@a].can_view" />
+                        <input type="hidden" value="false" name="rs[@a].can_view" />
+                    </td>
+                    <td>
+                        <input id="can_add" type="checkbox" value="true" name="rs[@a].can_add" />
+                        <input type="hidden" value="false" name="rs[@a].can_add" />
+                    </td>
+                    <td>
+                        <input id="can_update" type="checkbox" value="true" name="rs[@a].can_update" />
+                        <input type="hidden" value="false" name="rs[@a].can_update" />
+                    </td>
+                    <td>
+                        <input id="can_delete" type="checkbox" value="true" name="rs[@a].can_delete" />
+                        <input type="hidden" value="false" name="rs[@a].can_delete" />
+                    </td>
+                    <td>
+                        <input id="ownerdata" type="checkbox" value="true" name="rs[@a].ownerdata" />
+                        <input type="hidden" value="false" name="rs[@a].ownerdata" />
+                    </td>
+                </tr>
+                a++;
+            }
+        </table>
+        <div class="text-right">
+            <button class="btn btn-primary mr-3" type="submit">Yadda saxla</button>
+            <a href="@Url.Action("Index","GroupRoles")" class="btn btn-danger" type="submit">Geri qayit</a>
+        </div>
+    </form>
+</div>
+

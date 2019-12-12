@@ -1,0 +1,60 @@
+﻿@model IEnumerable<UluagroAspnet.Models.FERTILIZER_STOCK>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Stokda Olan Dərman və Gübrələr</h3>
+        <a href="@Url.Action("Create","FERTILIZER_STOCK")"class="u_btn sbm_btn">Anbara daxil et</a>
+    </div>
+
+    <div class="table_con">
+        <table class="table table-hover table-bordered t_h_fixed">
+            <thead>
+                <tr>
+                    <th>
+                        Adı
+                    </th>
+                    <th>
+                        Miqdarı
+                    </th>
+                    <th>
+                        Daxil Edildiyi Tarix
+                    </th>
+                    <th>
+                        Son İstifadə Tarixi
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FERTILIZER.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UNIT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CREATED_DATE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.USED_DATE)
+                        </td>
+                        @*<td>
+                    <a href="@Url.Action("Edit","FERTILIZER_STOCK", new { id = item.OBJECTID })" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                </td>*@
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@model UluagroAspnet.Areas.AgroPark.ModelViews.SiloDetailVM
+
+<div class="row">
+    @* Bitkiler *@
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="control-label">Bitki</label>
+            <select class="form-control" id="crops" required>
+                <option value="" selected disabled>Seçin</option>
+                @foreach (var item in Model.crops)
+                {
+                    <option value="@item.OBJECTID">@item.NAME</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    @* Sortlar *@
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="control-label" for="CROPSORTID">Bitki sortu</label>
+            <select class="form-control" id="CROPSORTID" name="CROPSORTID" required>
+                <option value="" selected>Seçin</option>
+            </select>
+        </div>
+    </div>
+
+    @* Keyfiyyet derecesi *@
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="control-label">Keyfiyyət dərəcəsi</label>
+            <div>
+                <select name="CROPREPRODUCTIONID" class="form-control" id="repr" required>
+                    <option selected disabled value="">Seçin</option>
+                    @foreach (var item in Model.repr)
+                    {
+                        <option value="@item.OBJECTID">@item.NAME</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    @* Miqdar *@
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="control-label">Miqdar</label>
+            <div>
+                <input class="form-control" type="number" step="0.01" name="total" value="" id="count" />
+            </div>
+        </div>
+    </div>
+
+    @* Add *@
+    <div class="col-md-12">
+        <div class="form-group">
+            <div class="d-flex justify-content-center">
+                <button type="button" class="u_btn sbm_btn" id="add_silo">Əlavə et</button>
+            </div>
+        </div>
+    </div>
+</div>

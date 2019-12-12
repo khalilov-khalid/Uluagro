@@ -1,0 +1,26 @@
+﻿@model IEnumerable<UluagroAspnet.Models.DOCMESSAGE>
+<table class="table bordered hovered m-0">
+    <thead>
+        <tr>
+            <th>Sənədin başlığı</th>
+            <th>Kimə</th>
+            <th>Tarix</th>
+            <th width="50">Bax</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">@item.TITLE</td>
+                <td>@item.Worker1.Name @item.Worker1.Surname</td>
+                <td class="text-center">@String.Format("{0:dd MMM HH:mm}", item.CREATEDATE)</td>
+                <td>
+                    <button class="btn xs circle bg-green show_msg_content" data-target-modal="doc-msg-view" data-id="@item.OBJECTID">
+                        <i aria-hidden="true" class="icon-eye"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

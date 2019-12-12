@@ -1,0 +1,36 @@
+﻿@model List<UluagroAspnet.Models.CATEGORy>
+
+<div class="row as-5">
+    <div class="col xs-6 xxs-6 mb-10">
+        <label>Kateqoriya</label>
+        <select id="_FeltilizrerCategoryChange" class="input" name="Feltilzercategory">
+            <option selected disabled>Seç</option>
+            @foreach (var item in Model)
+            {
+                <option value="@item.OBJECTID">@item.NAME</option>
+            }
+        </select>
+    </div>
+    <div class="col xs-6 xxs-6 mb-10">
+        <label>Adı</label>
+        <select id="_feltilizerList" class="input" name="Feltilizers">
+            <option selected disabled>Seç</option>
+        </select>
+    </div>
+    <div class="col xs-6 xxs-6 mb-10">
+        <label>Suyun Miqdarı</label>
+        <input type="number" class="input" name="Watercount" value="" />
+    </div>
+    <div class="col xs-6 xxs-6 mb-10">
+        <label>Miqdarı</label>
+        <input type="number" class="input" name="FeltilizerCount" value="" />
+    </div>
+    <div class="col as-1 xs-3 xxs-3 mb-10">
+        <label class="hide-xs hide-xxs">&nbsp;</label>
+        <button type="button" class="btn bg-white w-100p" id="_SaveWorkPlanTaskFeltilizer" aria-label="Sil">icon</button>
+    </div>
+    <div class="col as-1 xs-3 xxs-3 mb-10">
+        <label class="hide-xs hide-xxs">&nbsp;</label>
+        <button type="button" class="btn bg-white w-100p" id="_RemoveWorkPlanTaskFeltilizerLine" aria-label="Sil"><i aria-hidden="true" class="icon-minus"></i></button>
+    </div>
+</div>

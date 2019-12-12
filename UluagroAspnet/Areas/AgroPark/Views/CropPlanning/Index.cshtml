@@ -1,0 +1,71 @@
+﻿@model IEnumerable<UluagroAspnet.Models.PLANNINGPLANDETAIL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Planların siyahısı</h3>
+        <a class="btn sbm_btn" href="@Url.Action("Create","CropPlanning")">Yeni plan əlavə et</a>
+    </div>
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            @if (TempData["Created"] != null)
+            {
+                <div class="alert alert-success">
+                    <p>@TempData["Created"]</p>
+                </div>
+            }
+        </div>
+        <div class="col-md-12 d-flex justify-content-center">
+            @if (TempData["Updated"] != null)
+            {
+                <div class="alert alert-success">
+                    <p>@TempData["Updated"]</p>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="table_con">
+        <table class="table table-bordered table-hover t_h_fixed">
+            <thead>
+                <tr>
+                    <th>
+                        Bitki
+                    </th>
+                    <th>
+                        Sortu
+                    </th>
+                    <th>
+                        Keyfiyyət dərəcəsi
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CROP_SORT.CROP.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CROP_SORT.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CROP_REPRODUCTION.NAME)
+                        </td>
+                        <td class="icon_center">
+                            @*<a class="ico ico_edit" href="@Url.Action("Edit","CropPlanning", new { id = item.OBJECTID })"><i class="fas fa-pencil-alt"></i></a>*@
+                            <a class="ico ico_edit" href="@Url.Action("Edit","CropPlanning", new { id = item.OBJECTID })"><i class="fas fa-pencil-alt"></i></a>
+                            @*<a class="btn btn-danger" href="@Url.Action("Delete","Workers", new { id = item.ID })"><i class="far fa-trash-alt"></i></a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

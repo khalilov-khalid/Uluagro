@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c82dd3e53b59439fbeae11a539f335ee" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="OculusModel.Action" Width="1.5" PointX="5.75" PointY="20.75" />
+        <EntityTypeShape EntityType="OculusModel.CATEGORy" Width="1.5" PointX="0.5" PointY="2.75" />
+        <EntityTypeShape EntityType="OculusModel.CATEGORIES_WORK_CATEGORY" Width="1.5" PointX="3.375" PointY="0.5" />
+        <EntityTypeShape EntityType="OculusModel.DAYLY_WORK_PLAN" Width="1.5" PointX="3.75" PointY="24.625" />
+        <EntityTypeShape EntityType="OculusModel.FERTILIZER" Width="1.5" PointX="6" PointY="4.125" />
+        <EntityTypeShape EntityType="OculusModel.FERTILIZER_STOCK" Width="1.5" PointX="8.25" PointY="8.25" />
+        <EntityTypeShape EntityType="OculusModel.FERTILIZER_WORK_PLAN" Width="1.5" PointX="8.25" PointY="5" />
+        <EntityTypeShape EntityType="OculusModel.FIRM" Width="1.5" PointX="3.75" PointY="10.875" />
+        <EntityTypeShape EntityType="OculusModel.Gender" Width="1.5" PointX="1.5" PointY="40.875" />
+        <EntityTypeShape EntityType="OculusModel.GROUP" Width="1.5" PointX="5.75" PointY="14.625" />
+        <EntityTypeShape EntityType="OculusModel.MAIN_COMPONENTS" Width="1.5" PointX="3.75" PointY="15.625" />
+        <EntityTypeShape EntityType="OculusModel.MARK" Width="1.5" PointX="3.75" PointY="13.25" />
+        <EntityTypeShape EntityType="OculusModel.PACKING" Width="1.5" PointX="3.75" PointY="8.625" />
+        <EntityTypeShape EntityType="OculusModel.PARCEL" Width="1.5" PointX="1.5" PointY="30.75" />
+        <EntityTypeShape EntityType="OculusModel.PARCEL_CATEGORY" Width="1.5" PointX="1.5" PointY="46.25" />
+        <EntityTypeShape EntityType="OculusModel.Profession" Width="1.5" PointX="1.5" PointY="43.25" />
+        <EntityTypeShape EntityType="OculusModel.QueuePlan" Width="1.5" PointX="6" PointY="24.375" />
+        <EntityTypeShape EntityType="OculusModel.Role" Width="1.5" PointX="8" PointY="14.125" />
+        <EntityTypeShape EntityType="OculusModel.STATUSMODIFY" Width="1.5" PointX="9" PointY="22.5" />
+        <EntityTypeShape EntityType="OculusModel.TECHNIQUE_CONDITION" Width="1.5" PointX="10.75" PointY="6.125" />
+        <EntityTypeShape EntityType="OculusModel.TECHNIQUE_TRAILER" Width="1.5" PointX="16.875" PointY="5.375" />
+        <EntityTypeShape EntityType="OculusModel.TECHNIQUE_TYPE" Width="1.5" PointX="12.875" PointY="7.125" />
+        <EntityTypeShape EntityType="OculusModel.TECHNIQUE_WORKING_TYPE" Width="1.5" PointX="16.25" PointY="3.375" />
+        <EntityTypeShape EntityType="OculusModel.TECHNIQUE" Width="1.5" PointX="13" PointY="3.25" />
+        <EntityTypeShape EntityType="OculusModel.UNIT" Width="1.5" PointX="3.75" PointY="18" />
+        <EntityTypeShape EntityType="OculusModel.USERADMINSTATU" Width="1.5" PointX="6.75" PointY="28.25" />
+        <EntityTypeShape EntityType="OculusModel.User" Width="1.5" PointX="9" PointY="25.5" />
+        <EntityTypeShape EntityType="OculusModel.WORK_PLAN" Width="1.5" PointX="1.5" PointY="23.875" />
+        <EntityTypeShape EntityType="OculusModel.WORK_PLAN_MODIFY" Width="1.5" PointX="11.25" PointY="25" />
+        <EntityTypeShape EntityType="OculusModel.WORK_PLAN_TECHNIQUE" Width="1.5" PointX="15.25" PointY="20.125" />
+        <EntityTypeShape EntityType="OculusModel.WORK_PLAN_WORKERS" Width="1.5" PointX="8.25" PointY="31" />
+        <EntityTypeShape EntityType="OculusModel.Worker" Width="1.5" PointX="1.5" PointY="34.5" />
+        <EntityTypeShape EntityType="OculusModel.WORK" Width="1.5" PointX="1.5" PointY="20.75" />
+        <EntityTypeShape EntityType="OculusModel.WORKS_CATEGORY" Width="1.5" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="OculusModel.FK_Roles_Action" />
+        <AssociationConnector Association="OculusModel.FK_CATEGORIES_WORK_CATEGORY_CATEGORIES" />
+        <AssociationConnector Association="OculusModel.FK_FERTILIZER_CATEGORIES" />
+        <AssociationConnector Association="OculusModel.FK_CATEGORIES_WORK_CATEGORY_WORKS_CATEGORY" />
+        <AssociationConnector Association="OculusModel.FK_DAYLY_WORK_PLAN_WORK_PLAN" />
+        <AssociationConnector Association="OculusModel.FK_QueuePlan_DAYLY_WORK_PLAN" />
+        <AssociationConnector Association="OculusModel.FK_FERTILIZER_FERTILIZER" />
+        <AssociationConnector Association="OculusModel.FK_FERTILIZER_FIRMS" />
+        <AssociationConnector Association="OculusModel.FK_FERTILIZER_MARKS" />
+        <AssociationConnector Association="OculusModel.FK_FERTILIZER_PACKING" />
+        <AssociationConnector Association="OculusModel.FK_FERTILIZER_STOCK_FERTILIZER" />
+        <AssociationConnector Association="OculusModel.FK_FERTILIZER_UNITS" />
+        <AssociationConnector Association="OculusModel.FK_FERTILIZER_WORK_PLAN_FERTILIZER" />
+        <AssociationConnector Association="OculusModel.FK_FERTILIZER_WORK_PLAN_WORK_PLAN" />
+        <AssociationConnector Association="OculusModel.FK_Workers_Gender" />
+        <AssociationConnector Association="OculusModel.FK_Roles_Group" />
+        <AssociationConnector Association="OculusModel.FK_Users_Group" />
+        <AssociationConnector Association="OculusModel.FK_PARCEL_PARCEL_CATEGORY" />
+        <AssociationConnector Association="OculusModel.FK_PARCEL_Workers" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_PARCEL" />
+        <AssociationConnector Association="OculusModel.FK_Workers_Professions" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_TECHNIQUE_WORK_PLAN" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_WORKERS_WORK_PLAN" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_MODIFY_STATUSMODIFY" />
+        <AssociationConnector Association="OculusModel.FK_TECHNIQUES_TECHNIQUE_CONDITION" />
+        <AssociationConnector Association="OculusModel.FK_TECHNIQUE_TRAILER_TECHNIQUES" />
+        <AssociationConnector Association="OculusModel.FK_TECHNIQUE_TRAILER_WORK_PLAN_TECHNIQUE" />
+        <AssociationConnector Association="OculusModel.FK_TECHNIQUES_TECHNIQUE_TYPE" />
+        <AssociationConnector Association="OculusModel.FK_TECHNIQUES_TECHNIQUE_WORKING_TYPE" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_TECHNIQUE_TECHNIQUES" />
+        <AssociationConnector Association="OculusModel.FK_Users_USERADMINSTATUS" />
+        <AssociationConnector Association="OculusModel.FK_Users_Workers" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_MODIFY_Users" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_MODIFY_WORK_PLAN" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_Workers" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_WORKS" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_TECHNIQUE_Workers" />
+        <AssociationConnector Association="OculusModel.FK_WORK_PLAN_WORKERS_Workers" />
+        <AssociationConnector Association="OculusModel.FK_WORKS_WORKS_CATEGORY" />
+        <EntityTypeShape EntityType="OculusModel.CURRENT_ACCOUNT" Width="1.5" PointX="6.375" PointY="0.5" />
+        <EntityTypeShape EntityType="OculusModel.PAYMENT_INOUT" Width="1.5" PointX="10.5" PointY="0.5" />
+        <EntityTypeShape EntityType="OculusModel.PAYMENT_TYPE" Width="1.5" PointX="10.5" PointY="2.5" />
+        <EntityTypeShape EntityType="OculusModel.PAYMENT" Width="1.5" PointX="8.75" PointY="0.5" />
+        <AssociationConnector Association="OculusModel.FK_PAYMENT_PAYMENT_INOUT" />
+        <AssociationConnector Association="OculusModel.FK_PAYMENT_PAYMENT_TYPE" />
+        <EntityTypeShape EntityType="OculusModel.PVOT_S" Width="1.5" PointX="0.5" PointY="4.75" />
+        <EntityTypeShape EntityType="OculusModel.STOCKPLACE" Width="1.5" PointX="10.375" PointY="10.375" />
+        <EntityTypeShape EntityType="OculusModel.STOCK" Width="1.5" PointX="10.375" PointY="13.125" />
+        <EntityTypeShape EntityType="OculusModel.STOCKMODIFY" Width="1.5" PointX="12.625" PointY="14.75" />
+        <AssociationConnector Association="OculusModel.FK_STOCKMODIFY_STOCKPLACES" />
+        <AssociationConnector Association="OculusModel.FK_STOCKMODIFY_STOCKS" />
+        <AssociationConnector Association="OculusModel.FK_STOCKMODIFY_Workers" />
+        <EntityTypeShape EntityType="OculusModel.CROP" Width="1.5" PointX="3.75" PointY="46.125" />
+        <EntityTypeShape EntityType="OculusModel.CROP_SORT" Width="1.5" PointX="6" PointY="46.125" />
+        <AssociationConnector Association="OculusModel.FK_CROP_PARCEL_CATEGORY" />
+        <AssociationConnector Association="OculusModel.FK_CROP_SORT_CROP" />
+        <EntityTypeShape EntityType="OculusModel.CROP_REPRODUCTION" Width="1.5" PointX="0.75" PointY="12.875" />
+        <EntityTypeShape EntityType="OculusModel.MESSAGENOTIFICATION" Width="1.5" PointX="14.25" PointY="25.125" />
+        <AssociationConnector Association="OculusModel.FK_MESSAGENOTIFICATION_Users" />
+        <AssociationConnector Association="OculusModel.FK_MESSAGENOTIFICATION_Users1" />
+        <AssociationConnector Association="OculusModel.FK_MESSAGENOTIFICATION_WORK_PLAN" />
+        <EntityTypeShape EntityType="OculusModel.PLANNINGPLAN" Width="1.5" PointX="14.25" PointY="29.125" />
+        <EntityTypeShape EntityType="OculusModel.PLANNINGPLANDETAIL" Width="1.5" PointX="11.25" PointY="29.375" />
+        <EntityTypeShape EntityType="OculusModel.PLANNINGPLANDETAILSWORK" Width="1.5" PointX="13.5" PointY="33.5" />
+        <AssociationConnector Association="OculusModel.FK_PLANNINGPLAN_CROP_REPRODUCTION" />
+        <AssociationConnector Association="OculusModel.FK_PLANNINGPLANDETAILS_CROP_REPRODUCTION" />
+        <AssociationConnector Association="OculusModel.FK_PLANNINGPLAN_CROP_SORT" />
+        <AssociationConnector Association="OculusModel.FK_PLANNINGPLANDETAILS_CROP_SORT" />
+        <AssociationConnector Association="OculusModel.FK_PLANNINGPLAN_PARCEL" />
+        <AssociationConnector Association="OculusModel.FK_PLANNINGPLANDETAILSWORKS_PlanningPlanDetails" />
+        <EntityTypeShape EntityType="OculusModel.PLANINGPLANBYDETAIL" Width="1.5" PointX="16.5" PointY="31.375" />
+        <AssociationConnector Association="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLAN" />
+        <AssociationConnector Association="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILS" />
+        <AssociationConnector Association="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILSWORKS" />
+        <EntityTypeShape EntityType="OculusModel.MYSILOSTOCK" Width="1.5" PointX="11.25" PointY="33.5" />
+        <EntityTypeShape EntityType="OculusModel.MYSILOSTOCKDETAIL" Width="1.5" PointX="8.25" PointY="34.375" />
+        <AssociationConnector Association="OculusModel.FK_MYSILOSTOCK_CROP_REPRODUCTION" />
+        <AssociationConnector Association="OculusModel.FK_MYSILOSTOCKDETAILS_CROP_REPRODUCTION" />
+        <AssociationConnector Association="OculusModel.FK_MYSILOSTOCK_CROP_SORT" />
+        <AssociationConnector Association="OculusModel.FK_MYSILOSTOCKDETAILS_CROP_SORT" />
+        <EntityTypeShape EntityType="OculusModel.DOCMESSAGE" Width="1.5" PointX="6" PointY="36.875" />
+        <EntityTypeShape EntityType="OculusModel.DOCUMENT" Width="1.5" PointX="3.75" PointY="40.125" />
+        <AssociationConnector Association="OculusModel.FK_DOCMESSAGE_DOCUMENTS" />
+        <AssociationConnector Association="OculusModel.FK_DOCMESSAGE_Workers" />
+        <AssociationConnector Association="OculusModel.FK_DOCMESSAGE_Workers1" />
+        <AssociationConnector Association="OculusModel.FK_DOCUMENTS_Workers" />
+        <EntityTypeShape EntityType="OculusModel.MYSILO" Width="1.5" PointX="12.375" PointY="9.875" />
+        <AssociationConnector Association="OculusModel.FK_MYSILOSTOCK_MYSILO" />
+        <AssociationConnector Association="OculusModel.FK_MYSILOSTOCKDETAILS_MYSILO" />
+        <EntityTypeShape EntityType="OculusModel.WOKRPLAN2TASKQUEUETECHNICAL" Width="1.5" PointX="17.25" PointY="25.875" />
+        <EntityTypeShape EntityType="OculusModel.WORKPLAN2" Width="1.5" PointX="3.75" PointY="29.25" />
+        <EntityTypeShape EntityType="OculusModel.WORKPLAN2PARCELS" Width="1.5" PointX="6" PointY="30.75" />
+        <EntityTypeShape EntityType="OculusModel.WORKPLAN2QUEUEWORKERS" Width="1.5" PointX="10.5" PointY="39.875" />
+        <EntityTypeShape EntityType="OculusModel.WORKPLAN2TASKFELTILIZER" Width="1.5" PointX="11.25" PointY="21" />
+        <EntityTypeShape EntityType="OculusModel.WORKPLAN2TASKQUEUE" Width="1.5" PointX="8.25" PointY="44.625" />
+        <EntityTypeShape EntityType="OculusModel.WORKPLAN2TASKS" Width="1.5" PointX="6" PointY="41.375" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2TASKFELTILIZER_FERTILIZER" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2PARCELS_PARCEL" />
+        <AssociationConnector Association="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES" />
+        <AssociationConnector Association="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES1" />
+        <AssociationConnector Association="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_Workers" />
+        <AssociationConnector Association="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_WORKPLAN2TASKQUEUE" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2_Workers" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2_Workers1" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2QUEUEWORKERS_Workers" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2_WORKS" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2PARCELS_WORKPLAN2" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2TASKS_WORKPLAN2" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2QUEUEWORKERS_WORKPLAN2TASKQUEUE" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2TASKFELTILIZER_WORKPLAN2TASKS" />
+        <AssociationConnector Association="OculusModel.FK_WORKPLAN2TASKQUEUE_WORKPLAN2TASKS" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

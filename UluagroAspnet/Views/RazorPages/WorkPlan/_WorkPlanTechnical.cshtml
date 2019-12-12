@@ -1,0 +1,53 @@
+﻿@model UluagroAspnet.Mainclasses.NewWorkPlan.TechniqueLIneWorkPlanVM
+<div class="row as-5">
+    <div class="col xs-6 xxs-6 mb-10">
+        <label>Texnikanin Növü</label>
+        <select class="input TechnicalCategoryChange" name="TechnicalCategory" required>
+            <option value="" selected disabled>Seç</option>
+            @foreach (var item in Model.texCategory)
+            {
+                <option value="@item.OBJECTID">@item.NAME</option>
+            }
+        </select>
+    </div>
+    <div class="col xs-6 xxs-6 mb-10">
+        <label>Texnikanin adı</label>
+        <select class="input Technicals" name="Technical" required>
+            <option value="" selected disabled>Seç</option>
+        </select>
+    </div>
+    <div class="col xs-6 xxs-6 mb-10">
+        <label>Sürücü</label>
+        <select class="input" name="Driver" required>
+            <option value="" selected disabled>Seç</option>
+            @foreach (var item in Model.drivers)
+            {
+                <option value="@item.ID">@item.Name  @item.Surname</option>
+            }
+        </select>
+    </div>
+    <div class="col xs-6 xxs-6 mb-10">
+        <label>Texnikanin Növü</label>
+        <select class="input TechnicalTrailerCategoryChange" name="TrailerCategory">
+            <option selected disabled>Seç</option>
+            @foreach (var item in Model.texCategory)
+            {
+                <option value="@item.OBJECTID">@item.NAME</option>
+            }
+        </select>
+    </div>
+    <div class="col xs-6 xxs-6 mb-10">
+        <label>Qoşqu</label>
+        <select class="input TechnicalTrailer" name="Trailer">
+            <option selected disabled>Seç</option>
+        </select>
+    </div>
+    <div class="col as-1 xs-3 xxs-3 mb-10">
+        <label class="hide-xs hide-xxs">&nbsp;</label>
+        <button type="submit" class="btn bg-white w-100p _SaveWorkPlanTaskTechnical" >icon</button>
+    </div>
+    <div class="col as-1 xs-3 xxs-3 mb-10">
+        <label class="hide-xs hide-xxs">&nbsp;</label>
+        <button type="button" class="btn bg-white w-100p _RemoveWorkPlanTaskTechnichalLine" aria-label="Sil"><i aria-hidden="true" class="icon-minus"></i></button>
+    </div>
+</div>

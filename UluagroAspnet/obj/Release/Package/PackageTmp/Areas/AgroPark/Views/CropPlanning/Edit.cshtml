@@ -1,0 +1,81 @@
+﻿@model IEnumerable<UluagroAspnet.Models.PLANNINGPLANDETAILSWORK>
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @*@Html.HiddenFor(model => model.plan.OBJECTID)*@
+            </div>
+
+            <div class="col-md-12 mb-2 d-flex justify-content-between">
+                <h4>Planı redaktə et.</h4>
+                <a href="@Url.Action("Index","CropPlanning")" class="u_btn go_b_btn">Geri qayıt</a>
+            </div>
+
+            <hr />
+
+            <div class="col-md-12 mb-3">
+                @foreach (var item in Model)
+                {
+                    <input type="hidden" name="obj_id" value="@item.OBJECTID"/>
+                    <div class="row work_n pb-2 pt-2">
+                        @* Aylar *@
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="MONTH">Ay</label>
+                                <select class="form-control months" id="MONTH" name="MONTH">
+                                    @foreach (var m in ViewBag.Months)
+                                    {
+                                        <option @(item.MONTH == m ? "selected" : "") value="@m">@m</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        @* Gorulecek isler *@
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="WORKCANDO">Görüləcək işlər</label>
+                                <input class="form-control" type="text" name="WORKCANDO" value="@item.WORKCANDO" id="WORKCANDO" placeholder="İşləri daxil edin..." required />
+                            </div>
+                        </div>
+
+                        @* Lazimli *@
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="NEEDED">Lazımlı ehtiyyat</label>
+                                <input class="form-control" type="text" name="NEEDED" value="@item.NEEDED" id="NEEDED" placeholder="Ehtiyatı daxil edin..." required />
+                            </div>
+                        </div>
+
+                        @* Qiymet *@
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" for="PRICE">Qiymət</label>
+                                <input class="form-control" type="number" step=0.01 name="PRICE" value="@item.PRICE" id="PRICE" placeholder="Qiyməti daxil edin..." required />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="col-md-12 d-flex justify-content-center">
+                <div class="form-group">
+                    <div>
+                        <input type="submit" value="Yadda saxla" class="u_btn sbm_btn" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

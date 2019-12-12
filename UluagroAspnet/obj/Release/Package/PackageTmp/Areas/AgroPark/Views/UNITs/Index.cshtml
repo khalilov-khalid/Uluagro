@@ -1,0 +1,149 @@
+﻿@model IEnumerable<UluagroAspnet.Models.UNIT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Ölçü vahidlərinin siyahısı</h3>
+        <button style="outline:none;" data-toggle="modal" data-target="#unit_add_Modal" class="u_btn sbm_btn">Yeni Vahid Əlavə Elə</button>
+    </div>
+
+    <div class="table_con">
+        <table class="table table-hover table-bordered t_h_fixed">
+            <thead>
+                <tr>
+                    <th>
+                        Adı
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="width:85%;">
+                            @Html.DisplayFor(modelItem => item.NAME)
+                        </td>
+                        <td style="width:15%;text-align:-webkit-center;">
+                            <button style="outline:none;" data-toggle="modal" data-target="#unit_edit_Modal" data-name="@item.NAME" data-id="@item.OBJECTID" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+@* Add *@
+<div class="modal fade" id="unit_add_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yeni vahid əlavə edin</h5>
+                <button style="outline:none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="new_unit_name" type="text" value="" />
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="u_btn go_b_btn w_100" data-dismiss="modal">Geri qayıt</button>*@
+                <button style="outline:none;" type="button" id="add_new_unit" class="u_btn sbm_btn w_100">Əlavə et</button>
+            </div>
+            <div class="alert alert-danger" id="error_alert" style="display:none;">
+                <p>Please write anything first!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Edit *@
+<div class="modal fade" id="unit_edit_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Maddəni redaktə edin</h5>
+                <button style="outline:none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="edit_unit_name" type="text" value="" />
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="u_btn go_b_btn w_100" data-dismiss="modal">Geri qayıt</button>*@
+                <button type="button" id="edit_unit" class="u_btn sbm_btn w_100">Redaktə et</button>
+            </div>
+            <div class="alert alert-danger" id="edit_error_alert" style="display:none;">
+                <p>Please write anything first!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script>
+        var content = $("#new_unit_name");
+        var $editInput = $('#edit_unit_name');
+        var $slctd_id;//ID of selected item
+
+        //Add New Category
+        $("#add_new_unit").on("click", function () {
+            if (content.val().trim() != "") {
+                $("#error_alert").css("display", "none");
+                $('#unit_add_Modal').modal('toggle');
+                $.ajax({
+                    url: "/UNITs/AddUnit",
+                    data: {
+                        name: content.val()
+                    },
+                    type: "post",
+                    dataType: "html"
+                })
+                location.reload();
+            }
+            else {
+                $("#error_alert").css("display", "block");
+            }
+        });
+
+        //Select Category for change
+        $(".ico_edit").on("click", function () {
+            $editInput.val($(this).data('name'));
+            $slctd_id = $(this).data('id');
+        });
+
+        //Edit and save changes
+        $("#edit_unit").on("click", function () {
+            if ($editInput.val().trim() != "") {
+                $("#edit_error_alert").css("display", "none");
+
+                $('#unit_edit_Modal').modal('toggle');
+
+                $.ajax({
+                    url: "/UNITs/EditUnit",
+                    data: {
+                        name: $editInput.val(),
+                        id: $slctd_id
+                    },
+                    type: "post",
+                    dataType: "html"
+                })
+
+                location.reload();
+            }
+            else {
+                $("#edit_error_alert").css("display", "block");
+            }
+        });
+    </script>
+}

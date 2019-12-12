@@ -1,0 +1,78 @@
+﻿@model UluagroAspnet.Mainclasses.NewWorkPlan.MainWorkPlanVM
+<div class="modal-content panel tr-3s" role="document">
+
+    <form action="/" method="post">
+        <div class="panel-header text-center">
+            <h4 class="panel-title">İş planlaması</h4>
+        </div>
+        <div class="panel-body">
+            <div class="row as-5">
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Başlama Tarixi</label>
+                    <input class="input" type="datetime-local" name="StartDate" value="" />
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Bitmə Tarixi</label>
+                    <input class="input" type="datetime-local" name="Enddate" value="" />
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Cavabdeh Şəxs</label>
+                    <select class="input" name="responder">
+                        <option selected disabled >Seç</option>
+                        @foreach (var item in Model.Responders)
+                        {
+                            <option value="@item.ID">@item.Name  @item.Surname  (@item.Profession.Name )  </option>
+                        }
+                    </select>
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>İşlərin Kategoriyası</label>
+                    <select id="_WorkCategoryChange" class="input">
+                        <option selected disabled>Seç</option>
+                        @foreach (var item in Model.WorkCategories )
+                        {
+                            <option value="@item.OBJECTID">@item.NAME</option>
+                        }
+                    </select>
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Görüləcək İş</label>
+                    <select id="_WorkToBeDone" class="input">
+                        <option value="value">text</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Sahe işleri</label>
+                    <input id="_ParcelCheckBoxs" type="checkbox" value="" />
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <div id="_ParcelsCategory" style="display:none">
+                        <label>Sahənin Kategoriyası</label>
+                        <select id="_parcelCategoryChange" class="input">
+                            <option selected disabled>Seç</option>
+                            @foreach (var item in Model.ParcelCategories)
+                            {
+                                <option value="@item.OBJECTID">@item.NAME</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <div id="_Parcels" style="display:none">
+                        <label>Sahe</label>
+                        <select id="_parcelbyCategory" class="input" name="parselid">
+                            <option value="value">text</option>
+                        </select>
+                    </div>
+                </div>
+            </div> 
+            <div>
+                <button type="button" class="btn bg-blue" id="_WorkPlanNewTask" data-target-modal="_workPlanTask">Tapşırıq Əlavə Et</button>
+            </div>
+
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="_workPlan">Bağla</span>
+        </div>
+    </form>
+</div>

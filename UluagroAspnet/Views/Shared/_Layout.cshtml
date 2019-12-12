@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="utf-8">
+    <title>UluAgro.az</title>
+
+    <meta name="viewport" content="initial-scale=1, user-scalable=1, width=device-width">
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2d71e2" />
+    <meta name="msapplication-TileImage" content="~/Public/assets/images/favicon.png">
+    <meta name="msapplication-TileColor" content="#2d71e2" />
+    <meta name="msapplication-navbutton-color" content="#2d71e2" />
+    <meta name="theme-color" content="#2d71e2" />
+
+    <meta name="robots" content="noindex, nofollow, noarchive, noodp, noydir" />
+
+    <meta name="country" content="Azerbaijan" />
+    <meta name="language" content="Azerbaijani" />
+    <meta name="content-language" content="az_AZ" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="designer" content="Kamal Balayev" />
+    <meta name="generator" content="Virtual Azərbaycan Şirkəti" />
+    <meta name="copyright" content="UluAgro.az (c) 2018 Bütün hüquqlar qorunur" />
+    <meta name="description" content="Description" />
+
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link rel="canonical" href="http://www.uluagro.az/" />
+
+    <link rel="shortcut icon" href="~/Public/assets/images/favicon.png" />
+    <link rel="stylesheet" href="~/Public/assets/css/main.css" />
+    <link rel="stylesheet" href="~/Public/assets/css/pi.css">
+    <link rel="stylesheet" href="~/Public/assets/icons/style.css" />
+    <link rel="stylesheet" href="~/Public/assets/css/datetimepicker.css" />
+    <link rel="stylesheet" href="~/Public/assets/dataTable/datatables.min.css" />
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.29/esri/css/esri.css" />
+
+    <!-- Kameralar ucun ling -->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+</head>
+<body>
+    @RenderBody()
+
+    <script src="https://unpkg.com/babel-polyfill@6.2.0/dist/polyfill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.standalone.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+    <script src="~/Public/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="~/Public/assets/js/datetimepicker.js"></script>
+
+    <script src="~/Public/assets/js/script.js"></script>
+
+    <script src="~/Public/assets/dataTable/datatables.min.js"></script>
+
+    <script type="text/javascript" src="~/Public/assets/js/jsmpeg.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment-with-locales.min.js"></script>
+
+    <script src="~/Public/assets/js/pi.js"></script>
+    <script src="~/Public/assets/js/popper.min.js"></script>
+    <script src="~/Public/assets/js/tooltip.js"></script>
+    <script async src="~/Public/assets/js/photo-gallery.min.js"></script>
+    <script src="https://js.arcgis.com/3.29/"></script>
+    <script src="~/Public/assets/js/document.js"></script>
+
+    <script>
+
+        //var canvas = document.getElementById('videoCanvas');
+        //var ws = new WebSocket("ws://213.154.5.139:3001");
+        //var player = new jsmpeg(ws, {canvas:canvas, autoplay:true,audio:false,loop: true});
+
+        $('.dataTable').DataTable();
+
+        $(".ClickCamera").on("click", function () {
+            var cameraNumber = this.getAttribute("data-kamera-number");
+
+            //var cameraPort = "ws://213.154.5.139:300" + cameraNumber;
+
+            //$("._dinamicVideo").append("<div><canvas id='videoCanvas' width='30%' height='30%'></canvas></div>");
+
+            //var canvas = document.getElementById('videoCanvas');
+            //var ws = new WebSocket("ws://192.168.1.33:9998");
+            //var player = new jsmpeg(ws, { canvas: canvas, autoplay: true, audio: false, loop: true });
+
+            var videoTitle = $("._cameratitle");
+            videoTitle.text("Kamera " + cameraNumber);
+
+            var stringUrl = "https://wcs5-eu.flashphoner.com:8888/embed_player?urlServer=wss://wcs5-eu.flashphoner.com:8443&streamName=rtsp://admin:cyye2007@158.181.37.45:554/unicast/c" + cameraNumber + "/s2/live&mediaProviders=WebRTC,Flash,MSE,WSPlayer?autoplay=1"
+
+            var videoIframe = $("#fp_embed_player");
+            videoIframe.attr("src", stringUrl);
+
+        })
+
+        $("._clearcameraUrl").on("click", function () {
+            //$("._dinamicVideo div").remove();
+            var videoIframe = $("#fp_embed_player");
+            videoIframe.attr("src", "");
+        })
+
+    </script>
+
+    <!-- Main Ajax Link-->
+    <script src="~/Public/assets/js/MainAjax.js"></script>
+
+    <script>
+
+        const $body = $('body');
+        const $sideToggle = $('.side-toggle');
+
+        $sideToggle.on('click', function () {
+
+            const $sideBar = $('.sidebar');
+            var $thisSideToggle = $(this);
+            var $sideId = $thisSideToggle.attr('id');
+
+            var $thisSideBar = $('[aria-labelledby="' + $sideId + '"]');
+
+            if ($thisSideBar.hasClass('shown')) {
+                $thisSideToggle.attr('aria-expanded', 'false');
+                $thisSideBar.removeClass('shown');
+            } else {
+                $sideToggle.attr('aria-expanded', 'false');
+                $thisSideToggle.attr('aria-expanded', 'true');
+                $sideBar.removeClass('shown');
+                $thisSideBar.addClass('shown');
+            }
+
+            if ($sideBar.hasClass('shown')) {
+                $body.addClass('side-shown');
+            } else {
+                $body.removeClass('side-shown');
+            }
+        });
+
+        $('.search-toggle').on('click', function () {
+            $body.toggleClass('search-open');
+        });
+
+        $('*').click(function (e) {
+
+            /*if (!$(e.target).is('.side-toggle')
+                && !$(e.target).is('.side-toggle *')
+                && !$(e.target).is('.side-menu')
+                && !$(e.target).is('.side-menu *')) {
+                $body.removeClass('side-shown');
+            }*/
+
+            if (!$(e.target).is('#search-input')
+                && !$(e.target).is('#search-input *')) {
+                $searchFilter.attr('hidden', true);
+            }
+        });
+
+        const $searchFilter = $('.search-filter');
+        const $searchInput = $('#search-input');
+
+        $searchInput.on('focus', function () {
+            $searchFilter.attr('hidden', false);
+        });
+
+        /*====================================================================================================================*/
+        /* Side menu */
+        /*====================================================================================================================*/
+
+        $(document).on('click', '.menu-toggle', function () {
+            const $id = $(this).attr('id');
+
+            $(this).parent().siblings().find('ul, .sub-menu').slideUp(300);
+
+            $(this).parent().toggleClass('active');
+            $(this).parent().siblings().removeClass('active');
+
+            $('[aria-labelledby="' + $id + '"]').slideToggle(300);
+            return false;
+        });
+
+    </script>
+
+    <script src="~/Public/assets/js/utils.js"></script>
+
+    <script>
+        var MONTHS = ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'İyun', 'İyul', 'Avqust', 'Sentyabr', 'Oktyabr', 'Noyabr', 'Dekabr'];
+        var config = {
+            type: 'line',
+            data: {
+                labels: ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'İyun', 'İyul', 'Avqust', 'Sentyabr', 'Oktyabr'],
+                datasets: [{
+                    label: 'Yağış',
+                    backgroundColor: window.chartColors.blue,
+                    borderColor: window.chartColors.blue,
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                    fill: false,
+                }, {
+                    label: 'Havakı isilik dərəcəsi',
+                    fill: false,
+                    backgroundColor: window.chartColors.green,
+                    borderColor: window.chartColors.green,
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                }, {
+                    label: 'Torpaqdakı nəmişlik miqdarı',
+                    fill: false,
+                    backgroundColor: window.chartColors.yellow,
+                    borderColor: window.chartColors.yellow,
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: false,
+                    text: 'Xəstəlik riski'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            // labelString: 'Month'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            // labelString: 'Value'
+                        }
+                    }]
+                }
+            }
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById('risk-graph').getContext('2d');
+            window.myLine = new Chart(ctx, config);
+        };
+
+        document.getElementById('randomizeData').addEventListener('click', function () {
+            config.data.datasets.forEach(function (dataset) {
+                dataset.data = dataset.data.map(function () {
+                    return randomScalingFactor();
+                });
+
+            });
+
+            window.myLine.update();
+        });
+
+        var colorNames = Object.keys(window.chartColors);
+        document.getElementById('addDataset').addEventListener('click', function () {
+            var colorName = colorNames[config.data.datasets.length % colorNames.length];
+            var newColor = window.chartColors[colorName];
+            var newDataset = {
+                label: 'Dataset ' + config.data.datasets.length,
+                backgroundColor: newColor,
+                borderColor: newColor,
+                data: [],
+                fill: false
+            };
+
+            for (var index = 0; index < config.data.labels.length; ++index) {
+                newDataset.data.push(randomScalingFactor());
+            }
+
+            config.data.datasets.push(newDataset);
+            window.myLine.update();
+        });
+
+        document.getElementById('addData').addEventListener('click', function () {
+            if (config.data.datasets.length > 0) {
+                var month = MONTHS[config.data.labels.length % MONTHS.length];
+                config.data.labels.push(month);
+
+                config.data.datasets.forEach(function (dataset) {
+                    dataset.data.push(randomScalingFactor());
+                });
+
+                window.myLine.update();
+            }
+        });
+
+        document.getElementById('removeDataset').addEventListener('click', function () {
+            config.data.datasets.splice(0, 1);
+            window.myLine.update();
+        });
+
+        document.getElementById('removeData').addEventListener('click', function () {
+            config.data.labels.splice(-1, 1); // remove the label first
+
+            config.data.datasets.forEach(function (dataset) {
+                dataset.data.pop();
+            });
+
+            window.myLine.update();
+        });
+    </script>
+
+</body>
+
+</html>

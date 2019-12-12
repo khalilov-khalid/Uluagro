@@ -1,0 +1,2188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OculusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OculusEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Actions" EntityType="OculusModel.Action" />
+    <EntitySet Name="CATEGORIES" EntityType="OculusModel.CATEGORy" />
+    <EntitySet Name="CATEGORIES_WORK_CATEGORY" EntityType="OculusModel.CATEGORIES_WORK_CATEGORY" />
+    <EntitySet Name="DAYLY_WORK_PLAN" EntityType="OculusModel.DAYLY_WORK_PLAN" />
+    <EntitySet Name="FERTILIZERs" EntityType="OculusModel.FERTILIZER" />
+    <EntitySet Name="FERTILIZER_STOCK" EntityType="OculusModel.FERTILIZER_STOCK" />
+    <EntitySet Name="FERTILIZER_WORK_PLAN" EntityType="OculusModel.FERTILIZER_WORK_PLAN" />
+    <EntitySet Name="FIRMS" EntityType="OculusModel.FIRM" />
+    <EntitySet Name="Genders" EntityType="OculusModel.Gender" />
+    <EntitySet Name="GROUPs" EntityType="OculusModel.GROUP" />
+    <EntitySet Name="MAIN_COMPONENTS" EntityType="OculusModel.MAIN_COMPONENTS" />
+    <EntitySet Name="MARKS" EntityType="OculusModel.MARK" />
+    <EntitySet Name="PACKINGs" EntityType="OculusModel.PACKING" />
+    <EntitySet Name="PARCELs" EntityType="OculusModel.PARCEL" />
+    <EntitySet Name="PARCEL_CATEGORY" EntityType="OculusModel.PARCEL_CATEGORY" />
+    <EntitySet Name="Professions" EntityType="OculusModel.Profession" />
+    <EntitySet Name="QueuePlans" EntityType="OculusModel.QueuePlan" />
+    <EntitySet Name="Roles" EntityType="OculusModel.Role" />
+    <EntitySet Name="STATUSMODIFies" EntityType="OculusModel.STATUSMODIFY" />
+    <EntitySet Name="TECHNIQUE_CONDITION" EntityType="OculusModel.TECHNIQUE_CONDITION" />
+    <EntitySet Name="TECHNIQUE_TRAILER" EntityType="OculusModel.TECHNIQUE_TRAILER" />
+    <EntitySet Name="TECHNIQUE_TYPE" EntityType="OculusModel.TECHNIQUE_TYPE" />
+    <EntitySet Name="TECHNIQUE_WORKING_TYPE" EntityType="OculusModel.TECHNIQUE_WORKING_TYPE" />
+    <EntitySet Name="TECHNIQUES" EntityType="OculusModel.TECHNIQUE" />
+    <EntitySet Name="UNITS" EntityType="OculusModel.UNIT" />
+    <EntitySet Name="USERADMINSTATUS" EntityType="OculusModel.USERADMINSTATU" />
+    <EntitySet Name="Users" EntityType="OculusModel.User" />
+    <EntitySet Name="WORK_PLAN" EntityType="OculusModel.WORK_PLAN" />
+    <EntitySet Name="WORK_PLAN_MODIFY" EntityType="OculusModel.WORK_PLAN_MODIFY" />
+    <EntitySet Name="WORK_PLAN_TECHNIQUE" EntityType="OculusModel.WORK_PLAN_TECHNIQUE" />
+    <EntitySet Name="WORK_PLAN_WORKERS" EntityType="OculusModel.WORK_PLAN_WORKERS" />
+    <EntitySet Name="Workers" EntityType="OculusModel.Worker" />
+    <EntitySet Name="WORKS" EntityType="OculusModel.WORK" />
+    <EntitySet Name="WORKS_CATEGORY" EntityType="OculusModel.WORKS_CATEGORY" />
+    <AssociationSet Name="FK_Roles_Action" Association="OculusModel.FK_Roles_Action">
+      <End Role="Action" EntitySet="Actions" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CATEGORIES_WORK_CATEGORY_CATEGORIES" Association="OculusModel.FK_CATEGORIES_WORK_CATEGORY_CATEGORIES">
+      <End Role="CATEGORy" EntitySet="CATEGORIES" />
+      <End Role="CATEGORIES_WORK_CATEGORY" EntitySet="CATEGORIES_WORK_CATEGORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_CATEGORIES" Association="OculusModel.FK_FERTILIZER_CATEGORIES">
+      <End Role="CATEGORy" EntitySet="CATEGORIES" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CATEGORIES_WORK_CATEGORY_WORKS_CATEGORY" Association="OculusModel.FK_CATEGORIES_WORK_CATEGORY_WORKS_CATEGORY">
+      <End Role="WORKS_CATEGORY" EntitySet="WORKS_CATEGORY" />
+      <End Role="CATEGORIES_WORK_CATEGORY" EntitySet="CATEGORIES_WORK_CATEGORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAYLY_WORK_PLAN_WORK_PLAN" Association="OculusModel.FK_DAYLY_WORK_PLAN_WORK_PLAN">
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+      <End Role="DAYLY_WORK_PLAN" EntitySet="DAYLY_WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QueuePlan_DAYLY_WORK_PLAN" Association="OculusModel.FK_QueuePlan_DAYLY_WORK_PLAN">
+      <End Role="DAYLY_WORK_PLAN" EntitySet="DAYLY_WORK_PLAN" />
+      <End Role="QueuePlan" EntitySet="QueuePlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_FERTILIZER" Association="OculusModel.FK_FERTILIZER_FERTILIZER">
+      <End Role="MAIN_COMPONENTS" EntitySet="MAIN_COMPONENTS" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_FIRMS" Association="OculusModel.FK_FERTILIZER_FIRMS">
+      <End Role="FIRM" EntitySet="FIRMS" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_MARKS" Association="OculusModel.FK_FERTILIZER_MARKS">
+      <End Role="MARK" EntitySet="MARKS" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_PACKING" Association="OculusModel.FK_FERTILIZER_PACKING">
+      <End Role="PACKING" EntitySet="PACKINGs" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_STOCK_FERTILIZER" Association="OculusModel.FK_FERTILIZER_STOCK_FERTILIZER">
+      <End Role="FERTILIZER" EntitySet="FERTILIZERs" />
+      <End Role="FERTILIZER_STOCK" EntitySet="FERTILIZER_STOCK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_UNITS" Association="OculusModel.FK_FERTILIZER_UNITS">
+      <End Role="UNIT" EntitySet="UNITS" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_WORK_PLAN_FERTILIZER" Association="OculusModel.FK_FERTILIZER_WORK_PLAN_FERTILIZER">
+      <End Role="FERTILIZER" EntitySet="FERTILIZERs" />
+      <End Role="FERTILIZER_WORK_PLAN" EntitySet="FERTILIZER_WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_WORK_PLAN_WORK_PLAN" Association="OculusModel.FK_FERTILIZER_WORK_PLAN_WORK_PLAN">
+      <End Role="QueuePlan" EntitySet="QueuePlans" />
+      <End Role="FERTILIZER_WORK_PLAN" EntitySet="FERTILIZER_WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_Gender" Association="OculusModel.FK_Workers_Gender">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="Worker" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Group" Association="OculusModel.FK_Roles_Group">
+      <End Role="GROUP" EntitySet="GROUPs" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Group" Association="OculusModel.FK_Users_Group">
+      <End Role="GROUP" EntitySet="GROUPs" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PARCEL_PARCEL_CATEGORY" Association="OculusModel.FK_PARCEL_PARCEL_CATEGORY">
+      <End Role="PARCEL_CATEGORY" EntitySet="PARCEL_CATEGORY" />
+      <End Role="PARCEL" EntitySet="PARCELs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PARCEL_Workers" Association="OculusModel.FK_PARCEL_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="PARCEL" EntitySet="PARCELs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_PARCEL" Association="OculusModel.FK_WORK_PLAN_PARCEL">
+      <End Role="PARCEL" EntitySet="PARCELs" />
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_Professions" Association="OculusModel.FK_Workers_Professions">
+      <End Role="Profession" EntitySet="Professions" />
+      <End Role="Worker" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_TECHNIQUE_WORK_PLAN" Association="OculusModel.FK_WORK_PLAN_TECHNIQUE_WORK_PLAN">
+      <End Role="QueuePlan" EntitySet="QueuePlans" />
+      <End Role="WORK_PLAN_TECHNIQUE" EntitySet="WORK_PLAN_TECHNIQUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_WORKERS_WORK_PLAN" Association="OculusModel.FK_WORK_PLAN_WORKERS_WORK_PLAN">
+      <End Role="QueuePlan" EntitySet="QueuePlans" />
+      <End Role="WORK_PLAN_WORKERS" EntitySet="WORK_PLAN_WORKERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_MODIFY_STATUSMODIFY" Association="OculusModel.FK_WORK_PLAN_MODIFY_STATUSMODIFY">
+      <End Role="STATUSMODIFY" EntitySet="STATUSMODIFies" />
+      <End Role="WORK_PLAN_MODIFY" EntitySet="WORK_PLAN_MODIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUES_TECHNIQUE_CONDITION" Association="OculusModel.FK_TECHNIQUES_TECHNIQUE_CONDITION">
+      <End Role="TECHNIQUE_CONDITION" EntitySet="TECHNIQUE_CONDITION" />
+      <End Role="TECHNIQUE" EntitySet="TECHNIQUES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUE_TRAILER_TECHNIQUES" Association="OculusModel.FK_TECHNIQUE_TRAILER_TECHNIQUES">
+      <End Role="TECHNIQUE" EntitySet="TECHNIQUES" />
+      <End Role="TECHNIQUE_TRAILER" EntitySet="TECHNIQUE_TRAILER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUE_TRAILER_WORK_PLAN_TECHNIQUE" Association="OculusModel.FK_TECHNIQUE_TRAILER_WORK_PLAN_TECHNIQUE">
+      <End Role="WORK_PLAN_TECHNIQUE" EntitySet="WORK_PLAN_TECHNIQUE" />
+      <End Role="TECHNIQUE_TRAILER" EntitySet="TECHNIQUE_TRAILER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUES_TECHNIQUE_TYPE" Association="OculusModel.FK_TECHNIQUES_TECHNIQUE_TYPE">
+      <End Role="TECHNIQUE_TYPE" EntitySet="TECHNIQUE_TYPE" />
+      <End Role="TECHNIQUE" EntitySet="TECHNIQUES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUES_TECHNIQUE_WORKING_TYPE" Association="OculusModel.FK_TECHNIQUES_TECHNIQUE_WORKING_TYPE">
+      <End Role="TECHNIQUE_WORKING_TYPE" EntitySet="TECHNIQUE_WORKING_TYPE" />
+      <End Role="TECHNIQUE" EntitySet="TECHNIQUES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_TECHNIQUE_TECHNIQUES" Association="OculusModel.FK_WORK_PLAN_TECHNIQUE_TECHNIQUES">
+      <End Role="TECHNIQUE" EntitySet="TECHNIQUES" />
+      <End Role="WORK_PLAN_TECHNIQUE" EntitySet="WORK_PLAN_TECHNIQUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_USERADMINSTATUS" Association="OculusModel.FK_Users_USERADMINSTATUS">
+      <End Role="USERADMINSTATU" EntitySet="USERADMINSTATUS" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Workers" Association="OculusModel.FK_Users_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_MODIFY_Users" Association="OculusModel.FK_WORK_PLAN_MODIFY_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="WORK_PLAN_MODIFY" EntitySet="WORK_PLAN_MODIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_MODIFY_WORK_PLAN" Association="OculusModel.FK_WORK_PLAN_MODIFY_WORK_PLAN">
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+      <End Role="WORK_PLAN_MODIFY" EntitySet="WORK_PLAN_MODIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_Workers" Association="OculusModel.FK_WORK_PLAN_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_WORKS" Association="OculusModel.FK_WORK_PLAN_WORKS">
+      <End Role="WORK" EntitySet="WORKS" />
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_TECHNIQUE_Workers" Association="OculusModel.FK_WORK_PLAN_TECHNIQUE_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="WORK_PLAN_TECHNIQUE" EntitySet="WORK_PLAN_TECHNIQUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_WORKERS_Workers" Association="OculusModel.FK_WORK_PLAN_WORKERS_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="WORK_PLAN_WORKERS" EntitySet="WORK_PLAN_WORKERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKS_WORKS_CATEGORY" Association="OculusModel.FK_WORKS_WORKS_CATEGORY">
+      <End Role="WORKS_CATEGORY" EntitySet="WORKS_CATEGORY" />
+      <End Role="WORK" EntitySet="WORKS" />
+    </AssociationSet>
+    <EntitySet Name="CURRENT_ACCOUNT" EntityType="OculusModel.CURRENT_ACCOUNT" />
+    <EntitySet Name="PAYMENT_INOUT" EntityType="OculusModel.PAYMENT_INOUT" />
+    <EntitySet Name="PAYMENT_TYPE" EntityType="OculusModel.PAYMENT_TYPE" />
+    <EntitySet Name="PAYMENTs" EntityType="OculusModel.PAYMENT" />
+    <AssociationSet Name="FK_PAYMENT_PAYMENT_INOUT" Association="OculusModel.FK_PAYMENT_PAYMENT_INOUT">
+      <End Role="PAYMENT_INOUT" EntitySet="PAYMENT_INOUT" />
+      <End Role="PAYMENT" EntitySet="PAYMENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAYMENT_PAYMENT_TYPE" Association="OculusModel.FK_PAYMENT_PAYMENT_TYPE">
+      <End Role="PAYMENT_TYPE" EntitySet="PAYMENT_TYPE" />
+      <End Role="PAYMENT" EntitySet="PAYMENTs" />
+    </AssociationSet>
+    <EntitySet Name="PVOT_S" EntityType="OculusModel.PVOT_S" />
+    <FunctionImport Name="StorkTest1">
+      <Parameter Name="PRODUCT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPE" Mode="In" Type="Int32" />
+      <Parameter Name="QUANTITY" Mode="In" Type="Int32" />
+      <Parameter Name="CREATED_DATA" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATA" Mode="In" Type="DateTime" />
+      <Parameter Name="PLACE" Mode="In" Type="Int32" />
+      <Parameter Name="SPEC" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="StorkTest">
+      <Parameter Name="PRODUCT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="TYPE" Mode="In" Type="Int32" />
+      <Parameter Name="QUANTITY" Mode="In" Type="Int32" />
+      <Parameter Name="CREATED_DATA" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATA" Mode="In" Type="DateTime" />
+      <Parameter Name="PLACE" Mode="In" Type="Int32" />
+      <Parameter Name="SPEC" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="STOCKPLACES" EntityType="OculusModel.STOCKPLACE" />
+    <EntitySet Name="STOCKS" EntityType="OculusModel.STOCK" />
+    <EntitySet Name="STOCKMODIFies" EntityType="OculusModel.STOCKMODIFY" />
+    <AssociationSet Name="FK_STOCKMODIFY_STOCKPLACES" Association="OculusModel.FK_STOCKMODIFY_STOCKPLACES">
+      <End Role="STOCKPLACE" EntitySet="STOCKPLACES" />
+      <End Role="STOCKMODIFY" EntitySet="STOCKMODIFies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCKMODIFY_STOCKS" Association="OculusModel.FK_STOCKMODIFY_STOCKS">
+      <End Role="STOCK" EntitySet="STOCKS" />
+      <End Role="STOCKMODIFY" EntitySet="STOCKMODIFies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCKMODIFY_Workers" Association="OculusModel.FK_STOCKMODIFY_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="STOCKMODIFY" EntitySet="STOCKMODIFies" />
+    </AssociationSet>
+    <EntitySet Name="CROPs" EntityType="OculusModel.CROP" />
+    <EntitySet Name="CROP_SORT" EntityType="OculusModel.CROP_SORT" />
+    <AssociationSet Name="FK_CROP_PARCEL_CATEGORY" Association="OculusModel.FK_CROP_PARCEL_CATEGORY">
+      <End Role="PARCEL_CATEGORY" EntitySet="PARCEL_CATEGORY" />
+      <End Role="CROP" EntitySet="CROPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CROP_SORT_CROP" Association="OculusModel.FK_CROP_SORT_CROP">
+      <End Role="CROP" EntitySet="CROPs" />
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+    </AssociationSet>
+    <EntitySet Name="CROP_REPRODUCTION" EntityType="OculusModel.CROP_REPRODUCTION" />
+    <EntitySet Name="MESSAGENOTIFICATIONs" EntityType="OculusModel.MESSAGENOTIFICATION" />
+    <AssociationSet Name="FK_MESSAGENOTIFICATION_Users" Association="OculusModel.FK_MESSAGENOTIFICATION_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="MESSAGENOTIFICATION" EntitySet="MESSAGENOTIFICATIONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGENOTIFICATION_Users1" Association="OculusModel.FK_MESSAGENOTIFICATION_Users1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="MESSAGENOTIFICATION" EntitySet="MESSAGENOTIFICATIONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGENOTIFICATION_WORK_PLAN" Association="OculusModel.FK_MESSAGENOTIFICATION_WORK_PLAN">
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+      <End Role="MESSAGENOTIFICATION" EntitySet="MESSAGENOTIFICATIONs" />
+    </AssociationSet>
+    <EntitySet Name="PLANNINGPLANs" EntityType="OculusModel.PLANNINGPLAN" />
+    <EntitySet Name="PLANNINGPLANDETAILS" EntityType="OculusModel.PLANNINGPLANDETAIL" />
+    <EntitySet Name="PLANNINGPLANDETAILSWORKS" EntityType="OculusModel.PLANNINGPLANDETAILSWORK" />
+    <AssociationSet Name="FK_PLANNINGPLAN_CROP_REPRODUCTION" Association="OculusModel.FK_PLANNINGPLAN_CROP_REPRODUCTION">
+      <End Role="CROP_REPRODUCTION" EntitySet="CROP_REPRODUCTION" />
+      <End Role="PLANNINGPLAN" EntitySet="PLANNINGPLANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLANDETAILS_CROP_REPRODUCTION" Association="OculusModel.FK_PLANNINGPLANDETAILS_CROP_REPRODUCTION">
+      <End Role="CROP_REPRODUCTION" EntitySet="CROP_REPRODUCTION" />
+      <End Role="PLANNINGPLANDETAIL" EntitySet="PLANNINGPLANDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLAN_CROP_SORT" Association="OculusModel.FK_PLANNINGPLAN_CROP_SORT">
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+      <End Role="PLANNINGPLAN" EntitySet="PLANNINGPLANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLANDETAILS_CROP_SORT" Association="OculusModel.FK_PLANNINGPLANDETAILS_CROP_SORT">
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+      <End Role="PLANNINGPLANDETAIL" EntitySet="PLANNINGPLANDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLAN_PARCEL" Association="OculusModel.FK_PLANNINGPLAN_PARCEL">
+      <End Role="PARCEL" EntitySet="PARCELs" />
+      <End Role="PLANNINGPLAN" EntitySet="PLANNINGPLANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLANDETAILSWORKS_PlanningPlanDetails" Association="OculusModel.FK_PLANNINGPLANDETAILSWORKS_PlanningPlanDetails">
+      <End Role="PLANNINGPLANDETAIL" EntitySet="PLANNINGPLANDETAILS" />
+      <End Role="PLANNINGPLANDETAILSWORK" EntitySet="PLANNINGPLANDETAILSWORKS" />
+    </AssociationSet>
+    <EntitySet Name="PLANINGPLANBYDETAILS" EntityType="OculusModel.PLANINGPLANBYDETAIL" />
+    <AssociationSet Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLAN" Association="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLAN">
+      <End Role="PLANNINGPLAN" EntitySet="PLANNINGPLANs" />
+      <End Role="PLANINGPLANBYDETAIL" EntitySet="PLANINGPLANBYDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILS" Association="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILS">
+      <End Role="PLANNINGPLANDETAIL" EntitySet="PLANNINGPLANDETAILS" />
+      <End Role="PLANINGPLANBYDETAIL" EntitySet="PLANINGPLANBYDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILSWORKS" Association="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILSWORKS">
+      <End Role="PLANNINGPLANDETAILSWORK" EntitySet="PLANNINGPLANDETAILSWORKS" />
+      <End Role="PLANINGPLANBYDETAIL" EntitySet="PLANINGPLANBYDETAILS" />
+    </AssociationSet>
+    <EntitySet Name="MYSILOSTOCKs" EntityType="OculusModel.MYSILOSTOCK" />
+    <EntitySet Name="MYSILOSTOCKDETAILS" EntityType="OculusModel.MYSILOSTOCKDETAIL" />
+    <AssociationSet Name="FK_MYSILOSTOCK_CROP_REPRODUCTION" Association="OculusModel.FK_MYSILOSTOCK_CROP_REPRODUCTION">
+      <End Role="CROP_REPRODUCTION" EntitySet="CROP_REPRODUCTION" />
+      <End Role="MYSILOSTOCK" EntitySet="MYSILOSTOCKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCKDETAILS_CROP_REPRODUCTION" Association="OculusModel.FK_MYSILOSTOCKDETAILS_CROP_REPRODUCTION">
+      <End Role="CROP_REPRODUCTION" EntitySet="CROP_REPRODUCTION" />
+      <End Role="MYSILOSTOCKDETAIL" EntitySet="MYSILOSTOCKDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCK_CROP_SORT" Association="OculusModel.FK_MYSILOSTOCK_CROP_SORT">
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+      <End Role="MYSILOSTOCK" EntitySet="MYSILOSTOCKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCKDETAILS_CROP_SORT" Association="OculusModel.FK_MYSILOSTOCKDETAILS_CROP_SORT">
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+      <End Role="MYSILOSTOCKDETAIL" EntitySet="MYSILOSTOCKDETAILS" />
+    </AssociationSet>
+    <EntitySet Name="DOCMESSAGEs" EntityType="OculusModel.DOCMESSAGE" />
+    <EntitySet Name="DOCUMENTS" EntityType="OculusModel.DOCUMENT" />
+    <AssociationSet Name="FK_DOCMESSAGE_DOCUMENTS" Association="OculusModel.FK_DOCMESSAGE_DOCUMENTS">
+      <End Role="DOCUMENT" EntitySet="DOCUMENTS" />
+      <End Role="DOCMESSAGE" EntitySet="DOCMESSAGEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCMESSAGE_Workers" Association="OculusModel.FK_DOCMESSAGE_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="DOCMESSAGE" EntitySet="DOCMESSAGEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCMESSAGE_Workers1" Association="OculusModel.FK_DOCMESSAGE_Workers1">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="DOCMESSAGE" EntitySet="DOCMESSAGEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCUMENTS_Workers" Association="OculusModel.FK_DOCUMENTS_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="DOCUMENT" EntitySet="DOCUMENTS" />
+    </AssociationSet>
+    <EntitySet Name="MYSILOes" EntityType="OculusModel.MYSILO" />
+    <AssociationSet Name="FK_MYSILOSTOCK_MYSILO" Association="OculusModel.FK_MYSILOSTOCK_MYSILO">
+      <End Role="MYSILO" EntitySet="MYSILOes" />
+      <End Role="MYSILOSTOCK" EntitySet="MYSILOSTOCKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCKDETAILS_MYSILO" Association="OculusModel.FK_MYSILOSTOCKDETAILS_MYSILO">
+      <End Role="MYSILO" EntitySet="MYSILOes" />
+      <End Role="MYSILOSTOCKDETAIL" EntitySet="MYSILOSTOCKDETAILS" />
+    </AssociationSet>
+    <EntitySet Name="WOKRPLAN2TASKQUEUETECHNICAL" EntityType="OculusModel.WOKRPLAN2TASKQUEUETECHNICAL" />
+    <EntitySet Name="WORKPLAN2" EntityType="OculusModel.WORKPLAN2" />
+    <EntitySet Name="WORKPLAN2PARCELS" EntityType="OculusModel.WORKPLAN2PARCELS" />
+    <EntitySet Name="WORKPLAN2QUEUEWORKERS" EntityType="OculusModel.WORKPLAN2QUEUEWORKERS" />
+    <EntitySet Name="WORKPLAN2TASKFELTILIZER" EntityType="OculusModel.WORKPLAN2TASKFELTILIZER" />
+    <EntitySet Name="WORKPLAN2TASKQUEUE" EntityType="OculusModel.WORKPLAN2TASKQUEUE" />
+    <EntitySet Name="WORKPLAN2TASKS" EntityType="OculusModel.WORKPLAN2TASKS" />
+    <AssociationSet Name="FK_WORKPLAN2TASKFELTILIZER_FERTILIZER" Association="OculusModel.FK_WORKPLAN2TASKFELTILIZER_FERTILIZER">
+      <End Role="FERTILIZER" EntitySet="FERTILIZERs" />
+      <End Role="WORKPLAN2TASKFELTILIZER" EntitySet="WORKPLAN2TASKFELTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2PARCELS_PARCEL" Association="OculusModel.FK_WORKPLAN2PARCELS_PARCEL">
+      <End Role="PARCEL" EntitySet="PARCELs" />
+      <End Role="WORKPLAN2PARCELS" EntitySet="WORKPLAN2PARCELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES" Association="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES">
+      <End Role="TECHNIQUE" EntitySet="TECHNIQUES" />
+      <End Role="WOKRPLAN2TASKQUEUETECHNICAL" EntitySet="WOKRPLAN2TASKQUEUETECHNICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES1" Association="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES1">
+      <End Role="TECHNIQUE" EntitySet="TECHNIQUES" />
+      <End Role="WOKRPLAN2TASKQUEUETECHNICAL" EntitySet="WOKRPLAN2TASKQUEUETECHNICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_Workers" Association="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="WOKRPLAN2TASKQUEUETECHNICAL" EntitySet="WOKRPLAN2TASKQUEUETECHNICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_WORKPLAN2TASKQUEUE" Association="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_WORKPLAN2TASKQUEUE">
+      <End Role="WORKPLAN2TASKQUEUE" EntitySet="WORKPLAN2TASKQUEUE" />
+      <End Role="WOKRPLAN2TASKQUEUETECHNICAL" EntitySet="WOKRPLAN2TASKQUEUETECHNICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2_Workers" Association="OculusModel.FK_WORKPLAN2_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2_Workers1" Association="OculusModel.FK_WORKPLAN2_Workers1">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2QUEUEWORKERS_Workers" Association="OculusModel.FK_WORKPLAN2QUEUEWORKERS_Workers">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="WORKPLAN2QUEUEWORKERS" EntitySet="WORKPLAN2QUEUEWORKERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2_WORKS" Association="OculusModel.FK_WORKPLAN2_WORKS">
+      <End Role="WORK" EntitySet="WORKS" />
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2PARCELS_WORKPLAN2" Association="OculusModel.FK_WORKPLAN2PARCELS_WORKPLAN2">
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+      <End Role="WORKPLAN2PARCELS" EntitySet="WORKPLAN2PARCELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2TASKS_WORKPLAN2" Association="OculusModel.FK_WORKPLAN2TASKS_WORKPLAN2">
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+      <End Role="WORKPLAN2TASKS" EntitySet="WORKPLAN2TASKS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2QUEUEWORKERS_WORKPLAN2TASKQUEUE" Association="OculusModel.FK_WORKPLAN2QUEUEWORKERS_WORKPLAN2TASKQUEUE">
+      <End Role="WORKPLAN2TASKQUEUE" EntitySet="WORKPLAN2TASKQUEUE" />
+      <End Role="WORKPLAN2QUEUEWORKERS" EntitySet="WORKPLAN2QUEUEWORKERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2TASKFELTILIZER_WORKPLAN2TASKS" Association="OculusModel.FK_WORKPLAN2TASKFELTILIZER_WORKPLAN2TASKS">
+      <End Role="WORKPLAN2TASKS" EntitySet="WORKPLAN2TASKS" />
+      <End Role="WORKPLAN2TASKFELTILIZER" EntitySet="WORKPLAN2TASKFELTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2TASKQUEUE_WORKPLAN2TASKS" Association="OculusModel.FK_WORKPLAN2TASKQUEUE_WORKPLAN2TASKS">
+      <End Role="WORKPLAN2TASKS" EntitySet="WORKPLAN2TASKS" />
+      <End Role="WORKPLAN2TASKQUEUE" EntitySet="WORKPLAN2TASKQUEUE" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Roles" Relationship="OculusModel.FK_Roles_Action" FromRole="Action" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="CATEGORy">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CATEGORIES_WORK_CATEGORY" Relationship="OculusModel.FK_CATEGORIES_WORK_CATEGORY_CATEGORIES" FromRole="CATEGORy" ToRole="CATEGORIES_WORK_CATEGORY" />
+    <NavigationProperty Name="FERTILIZERs" Relationship="OculusModel.FK_FERTILIZER_CATEGORIES" FromRole="CATEGORy" ToRole="FERTILIZER" />
+  </EntityType>
+  <EntityType Name="CATEGORIES_WORK_CATEGORY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WORK_CATEGORY_ID" Type="Int32" />
+    <Property Name="CATEGORIES_ID" Type="Int32" />
+    <NavigationProperty Name="CATEGORy" Relationship="OculusModel.FK_CATEGORIES_WORK_CATEGORY_CATEGORIES" FromRole="CATEGORIES_WORK_CATEGORY" ToRole="CATEGORy" />
+    <NavigationProperty Name="WORKS_CATEGORY" Relationship="OculusModel.FK_CATEGORIES_WORK_CATEGORY_WORKS_CATEGORY" FromRole="CATEGORIES_WORK_CATEGORY" ToRole="WORKS_CATEGORY" />
+  </EntityType>
+  <EntityType Name="DAYLY_WORK_PLAN">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WORKPLAN_ID" Type="Int32" />
+    <Property Name="STARTDATE" Type="DateTime" Precision="3" />
+    <Property Name="ENDDATE" Type="DateTime" Precision="3" />
+    <Property Name="NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="WORK_PLAN" Relationship="OculusModel.FK_DAYLY_WORK_PLAN_WORK_PLAN" FromRole="DAYLY_WORK_PLAN" ToRole="WORK_PLAN" />
+    <NavigationProperty Name="QueuePlans" Relationship="OculusModel.FK_QueuePlan_DAYLY_WORK_PLAN" FromRole="DAYLY_WORK_PLAN" ToRole="QueuePlan" />
+  </EntityType>
+  <EntityType Name="FERTILIZER">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIRM_ID" Type="Int32" />
+    <Property Name="MARK_ID" Type="Int32" />
+    <Property Name="MAIN_COMPONENT_ID" Type="Int32" />
+    <Property Name="PACKING_ID" Type="Int32" />
+    <Property Name="UNIT_TYPE_ID" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="CATEGORY_ID" Type="Int32" />
+    <Property Name="WATER_PER_KG" Type="Decimal" Precision="38" Scale="2" />
+    <NavigationProperty Name="CATEGORy" Relationship="OculusModel.FK_FERTILIZER_CATEGORIES" FromRole="FERTILIZER" ToRole="CATEGORy" />
+    <NavigationProperty Name="MAIN_COMPONENTS" Relationship="OculusModel.FK_FERTILIZER_FERTILIZER" FromRole="FERTILIZER" ToRole="MAIN_COMPONENTS" />
+    <NavigationProperty Name="FIRM" Relationship="OculusModel.FK_FERTILIZER_FIRMS" FromRole="FERTILIZER" ToRole="FIRM" />
+    <NavigationProperty Name="MARK" Relationship="OculusModel.FK_FERTILIZER_MARKS" FromRole="FERTILIZER" ToRole="MARK" />
+    <NavigationProperty Name="PACKING" Relationship="OculusModel.FK_FERTILIZER_PACKING" FromRole="FERTILIZER" ToRole="PACKING" />
+    <NavigationProperty Name="FERTILIZER_STOCK" Relationship="OculusModel.FK_FERTILIZER_STOCK_FERTILIZER" FromRole="FERTILIZER" ToRole="FERTILIZER_STOCK" />
+    <NavigationProperty Name="UNIT" Relationship="OculusModel.FK_FERTILIZER_UNITS" FromRole="FERTILIZER" ToRole="UNIT" />
+    <NavigationProperty Name="FERTILIZER_WORK_PLAN" Relationship="OculusModel.FK_FERTILIZER_WORK_PLAN_FERTILIZER" FromRole="FERTILIZER" ToRole="FERTILIZER_WORK_PLAN" />
+    <NavigationProperty Name="WORKPLAN2TASKFELTILIZER" Relationship="OculusModel.FK_WORKPLAN2TASKFELTILIZER_FERTILIZER" FromRole="FERTILIZER" ToRole="WORKPLAN2TASKFELTILIZER" />
+  </EntityType>
+  <EntityType Name="FERTILIZER_STOCK">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FERTILIZER_ID" Type="Int32" />
+    <Property Name="UNIT" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="CREATED_DATE" Type="DateTime" Precision="7" />
+    <Property Name="USED_DATE" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="FERTILIZER" Relationship="OculusModel.FK_FERTILIZER_STOCK_FERTILIZER" FromRole="FERTILIZER_STOCK" ToRole="FERTILIZER" />
+  </EntityType>
+  <EntityType Name="FERTILIZER_WORK_PLAN">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DAYLY_WORK_PLAN_ID" Type="Int32" />
+    <Property Name="FERTILIZER_ID" Type="Int32" />
+    <Property Name="WATER_UNIT" Type="Int32" />
+    <Property Name="FERTILIZER_UNIT" Type="Int32" />
+    <NavigationProperty Name="FERTILIZER" Relationship="OculusModel.FK_FERTILIZER_WORK_PLAN_FERTILIZER" FromRole="FERTILIZER_WORK_PLAN" ToRole="FERTILIZER" />
+    <NavigationProperty Name="QueuePlan" Relationship="OculusModel.FK_FERTILIZER_WORK_PLAN_WORK_PLAN" FromRole="FERTILIZER_WORK_PLAN" ToRole="QueuePlan" />
+  </EntityType>
+  <EntityType Name="FIRM">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FERTILIZERs" Relationship="OculusModel.FK_FERTILIZER_FIRMS" FromRole="FIRM" ToRole="FERTILIZER" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Workers" Relationship="OculusModel.FK_Workers_Gender" FromRole="Gender" ToRole="Worker" />
+  </EntityType>
+  <EntityType Name="GROUP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Roles" Relationship="OculusModel.FK_Roles_Group" FromRole="GROUP" ToRole="Role" />
+    <NavigationProperty Name="Users" Relationship="OculusModel.FK_Users_Group" FromRole="GROUP" ToRole="User" />
+  </EntityType>
+  <EntityType Name="MAIN_COMPONENTS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FERTILIZERs" Relationship="OculusModel.FK_FERTILIZER_FERTILIZER" FromRole="MAIN_COMPONENTS" ToRole="FERTILIZER" />
+  </EntityType>
+  <EntityType Name="MARK">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FERTILIZERs" Relationship="OculusModel.FK_FERTILIZER_MARKS" FromRole="MARK" ToRole="FERTILIZER" />
+  </EntityType>
+  <EntityType Name="PACKING">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FERTILIZERs" Relationship="OculusModel.FK_FERTILIZER_PACKING" FromRole="PACKING" ToRole="FERTILIZER" />
+  </EntityType>
+  <EntityType Name="PARCEL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PARCEL_CATEGORY_ID" Type="Int32" />
+    <Property Name="RESPONSER_ID" Type="Int32" />
+    <Property Name="SHAPE" Type="Geometry" />
+    <Property Name="AREA" Type="Decimal" Precision="38" Scale="1" />
+    <NavigationProperty Name="PARCEL_CATEGORY" Relationship="OculusModel.FK_PARCEL_PARCEL_CATEGORY" FromRole="PARCEL" ToRole="PARCEL_CATEGORY" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_PARCEL_Workers" FromRole="PARCEL" ToRole="Worker" />
+    <NavigationProperty Name="WORK_PLAN" Relationship="OculusModel.FK_WORK_PLAN_PARCEL" FromRole="PARCEL" ToRole="WORK_PLAN" />
+    <Property Name="SORT_ID" Type="Int32" />
+    <Property Name="REPRODUCTION_ID" Type="Int32" />
+    <NavigationProperty Name="PLANNINGPLANs" Relationship="OculusModel.FK_PLANNINGPLAN_PARCEL" FromRole="PARCEL" ToRole="PLANNINGPLAN" />
+    <NavigationProperty Name="WORKPLAN2PARCELS" Relationship="OculusModel.FK_WORKPLAN2PARCELS_PARCEL" FromRole="PARCEL" ToRole="WORKPLAN2PARCELS" />
+  </EntityType>
+  <EntityType Name="PARCEL_CATEGORY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PARCELs" Relationship="OculusModel.FK_PARCEL_PARCEL_CATEGORY" FromRole="PARCEL_CATEGORY" ToRole="PARCEL" />
+    <NavigationProperty Name="CROPs" Relationship="OculusModel.FK_CROP_PARCEL_CATEGORY" FromRole="PARCEL_CATEGORY" ToRole="CROP" />
+  </EntityType>
+  <EntityType Name="Profession">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CanResponser" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Workers" Relationship="OculusModel.FK_Workers_Professions" FromRole="Profession" ToRole="Worker" />
+  </EntityType>
+  <EntityType Name="QueuePlan">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="startdate" Type="DateTime" Precision="3" />
+    <Property Name="enddate" Type="DateTime" Precision="3" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dailyPlanId" Type="Int32" />
+    <NavigationProperty Name="DAYLY_WORK_PLAN" Relationship="OculusModel.FK_QueuePlan_DAYLY_WORK_PLAN" FromRole="QueuePlan" ToRole="DAYLY_WORK_PLAN" />
+    <NavigationProperty Name="FERTILIZER_WORK_PLAN" Relationship="OculusModel.FK_FERTILIZER_WORK_PLAN_WORK_PLAN" FromRole="QueuePlan" ToRole="FERTILIZER_WORK_PLAN" />
+    <NavigationProperty Name="WORK_PLAN_TECHNIQUE" Relationship="OculusModel.FK_WORK_PLAN_TECHNIQUE_WORK_PLAN" FromRole="QueuePlan" ToRole="WORK_PLAN_TECHNIQUE" />
+    <NavigationProperty Name="WORK_PLAN_WORKERS" Relationship="OculusModel.FK_WORK_PLAN_WORKERS_WORK_PLAN" FromRole="QueuePlan" ToRole="WORK_PLAN_WORKERS" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Action_id" Type="Int32" Nullable="false" />
+    <Property Name="Group_id" Type="Int32" Nullable="false" />
+    <Property Name="can_view" Type="Boolean" Nullable="false" />
+    <Property Name="can_update" Type="Boolean" Nullable="false" />
+    <Property Name="can_add" Type="Boolean" Nullable="false" />
+    <Property Name="can_delete" Type="Boolean" Nullable="false" />
+    <Property Name="ownerdata" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Action" Relationship="OculusModel.FK_Roles_Action" FromRole="Role" ToRole="Action" />
+    <NavigationProperty Name="GROUP" Relationship="OculusModel.FK_Roles_Group" FromRole="Role" ToRole="GROUP" />
+  </EntityType>
+  <EntityType Name="STATUSMODIFY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="WORK_PLAN_MODIFY" Relationship="OculusModel.FK_WORK_PLAN_MODIFY_STATUSMODIFY" FromRole="STATUSMODIFY" ToRole="WORK_PLAN_MODIFY" />
+  </EntityType>
+  <EntityType Name="TECHNIQUE_CONDITION">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TECHNIQUES" Relationship="OculusModel.FK_TECHNIQUES_TECHNIQUE_CONDITION" FromRole="TECHNIQUE_CONDITION" ToRole="TECHNIQUE" />
+  </EntityType>
+  <EntityType Name="TECHNIQUE_TRAILER">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WORK_PLAN_TECHNIQUE_ID" Type="Int32" />
+    <Property Name="TECHNIQUE_ID" Type="Int32" />
+    <NavigationProperty Name="TECHNIQUE" Relationship="OculusModel.FK_TECHNIQUE_TRAILER_TECHNIQUES" FromRole="TECHNIQUE_TRAILER" ToRole="TECHNIQUE" />
+    <NavigationProperty Name="WORK_PLAN_TECHNIQUE" Relationship="OculusModel.FK_TECHNIQUE_TRAILER_WORK_PLAN_TECHNIQUE" FromRole="TECHNIQUE_TRAILER" ToRole="WORK_PLAN_TECHNIQUE" />
+  </EntityType>
+  <EntityType Name="TECHNIQUE_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TECHNIQUES" Relationship="OculusModel.FK_TECHNIQUES_TECHNIQUE_TYPE" FromRole="TECHNIQUE_TYPE" ToRole="TECHNIQUE" />
+  </EntityType>
+  <EntityType Name="TECHNIQUE_WORKING_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TECHNIQUES" Relationship="OculusModel.FK_TECHNIQUES_TECHNIQUE_WORKING_TYPE" FromRole="TECHNIQUE_WORKING_TYPE" ToRole="TECHNIQUE" />
+  </EntityType>
+  <EntityType Name="TECHNIQUE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TYPE_ID" Type="Int32" />
+    <Property Name="CONDITION_ID" Type="Int32" />
+    <Property Name="WORKING_TYPE_ID" Type="Int32" />
+    <NavigationProperty Name="TECHNIQUE_CONDITION" Relationship="OculusModel.FK_TECHNIQUES_TECHNIQUE_CONDITION" FromRole="TECHNIQUE" ToRole="TECHNIQUE_CONDITION" />
+    <NavigationProperty Name="TECHNIQUE_TRAILER" Relationship="OculusModel.FK_TECHNIQUE_TRAILER_TECHNIQUES" FromRole="TECHNIQUE" ToRole="TECHNIQUE_TRAILER" />
+    <NavigationProperty Name="TECHNIQUE_TYPE" Relationship="OculusModel.FK_TECHNIQUES_TECHNIQUE_TYPE" FromRole="TECHNIQUE" ToRole="TECHNIQUE_TYPE" />
+    <NavigationProperty Name="TECHNIQUE_WORKING_TYPE" Relationship="OculusModel.FK_TECHNIQUES_TECHNIQUE_WORKING_TYPE" FromRole="TECHNIQUE" ToRole="TECHNIQUE_WORKING_TYPE" />
+    <NavigationProperty Name="WORK_PLAN_TECHNIQUE" Relationship="OculusModel.FK_WORK_PLAN_TECHNIQUE_TECHNIQUES" FromRole="TECHNIQUE" ToRole="WORK_PLAN_TECHNIQUE" />
+    <NavigationProperty Name="WOKRPLAN2TASKQUEUETECHNICAL" Relationship="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES" FromRole="TECHNIQUE" ToRole="WOKRPLAN2TASKQUEUETECHNICAL" />
+    <NavigationProperty Name="WOKRPLAN2TASKQUEUETECHNICAL1" Relationship="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES1" FromRole="TECHNIQUE" ToRole="WOKRPLAN2TASKQUEUETECHNICAL" />
+  </EntityType>
+  <EntityType Name="UNIT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FERTILIZERs" Relationship="OculusModel.FK_FERTILIZER_UNITS" FromRole="UNIT" ToRole="FERTILIZER" />
+  </EntityType>
+  <EntityType Name="USERADMINSTATU">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="OculusModel.FK_Users_USERADMINSTATUS" FromRole="USERADMINSTATU" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkerID" Type="Int32" />
+    <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UserAdmin_ID" Type="Int32" />
+    <NavigationProperty Name="GROUP" Relationship="OculusModel.FK_Users_Group" FromRole="User" ToRole="GROUP" />
+    <NavigationProperty Name="USERADMINSTATU" Relationship="OculusModel.FK_Users_USERADMINSTATUS" FromRole="User" ToRole="USERADMINSTATU" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_Users_Workers" FromRole="User" ToRole="Worker" />
+    <NavigationProperty Name="WORK_PLAN_MODIFY" Relationship="OculusModel.FK_WORK_PLAN_MODIFY_Users" FromRole="User" ToRole="WORK_PLAN_MODIFY" />
+    <NavigationProperty Name="MESSAGENOTIFICATIONs" Relationship="OculusModel.FK_MESSAGENOTIFICATION_Users" FromRole="User" ToRole="MESSAGENOTIFICATION" />
+    <NavigationProperty Name="MESSAGENOTIFICATIONs1" Relationship="OculusModel.FK_MESSAGENOTIFICATION_Users1" FromRole="User" ToRole="MESSAGENOTIFICATION" />
+  </EntityType>
+  <EntityType Name="WORK_PLAN">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WORKS_ID" Type="Int32" />
+    <Property Name="RESPONDER_ID" Type="Int32" />
+    <Property Name="PARCEL_ID" Type="Int32" />
+    <Property Name="START_DATE" Type="DateTime" Precision="7" />
+    <Property Name="END_DATE" Type="DateTime" Precision="7" />
+    <Property Name="STATUS" Type="Boolean" />
+    <Property Name="NOTE" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Name="FINISH_DATE" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="DAYLY_WORK_PLAN" Relationship="OculusModel.FK_DAYLY_WORK_PLAN_WORK_PLAN" FromRole="WORK_PLAN" ToRole="DAYLY_WORK_PLAN" />
+    <NavigationProperty Name="PARCEL" Relationship="OculusModel.FK_WORK_PLAN_PARCEL" FromRole="WORK_PLAN" ToRole="PARCEL" />
+    <NavigationProperty Name="WORK_PLAN_MODIFY" Relationship="OculusModel.FK_WORK_PLAN_MODIFY_WORK_PLAN" FromRole="WORK_PLAN" ToRole="WORK_PLAN_MODIFY" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_WORK_PLAN_Workers" FromRole="WORK_PLAN" ToRole="Worker" />
+    <NavigationProperty Name="WORK" Relationship="OculusModel.FK_WORK_PLAN_WORKS" FromRole="WORK_PLAN" ToRole="WORK" />
+    <NavigationProperty Name="MESSAGENOTIFICATIONs" Relationship="OculusModel.FK_MESSAGENOTIFICATION_WORK_PLAN" FromRole="WORK_PLAN" ToRole="MESSAGENOTIFICATION" />
+  </EntityType>
+  <EntityType Name="WORK_PLAN_MODIFY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STATUS_ID" Type="Int32" />
+    <Property Name="WORK_PLAN_ID" Type="Int32" />
+    <Property Name="USER_ID" Type="Int32" />
+    <Property Name="DATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="STATUSMODIFY" Relationship="OculusModel.FK_WORK_PLAN_MODIFY_STATUSMODIFY" FromRole="WORK_PLAN_MODIFY" ToRole="STATUSMODIFY" />
+    <NavigationProperty Name="User" Relationship="OculusModel.FK_WORK_PLAN_MODIFY_Users" FromRole="WORK_PLAN_MODIFY" ToRole="User" />
+    <NavigationProperty Name="WORK_PLAN" Relationship="OculusModel.FK_WORK_PLAN_MODIFY_WORK_PLAN" FromRole="WORK_PLAN_MODIFY" ToRole="WORK_PLAN" />
+  </EntityType>
+  <EntityType Name="WORK_PLAN_TECHNIQUE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DAYLY_WORK_PLAN_ID" Type="Int32" />
+    <Property Name="TECHNIQUE_ID" Type="Int32" />
+    <Property Name="DRIVER_ID" Type="Int32" />
+    <NavigationProperty Name="QueuePlan" Relationship="OculusModel.FK_WORK_PLAN_TECHNIQUE_WORK_PLAN" FromRole="WORK_PLAN_TECHNIQUE" ToRole="QueuePlan" />
+    <NavigationProperty Name="TECHNIQUE_TRAILER" Relationship="OculusModel.FK_TECHNIQUE_TRAILER_WORK_PLAN_TECHNIQUE" FromRole="WORK_PLAN_TECHNIQUE" ToRole="TECHNIQUE_TRAILER" />
+    <NavigationProperty Name="TECHNIQUE" Relationship="OculusModel.FK_WORK_PLAN_TECHNIQUE_TECHNIQUES" FromRole="WORK_PLAN_TECHNIQUE" ToRole="TECHNIQUE" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_WORK_PLAN_TECHNIQUE_Workers" FromRole="WORK_PLAN_TECHNIQUE" ToRole="Worker" />
+  </EntityType>
+  <EntityType Name="WORK_PLAN_WORKERS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DAYLY_WORK_PLAN_ID" Type="Int32" />
+    <Property Name="WORKER_ID" Type="Int32" />
+    <NavigationProperty Name="QueuePlan" Relationship="OculusModel.FK_WORK_PLAN_WORKERS_WORK_PLAN" FromRole="WORK_PLAN_WORKERS" ToRole="QueuePlan" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_WORK_PLAN_WORKERS_Workers" FromRole="WORK_PLAN_WORKERS" ToRole="Worker" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Professions_id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fathername" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gerder_id" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Create_data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fin_number" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="Serial_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Gender" Relationship="OculusModel.FK_Workers_Gender" FromRole="Worker" ToRole="Gender" />
+    <NavigationProperty Name="PARCELs" Relationship="OculusModel.FK_PARCEL_Workers" FromRole="Worker" ToRole="PARCEL" />
+    <NavigationProperty Name="Profession" Relationship="OculusModel.FK_Workers_Professions" FromRole="Worker" ToRole="Profession" />
+    <NavigationProperty Name="Users" Relationship="OculusModel.FK_Users_Workers" FromRole="Worker" ToRole="User" />
+    <NavigationProperty Name="WORK_PLAN" Relationship="OculusModel.FK_WORK_PLAN_Workers" FromRole="Worker" ToRole="WORK_PLAN" />
+    <NavigationProperty Name="WORK_PLAN_TECHNIQUE" Relationship="OculusModel.FK_WORK_PLAN_TECHNIQUE_Workers" FromRole="Worker" ToRole="WORK_PLAN_TECHNIQUE" />
+    <NavigationProperty Name="WORK_PLAN_WORKERS" Relationship="OculusModel.FK_WORK_PLAN_WORKERS_Workers" FromRole="Worker" ToRole="WORK_PLAN_WORKERS" />
+    <NavigationProperty Name="STOCKMODIFies" Relationship="OculusModel.FK_STOCKMODIFY_Workers" FromRole="Worker" ToRole="STOCKMODIFY" />
+    <NavigationProperty Name="DOCMESSAGEs" Relationship="OculusModel.FK_DOCMESSAGE_Workers" FromRole="Worker" ToRole="DOCMESSAGE" />
+    <NavigationProperty Name="DOCMESSAGEs1" Relationship="OculusModel.FK_DOCMESSAGE_Workers1" FromRole="Worker" ToRole="DOCMESSAGE" />
+    <NavigationProperty Name="DOCUMENTS" Relationship="OculusModel.FK_DOCUMENTS_Workers" FromRole="Worker" ToRole="DOCUMENT" />
+    <Property Name="TurniketID" Type="Int32" />
+    <NavigationProperty Name="WOKRPLAN2TASKQUEUETECHNICAL" Relationship="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_Workers" FromRole="Worker" ToRole="WOKRPLAN2TASKQUEUETECHNICAL" />
+    <NavigationProperty Name="WORKPLAN2" Relationship="OculusModel.FK_WORKPLAN2_Workers" FromRole="Worker" ToRole="WORKPLAN2" />
+    <NavigationProperty Name="WORKPLAN21" Relationship="OculusModel.FK_WORKPLAN2_Workers1" FromRole="Worker" ToRole="WORKPLAN2" />
+    <NavigationProperty Name="WORKPLAN2QUEUEWORKERS" Relationship="OculusModel.FK_WORKPLAN2QUEUEWORKERS_Workers" FromRole="Worker" ToRole="WORKPLAN2QUEUEWORKERS" />
+  </EntityType>
+  <EntityType Name="WORK">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="WORK_CAT_ID" Type="Int32" />
+    <NavigationProperty Name="WORK_PLAN" Relationship="OculusModel.FK_WORK_PLAN_WORKS" FromRole="WORK" ToRole="WORK_PLAN" />
+    <NavigationProperty Name="WORKS_CATEGORY" Relationship="OculusModel.FK_WORKS_WORKS_CATEGORY" FromRole="WORK" ToRole="WORKS_CATEGORY" />
+    <NavigationProperty Name="WORKPLAN2" Relationship="OculusModel.FK_WORKPLAN2_WORKS" FromRole="WORK" ToRole="WORKPLAN2" />
+  </EntityType>
+  <EntityType Name="WORKS_CATEGORY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CATEGORIES_WORK_CATEGORY" Relationship="OculusModel.FK_CATEGORIES_WORK_CATEGORY_WORKS_CATEGORY" FromRole="WORKS_CATEGORY" ToRole="CATEGORIES_WORK_CATEGORY" />
+    <NavigationProperty Name="WORKS" Relationship="OculusModel.FK_WORKS_WORKS_CATEGORY" FromRole="WORKS_CATEGORY" ToRole="WORK" />
+  </EntityType>
+  <Association Name="FK_Roles_Action">
+    <End Type="OculusModel.Action" Role="Action" Multiplicity="1" />
+    <End Type="OculusModel.Role" Role="Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Action">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="Action_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CATEGORIES_WORK_CATEGORY_CATEGORIES">
+    <End Type="OculusModel.CATEGORy" Role="CATEGORy" Multiplicity="0..1" />
+    <End Type="OculusModel.CATEGORIES_WORK_CATEGORY" Role="CATEGORIES_WORK_CATEGORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORy">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CATEGORIES_WORK_CATEGORY">
+        <PropertyRef Name="CATEGORIES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_CATEGORIES">
+    <End Type="OculusModel.CATEGORy" Role="CATEGORy" Multiplicity="0..1" />
+    <End Type="OculusModel.FERTILIZER" Role="FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORy">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CATEGORIES_WORK_CATEGORY_WORKS_CATEGORY">
+    <End Type="OculusModel.WORKS_CATEGORY" Role="WORKS_CATEGORY" Multiplicity="0..1" />
+    <End Type="OculusModel.CATEGORIES_WORK_CATEGORY" Role="CATEGORIES_WORK_CATEGORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKS_CATEGORY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CATEGORIES_WORK_CATEGORY">
+        <PropertyRef Name="WORK_CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAYLY_WORK_PLAN_WORK_PLAN">
+    <End Type="OculusModel.WORK_PLAN" Role="WORK_PLAN" Multiplicity="0..1" />
+    <End Type="OculusModel.DAYLY_WORK_PLAN" Role="DAYLY_WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_PLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DAYLY_WORK_PLAN">
+        <PropertyRef Name="WORKPLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QueuePlan_DAYLY_WORK_PLAN">
+    <End Type="OculusModel.DAYLY_WORK_PLAN" Role="DAYLY_WORK_PLAN" Multiplicity="0..1" />
+    <End Type="OculusModel.QueuePlan" Role="QueuePlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAYLY_WORK_PLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="QueuePlan">
+        <PropertyRef Name="dailyPlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_FERTILIZER">
+    <End Type="OculusModel.MAIN_COMPONENTS" Role="MAIN_COMPONENTS" Multiplicity="0..1" />
+    <End Type="OculusModel.FERTILIZER" Role="FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAIN_COMPONENTS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="MAIN_COMPONENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_FIRMS">
+    <End Type="OculusModel.FIRM" Role="FIRM" Multiplicity="0..1" />
+    <End Type="OculusModel.FERTILIZER" Role="FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FIRM">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="FIRM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_MARKS">
+    <End Type="OculusModel.MARK" Role="MARK" Multiplicity="0..1" />
+    <End Type="OculusModel.FERTILIZER" Role="FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARK">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="MARK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_PACKING">
+    <End Type="OculusModel.PACKING" Role="PACKING" Multiplicity="0..1" />
+    <End Type="OculusModel.FERTILIZER" Role="FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACKING">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="PACKING_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_STOCK_FERTILIZER">
+    <End Type="OculusModel.FERTILIZER" Role="FERTILIZER" Multiplicity="0..1" />
+    <End Type="OculusModel.FERTILIZER_STOCK" Role="FERTILIZER_STOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FERTILIZER">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER_STOCK">
+        <PropertyRef Name="FERTILIZER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_UNITS">
+    <End Type="OculusModel.UNIT" Role="UNIT" Multiplicity="0..1" />
+    <End Type="OculusModel.FERTILIZER" Role="FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="UNIT_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_WORK_PLAN_FERTILIZER">
+    <End Type="OculusModel.FERTILIZER" Role="FERTILIZER" Multiplicity="0..1" />
+    <End Type="OculusModel.FERTILIZER_WORK_PLAN" Role="FERTILIZER_WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FERTILIZER">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER_WORK_PLAN">
+        <PropertyRef Name="FERTILIZER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_WORK_PLAN_WORK_PLAN">
+    <End Type="OculusModel.QueuePlan" Role="QueuePlan" Multiplicity="0..1" />
+    <End Type="OculusModel.FERTILIZER_WORK_PLAN" Role="FERTILIZER_WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QueuePlan">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER_WORK_PLAN">
+        <PropertyRef Name="DAYLY_WORK_PLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_Gender">
+    <End Type="OculusModel.Gender" Role="Gender" Multiplicity="1" />
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="Gerder_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Group">
+    <End Type="OculusModel.GROUP" Role="GROUP" Multiplicity="1" />
+    <End Type="OculusModel.Role" Role="Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GROUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="Group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Group">
+    <End Type="OculusModel.GROUP" Role="GROUP" Multiplicity="0..1" />
+    <End Type="OculusModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GROUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PARCEL_PARCEL_CATEGORY">
+    <End Type="OculusModel.PARCEL_CATEGORY" Role="PARCEL_CATEGORY" Multiplicity="0..1" />
+    <End Type="OculusModel.PARCEL" Role="PARCEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL_CATEGORY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PARCEL">
+        <PropertyRef Name="PARCEL_CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PARCEL_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.PARCEL" Role="PARCEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PARCEL">
+        <PropertyRef Name="RESPONSER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_PARCEL">
+    <End Type="OculusModel.PARCEL" Role="PARCEL" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN" Role="WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN">
+        <PropertyRef Name="PARCEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_Professions">
+    <End Type="OculusModel.Profession" Role="Profession" Multiplicity="1" />
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="Professions_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_TECHNIQUE_WORK_PLAN">
+    <End Type="OculusModel.QueuePlan" Role="QueuePlan" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN_TECHNIQUE" Role="WORK_PLAN_TECHNIQUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QueuePlan">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_TECHNIQUE">
+        <PropertyRef Name="DAYLY_WORK_PLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_WORKERS_WORK_PLAN">
+    <End Type="OculusModel.QueuePlan" Role="QueuePlan" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN_WORKERS" Role="WORK_PLAN_WORKERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QueuePlan">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_WORKERS">
+        <PropertyRef Name="DAYLY_WORK_PLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_MODIFY_STATUSMODIFY">
+    <End Type="OculusModel.STATUSMODIFY" Role="STATUSMODIFY" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN_MODIFY" Role="WORK_PLAN_MODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUSMODIFY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_MODIFY">
+        <PropertyRef Name="STATUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUES_TECHNIQUE_CONDITION">
+    <End Type="OculusModel.TECHNIQUE_CONDITION" Role="TECHNIQUE_CONDITION" Multiplicity="0..1" />
+    <End Type="OculusModel.TECHNIQUE" Role="TECHNIQUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE_CONDITION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUE">
+        <PropertyRef Name="CONDITION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUE_TRAILER_TECHNIQUES">
+    <End Type="OculusModel.TECHNIQUE" Role="TECHNIQUE" Multiplicity="0..1" />
+    <End Type="OculusModel.TECHNIQUE_TRAILER" Role="TECHNIQUE_TRAILER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUE_TRAILER">
+        <PropertyRef Name="TECHNIQUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUE_TRAILER_WORK_PLAN_TECHNIQUE">
+    <End Type="OculusModel.WORK_PLAN_TECHNIQUE" Role="WORK_PLAN_TECHNIQUE" Multiplicity="0..1" />
+    <End Type="OculusModel.TECHNIQUE_TRAILER" Role="TECHNIQUE_TRAILER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_PLAN_TECHNIQUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUE_TRAILER">
+        <PropertyRef Name="WORK_PLAN_TECHNIQUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUES_TECHNIQUE_TYPE">
+    <End Type="OculusModel.TECHNIQUE_TYPE" Role="TECHNIQUE_TYPE" Multiplicity="0..1" />
+    <End Type="OculusModel.TECHNIQUE" Role="TECHNIQUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUE">
+        <PropertyRef Name="TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUES_TECHNIQUE_WORKING_TYPE">
+    <End Type="OculusModel.TECHNIQUE_WORKING_TYPE" Role="TECHNIQUE_WORKING_TYPE" Multiplicity="0..1" />
+    <End Type="OculusModel.TECHNIQUE" Role="TECHNIQUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE_WORKING_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUE">
+        <PropertyRef Name="WORKING_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_TECHNIQUE_TECHNIQUES">
+    <End Type="OculusModel.TECHNIQUE" Role="TECHNIQUE" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN_TECHNIQUE" Role="WORK_PLAN_TECHNIQUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_TECHNIQUE">
+        <PropertyRef Name="TECHNIQUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_USERADMINSTATUS">
+    <End Type="OculusModel.USERADMINSTATU" Role="USERADMINSTATU" Multiplicity="0..1" />
+    <End Type="OculusModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERADMINSTATU">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserAdmin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="WorkerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_MODIFY_Users">
+    <End Type="OculusModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN_MODIFY" Role="WORK_PLAN_MODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_MODIFY">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_MODIFY_WORK_PLAN">
+    <End Type="OculusModel.WORK_PLAN" Role="WORK_PLAN" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN_MODIFY" Role="WORK_PLAN_MODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_PLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_MODIFY">
+        <PropertyRef Name="WORK_PLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN" Role="WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN">
+        <PropertyRef Name="RESPONDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_WORKS">
+    <End Type="OculusModel.WORK" Role="WORK" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN" Role="WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN">
+        <PropertyRef Name="WORKS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_TECHNIQUE_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN_TECHNIQUE" Role="WORK_PLAN_TECHNIQUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_TECHNIQUE">
+        <PropertyRef Name="DRIVER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_WORKERS_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK_PLAN_WORKERS" Role="WORK_PLAN_WORKERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_WORKERS">
+        <PropertyRef Name="WORKER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKS_WORKS_CATEGORY">
+    <End Type="OculusModel.WORKS_CATEGORY" Role="WORKS_CATEGORY" Multiplicity="0..1" />
+    <End Type="OculusModel.WORK" Role="WORK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKS_CATEGORY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK">
+        <PropertyRef Name="WORK_CAT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CURRENT_ACCOUNT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DATE" Type="DateTime" Precision="7" />
+    <Property Name="CURRENT_BANK_CASH" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="MAIN_CASH" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="VAT" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="HAND_CASH" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="WAITING_CASH" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="PAYMENT_INOUT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PAYMENTs" Relationship="OculusModel.FK_PAYMENT_PAYMENT_INOUT" FromRole="PAYMENT_INOUT" ToRole="PAYMENT" />
+  </EntityType>
+  <EntityType Name="PAYMENT_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PAYMENTs" Relationship="OculusModel.FK_PAYMENT_PAYMENT_TYPE" FromRole="PAYMENT_TYPE" ToRole="PAYMENT" />
+  </EntityType>
+  <EntityType Name="PAYMENT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DATE" Type="DateTime" Precision="3" />
+    <Property Name="ID_INOUT" Type="Int32" />
+    <Property Name="PAYMENT_TYPE_ID" Type="Int32" />
+    <Property Name="MAIN_PAYMENT" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="VAT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ALL_PAYMENT" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="RELEASE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REMNANT" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="NOTE" Type="String" MaxLength="1550" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PAYMENT_INOUT" Relationship="OculusModel.FK_PAYMENT_PAYMENT_INOUT" FromRole="PAYMENT" ToRole="PAYMENT_INOUT" />
+    <NavigationProperty Name="PAYMENT_TYPE" Relationship="OculusModel.FK_PAYMENT_PAYMENT_TYPE" FromRole="PAYMENT" ToRole="PAYMENT_TYPE" />
+  </EntityType>
+  <Association Name="FK_PAYMENT_PAYMENT_INOUT">
+    <End Type="OculusModel.PAYMENT_INOUT" Role="PAYMENT_INOUT" Multiplicity="0..1" />
+    <End Type="OculusModel.PAYMENT" Role="PAYMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_INOUT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PAYMENT">
+        <PropertyRef Name="ID_INOUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAYMENT_PAYMENT_TYPE">
+    <End Type="OculusModel.PAYMENT_TYPE" Role="PAYMENT_TYPE" Multiplicity="0..1" />
+    <End Type="OculusModel.PAYMENT" Role="PAYMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PAYMENT">
+        <PropertyRef Name="PAYMENT_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PVOT_S">
+    <Key>
+      <PropertyRef Name="OBJECTID_12" />
+    </Key>
+    <Property Name="OBJECTID_12" Type="Int32" Nullable="false" />
+    <Property Name="OBJECTID" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="OBJECTID_1" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="ID" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="R" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="F" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RADIUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EKIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NOV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EKIN2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NOTE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NOTE1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_WATER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_EXPRI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_FERTI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_CONTR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EKIN_ID" Type="Int16" />
+    <Property Name="NOV_ID" Type="Int16" />
+    <Property Name="FERT_SUM" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="FERT_SALARY" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="WATER_SALARY" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="SEED_SUM" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="SEED_SALARY" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="PILL_SUM" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="PILL_SALARY" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="INCOME_SUM" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="INCOME_SALARY" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="Shape" Type="Geometry" />
+    <Property Name="AREAS" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="STOCKPLACE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="STOCKMODIFies" Relationship="OculusModel.FK_STOCKMODIFY_STOCKPLACES" FromRole="STOCKPLACE" ToRole="STOCKMODIFY" />
+  </EntityType>
+  <EntityType Name="STOCK">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRODUCT_ID" Type="Int32" />
+    <Property Name="TYPE" Type="Int16" />
+    <Property Name="QUANTITY" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="SPEC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="STOCKMODIFies" Relationship="OculusModel.FK_STOCKMODIFY_STOCKS" FromRole="STOCK" ToRole="STOCKMODIFY" />
+  </EntityType>
+  <EntityType Name="STOCKMODIFY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STOCKITEMID" Type="Int32" />
+    <Property Name="STATUSID" Type="Int32" />
+    <Property Name="MODIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="QUANTITY" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PLACEID" Type="Int32" />
+    <Property Name="WORKERID" Type="Int32" />
+    <NavigationProperty Name="STOCKPLACE" Relationship="OculusModel.FK_STOCKMODIFY_STOCKPLACES" FromRole="STOCKMODIFY" ToRole="STOCKPLACE" />
+    <NavigationProperty Name="STOCK" Relationship="OculusModel.FK_STOCKMODIFY_STOCKS" FromRole="STOCKMODIFY" ToRole="STOCK" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_STOCKMODIFY_Workers" FromRole="STOCKMODIFY" ToRole="Worker" />
+  </EntityType>
+  <Association Name="FK_STOCKMODIFY_STOCKPLACES">
+    <End Type="OculusModel.STOCKPLACE" Role="STOCKPLACE" Multiplicity="0..1" />
+    <End Type="OculusModel.STOCKMODIFY" Role="STOCKMODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STOCKPLACE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="STOCKMODIFY">
+        <PropertyRef Name="PLACEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCKMODIFY_STOCKS">
+    <End Type="OculusModel.STOCK" Role="STOCK" Multiplicity="0..1" />
+    <End Type="OculusModel.STOCKMODIFY" Role="STOCKMODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STOCK">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="STOCKMODIFY">
+        <PropertyRef Name="STOCKITEMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCKMODIFY_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.STOCKMODIFY" Role="STOCKMODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STOCKMODIFY">
+        <PropertyRef Name="WORKERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CROP">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PARCEL_CATEGORY_ID" Type="Int32" />
+    <NavigationProperty Name="PARCEL_CATEGORY" Relationship="OculusModel.FK_CROP_PARCEL_CATEGORY" FromRole="CROP" ToRole="PARCEL_CATEGORY" />
+    <NavigationProperty Name="CROP_SORT" Relationship="OculusModel.FK_CROP_SORT_CROP" FromRole="CROP" ToRole="CROP_SORT" />
+  </EntityType>
+  <EntityType Name="CROP_SORT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CROP_ID" Type="Int32" />
+    <NavigationProperty Name="CROP" Relationship="OculusModel.FK_CROP_SORT_CROP" FromRole="CROP_SORT" ToRole="CROP" />
+    <NavigationProperty Name="PLANNINGPLANs" Relationship="OculusModel.FK_PLANNINGPLAN_CROP_SORT" FromRole="CROP_SORT" ToRole="PLANNINGPLAN" />
+    <NavigationProperty Name="PLANNINGPLANDETAILS" Relationship="OculusModel.FK_PLANNINGPLANDETAILS_CROP_SORT" FromRole="CROP_SORT" ToRole="PLANNINGPLANDETAIL" />
+    <NavigationProperty Name="MYSILOSTOCKs" Relationship="OculusModel.FK_MYSILOSTOCK_CROP_SORT" FromRole="CROP_SORT" ToRole="MYSILOSTOCK" />
+    <NavigationProperty Name="MYSILOSTOCKDETAILS" Relationship="OculusModel.FK_MYSILOSTOCKDETAILS_CROP_SORT" FromRole="CROP_SORT" ToRole="MYSILOSTOCKDETAIL" />
+  </EntityType>
+  <Association Name="FK_CROP_PARCEL_CATEGORY">
+    <End Type="OculusModel.PARCEL_CATEGORY" Role="PARCEL_CATEGORY" Multiplicity="0..1" />
+    <End Type="OculusModel.CROP" Role="CROP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL_CATEGORY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CROP">
+        <PropertyRef Name="PARCEL_CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CROP_SORT_CROP">
+    <End Type="OculusModel.CROP" Role="CROP" Multiplicity="0..1" />
+    <End Type="OculusModel.CROP_SORT" Role="CROP_SORT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CROP_SORT">
+        <PropertyRef Name="CROP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CROP_REPRODUCTION">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PLANNINGPLANs" Relationship="OculusModel.FK_PLANNINGPLAN_CROP_REPRODUCTION" FromRole="CROP_REPRODUCTION" ToRole="PLANNINGPLAN" />
+    <NavigationProperty Name="PLANNINGPLANDETAILS" Relationship="OculusModel.FK_PLANNINGPLANDETAILS_CROP_REPRODUCTION" FromRole="CROP_REPRODUCTION" ToRole="PLANNINGPLANDETAIL" />
+    <NavigationProperty Name="MYSILOSTOCKs" Relationship="OculusModel.FK_MYSILOSTOCK_CROP_REPRODUCTION" FromRole="CROP_REPRODUCTION" ToRole="MYSILOSTOCK" />
+    <NavigationProperty Name="MYSILOSTOCKDETAILS" Relationship="OculusModel.FK_MYSILOSTOCKDETAILS_CROP_REPRODUCTION" FromRole="CROP_REPRODUCTION" ToRole="MYSILOSTOCKDETAIL" />
+  </EntityType>
+  <EntityType Name="MESSAGENOTIFICATION">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SENDERID" Type="Int32" Nullable="false" />
+    <Property Name="RECIVERID" Type="Int32" Nullable="false" />
+    <Property Name="STATUS" Type="Boolean" Nullable="false" />
+    <Property Name="WORKPLANID" Type="Int32" Nullable="false" />
+    <Property Name="SENDEDTIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="OculusModel.FK_MESSAGENOTIFICATION_Users" FromRole="MESSAGENOTIFICATION" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="OculusModel.FK_MESSAGENOTIFICATION_Users1" FromRole="MESSAGENOTIFICATION" ToRole="User" />
+    <NavigationProperty Name="WORK_PLAN" Relationship="OculusModel.FK_MESSAGENOTIFICATION_WORK_PLAN" FromRole="MESSAGENOTIFICATION" ToRole="WORK_PLAN" />
+  </EntityType>
+  <Association Name="FK_MESSAGENOTIFICATION_Users">
+    <End Type="OculusModel.User" Role="User" Multiplicity="1" />
+    <End Type="OculusModel.MESSAGENOTIFICATION" Role="MESSAGENOTIFICATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGENOTIFICATION">
+        <PropertyRef Name="SENDERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGENOTIFICATION_Users1">
+    <End Type="OculusModel.User" Role="User" Multiplicity="1" />
+    <End Type="OculusModel.MESSAGENOTIFICATION" Role="MESSAGENOTIFICATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGENOTIFICATION">
+        <PropertyRef Name="RECIVERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGENOTIFICATION_WORK_PLAN">
+    <End Type="OculusModel.WORK_PLAN" Role="WORK_PLAN" Multiplicity="1" />
+    <End Type="OculusModel.MESSAGENOTIFICATION" Role="MESSAGENOTIFICATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_PLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MESSAGENOTIFICATION">
+        <PropertyRef Name="WORKPLANID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PLANNINGPLAN">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PLANNINGDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PARCELID" Type="Int32" Nullable="false" />
+    <Property Name="CROPSORTID" Type="Int32" Nullable="false" />
+    <Property Name="CROPREPRODUCTIONID" Type="Int32" Nullable="false" />
+    <Property Name="CREATEDDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SEASON" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CROP_REPRODUCTION" Relationship="OculusModel.FK_PLANNINGPLAN_CROP_REPRODUCTION" FromRole="PLANNINGPLAN" ToRole="CROP_REPRODUCTION" />
+    <NavigationProperty Name="CROP_SORT" Relationship="OculusModel.FK_PLANNINGPLAN_CROP_SORT" FromRole="PLANNINGPLAN" ToRole="CROP_SORT" />
+    <NavigationProperty Name="PARCEL" Relationship="OculusModel.FK_PLANNINGPLAN_PARCEL" FromRole="PLANNINGPLAN" ToRole="PARCEL" />
+    <NavigationProperty Name="PLANINGPLANBYDETAILS" Relationship="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLAN" FromRole="PLANNINGPLAN" ToRole="PLANINGPLANBYDETAIL" />
+  </EntityType>
+  <EntityType Name="PLANNINGPLANDETAIL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CROPSORTID" Type="Int32" Nullable="false" />
+    <Property Name="CROPREPRODUCTIONID" Type="Int32" Nullable="false" />
+    <Property Name="SEASON" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CROP_REPRODUCTION" Relationship="OculusModel.FK_PLANNINGPLANDETAILS_CROP_REPRODUCTION" FromRole="PLANNINGPLANDETAIL" ToRole="CROP_REPRODUCTION" />
+    <NavigationProperty Name="CROP_SORT" Relationship="OculusModel.FK_PLANNINGPLANDETAILS_CROP_SORT" FromRole="PLANNINGPLANDETAIL" ToRole="CROP_SORT" />
+    <NavigationProperty Name="PLANNINGPLANDETAILSWORKS" Relationship="OculusModel.FK_PLANNINGPLANDETAILSWORKS_PlanningPlanDetails" FromRole="PLANNINGPLANDETAIL" ToRole="PLANNINGPLANDETAILSWORK" />
+    <NavigationProperty Name="PLANINGPLANBYDETAILS" Relationship="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILS" FromRole="PLANNINGPLANDETAIL" ToRole="PLANINGPLANBYDETAIL" />
+  </EntityType>
+  <EntityType Name="PLANNINGPLANDETAILSWORK">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PLANNINGPLANDETAILSID" Type="Int32" Nullable="false" />
+    <Property Name="MONTH" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WORKCANDO" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="NEEDED" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PRICE" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="PLANNINGPLANDETAIL" Relationship="OculusModel.FK_PLANNINGPLANDETAILSWORKS_PlanningPlanDetails" FromRole="PLANNINGPLANDETAILSWORK" ToRole="PLANNINGPLANDETAIL" />
+    <NavigationProperty Name="PLANINGPLANBYDETAILS" Relationship="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILSWORKS" FromRole="PLANNINGPLANDETAILSWORK" ToRole="PLANINGPLANBYDETAIL" />
+  </EntityType>
+  <Association Name="FK_PLANNINGPLAN_CROP_REPRODUCTION">
+    <End Type="OculusModel.CROP_REPRODUCTION" Role="CROP_REPRODUCTION" Multiplicity="1" />
+    <End Type="OculusModel.PLANNINGPLAN" Role="PLANNINGPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_REPRODUCTION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLAN">
+        <PropertyRef Name="CROPREPRODUCTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLANDETAILS_CROP_REPRODUCTION">
+    <End Type="OculusModel.CROP_REPRODUCTION" Role="CROP_REPRODUCTION" Multiplicity="1" />
+    <End Type="OculusModel.PLANNINGPLANDETAIL" Role="PLANNINGPLANDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_REPRODUCTION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLANDETAIL">
+        <PropertyRef Name="CROPREPRODUCTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLAN_CROP_SORT">
+    <End Type="OculusModel.CROP_SORT" Role="CROP_SORT" Multiplicity="1" />
+    <End Type="OculusModel.PLANNINGPLAN" Role="PLANNINGPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_SORT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLAN">
+        <PropertyRef Name="CROPSORTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLANDETAILS_CROP_SORT">
+    <End Type="OculusModel.CROP_SORT" Role="CROP_SORT" Multiplicity="1" />
+    <End Type="OculusModel.PLANNINGPLANDETAIL" Role="PLANNINGPLANDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_SORT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLANDETAIL">
+        <PropertyRef Name="CROPSORTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLAN_PARCEL">
+    <End Type="OculusModel.PARCEL" Role="PARCEL" Multiplicity="1" />
+    <End Type="OculusModel.PLANNINGPLAN" Role="PLANNINGPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLAN">
+        <PropertyRef Name="PARCELID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLANDETAILSWORKS_PlanningPlanDetails">
+    <End Type="OculusModel.PLANNINGPLANDETAIL" Role="PLANNINGPLANDETAIL" Multiplicity="1" />
+    <End Type="OculusModel.PLANNINGPLANDETAILSWORK" Role="PLANNINGPLANDETAILSWORK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANNINGPLANDETAIL">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLANDETAILSWORK">
+        <PropertyRef Name="PLANNINGPLANDETAILSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PLANINGPLANBYDETAIL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PLANNINGPLANID" Type="Int32" Nullable="false" />
+    <Property Name="PLANNINGDETAISID" Type="Int32" Nullable="false" />
+    <Property Name="PLANNINGDETAISWORKID" Type="Int32" Nullable="false" />
+    <Property Name="FINALLYPRICE" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="PLANNINGPLAN" Relationship="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLAN" FromRole="PLANINGPLANBYDETAIL" ToRole="PLANNINGPLAN" />
+    <NavigationProperty Name="PLANNINGPLANDETAIL" Relationship="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILS" FromRole="PLANINGPLANBYDETAIL" ToRole="PLANNINGPLANDETAIL" />
+    <NavigationProperty Name="PLANNINGPLANDETAILSWORK" Relationship="OculusModel.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILSWORKS" FromRole="PLANINGPLANBYDETAIL" ToRole="PLANNINGPLANDETAILSWORK" />
+  </EntityType>
+  <Association Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLAN">
+    <End Type="OculusModel.PLANNINGPLAN" Role="PLANNINGPLAN" Multiplicity="1" />
+    <End Type="OculusModel.PLANINGPLANBYDETAIL" Role="PLANINGPLANBYDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANNINGPLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANINGPLANBYDETAIL">
+        <PropertyRef Name="PLANNINGPLANID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILS">
+    <End Type="OculusModel.PLANNINGPLANDETAIL" Role="PLANNINGPLANDETAIL" Multiplicity="1" />
+    <End Type="OculusModel.PLANINGPLANBYDETAIL" Role="PLANINGPLANBYDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANNINGPLANDETAIL">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANINGPLANBYDETAIL">
+        <PropertyRef Name="PLANNINGDETAISID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILSWORKS">
+    <End Type="OculusModel.PLANNINGPLANDETAILSWORK" Role="PLANNINGPLANDETAILSWORK" Multiplicity="1" />
+    <End Type="OculusModel.PLANINGPLANBYDETAIL" Role="PLANINGPLANBYDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANNINGPLANDETAILSWORK">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANINGPLANBYDETAIL">
+        <PropertyRef Name="PLANNINGDETAISWORKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MYSILOSTOCK">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MYSILOID" Type="Int32" Nullable="false" />
+    <Property Name="CROPSORTID" Type="Int32" Nullable="false" />
+    <Property Name="CROPREPREDUCTIONID" Type="Int32" Nullable="false" />
+    <Property Name="TOTALCOUNT" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="CROP_REPRODUCTION" Relationship="OculusModel.FK_MYSILOSTOCK_CROP_REPRODUCTION" FromRole="MYSILOSTOCK" ToRole="CROP_REPRODUCTION" />
+    <NavigationProperty Name="CROP_SORT" Relationship="OculusModel.FK_MYSILOSTOCK_CROP_SORT" FromRole="MYSILOSTOCK" ToRole="CROP_SORT" />
+    <NavigationProperty Name="MYSILO" Relationship="OculusModel.FK_MYSILOSTOCK_MYSILO" FromRole="MYSILOSTOCK" ToRole="MYSILO" />
+  </EntityType>
+  <EntityType Name="MYSILOSTOCKDETAIL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OPERATIONTYPE" Type="Int32" Nullable="false" />
+    <Property Name="CROPSORTID" Type="Int32" Nullable="false" />
+    <Property Name="CROPREPREDUCTIONID" Type="Int32" Nullable="false" />
+    <Property Name="COUNT" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="MYSILOID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CROP_REPRODUCTION" Relationship="OculusModel.FK_MYSILOSTOCKDETAILS_CROP_REPRODUCTION" FromRole="MYSILOSTOCKDETAIL" ToRole="CROP_REPRODUCTION" />
+    <NavigationProperty Name="CROP_SORT" Relationship="OculusModel.FK_MYSILOSTOCKDETAILS_CROP_SORT" FromRole="MYSILOSTOCKDETAIL" ToRole="CROP_SORT" />
+    <NavigationProperty Name="MYSILO" Relationship="OculusModel.FK_MYSILOSTOCKDETAILS_MYSILO" FromRole="MYSILOSTOCKDETAIL" ToRole="MYSILO" />
+  </EntityType>
+  <Association Name="FK_MYSILOSTOCK_CROP_REPRODUCTION">
+    <End Type="OculusModel.CROP_REPRODUCTION" Role="CROP_REPRODUCTION" Multiplicity="1" />
+    <End Type="OculusModel.MYSILOSTOCK" Role="MYSILOSTOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_REPRODUCTION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCK">
+        <PropertyRef Name="CROPREPREDUCTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCKDETAILS_CROP_REPRODUCTION">
+    <End Type="OculusModel.CROP_REPRODUCTION" Role="CROP_REPRODUCTION" Multiplicity="1" />
+    <End Type="OculusModel.MYSILOSTOCKDETAIL" Role="MYSILOSTOCKDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_REPRODUCTION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCKDETAIL">
+        <PropertyRef Name="CROPREPREDUCTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCK_CROP_SORT">
+    <End Type="OculusModel.CROP_SORT" Role="CROP_SORT" Multiplicity="1" />
+    <End Type="OculusModel.MYSILOSTOCK" Role="MYSILOSTOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_SORT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCK">
+        <PropertyRef Name="CROPSORTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCKDETAILS_CROP_SORT">
+    <End Type="OculusModel.CROP_SORT" Role="CROP_SORT" Multiplicity="1" />
+    <End Type="OculusModel.MYSILOSTOCKDETAIL" Role="MYSILOSTOCKDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_SORT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCKDETAIL">
+        <PropertyRef Name="CROPSORTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DOCMESSAGE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SENDERID" Type="Int32" />
+    <Property Name="RECIVED" Type="Int32" />
+    <Property Name="TITLE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DOCID" Type="Int32" />
+    <Property Name="OPRTYPE" Type="Int32" />
+    <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DOCUMENT" Relationship="OculusModel.FK_DOCMESSAGE_DOCUMENTS" FromRole="DOCMESSAGE" ToRole="DOCUMENT" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_DOCMESSAGE_Workers" FromRole="DOCMESSAGE" ToRole="Worker" />
+    <NavigationProperty Name="Worker1" Relationship="OculusModel.FK_DOCMESSAGE_Workers1" FromRole="DOCMESSAGE" ToRole="Worker" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DOCUMENT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATORID" Type="Int32" />
+    <NavigationProperty Name="DOCMESSAGEs" Relationship="OculusModel.FK_DOCMESSAGE_DOCUMENTS" FromRole="DOCUMENT" ToRole="DOCMESSAGE" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_DOCUMENTS_Workers" FromRole="DOCUMENT" ToRole="Worker" />
+  </EntityType>
+  <Association Name="FK_DOCMESSAGE_DOCUMENTS">
+    <End Type="OculusModel.DOCUMENT" Role="DOCUMENT" Multiplicity="0..1" />
+    <End Type="OculusModel.DOCMESSAGE" Role="DOCMESSAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCUMENT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DOCMESSAGE">
+        <PropertyRef Name="DOCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCMESSAGE_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.DOCMESSAGE" Role="DOCMESSAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOCMESSAGE">
+        <PropertyRef Name="SENDERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCMESSAGE_Workers1">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.DOCMESSAGE" Role="DOCMESSAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOCMESSAGE">
+        <PropertyRef Name="RECIVED" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCUMENTS_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.DOCUMENT" Role="DOCUMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOCUMENT">
+        <PropertyRef Name="CREATORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MYSILO">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CAPACITY" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="MYSILOSTOCKs" Relationship="OculusModel.FK_MYSILOSTOCK_MYSILO" FromRole="MYSILO" ToRole="MYSILOSTOCK" />
+    <NavigationProperty Name="MYSILOSTOCKDETAILS" Relationship="OculusModel.FK_MYSILOSTOCKDETAILS_MYSILO" FromRole="MYSILO" ToRole="MYSILOSTOCKDETAIL" />
+  </EntityType>
+  <Association Name="FK_MYSILOSTOCK_MYSILO">
+    <End Type="OculusModel.MYSILO" Role="MYSILO" Multiplicity="1" />
+    <End Type="OculusModel.MYSILOSTOCK" Role="MYSILOSTOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MYSILO">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCK">
+        <PropertyRef Name="MYSILOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCKDETAILS_MYSILO">
+    <End Type="OculusModel.MYSILO" Role="MYSILO" Multiplicity="1" />
+    <End Type="OculusModel.MYSILOSTOCKDETAIL" Role="MYSILOSTOCKDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MYSILO">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCKDETAIL">
+        <PropertyRef Name="MYSILOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="WOKRPLAN2TASKQUEUETECHNICAL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WORKPLANTASKQUEUEID" Type="Int32" />
+    <Property Name="TECHNICALID" Type="Int32" />
+    <Property Name="WORKERID" Type="Int32" />
+    <Property Name="TRAILERID" Type="Int32" />
+    <NavigationProperty Name="TECHNIQUE" Relationship="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES" FromRole="WOKRPLAN2TASKQUEUETECHNICAL" ToRole="TECHNIQUE" />
+    <NavigationProperty Name="TECHNIQUE1" Relationship="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES1" FromRole="WOKRPLAN2TASKQUEUETECHNICAL" ToRole="TECHNIQUE" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_Workers" FromRole="WOKRPLAN2TASKQUEUETECHNICAL" ToRole="Worker" />
+    <NavigationProperty Name="WORKPLAN2TASKQUEUE" Relationship="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_WORKPLAN2TASKQUEUE" FromRole="WOKRPLAN2TASKQUEUETECHNICAL" ToRole="WORKPLAN2TASKQUEUE" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WORKS_ID" Type="Int32" />
+    <Property Name="RESPONDERID" Type="Int32" />
+    <Property Name="STARTDATE" Type="DateTime" Precision="3" />
+    <Property Name="ENDDATE" Type="DateTime" Precision="3" />
+    <Property Name="FINISDATE" Type="DateTime" Precision="3" />
+    <Property Name="ISDONE" Type="Boolean" />
+    <Property Name="CREATORID" Type="Int32" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_WORKPLAN2_Workers" FromRole="WORKPLAN2" ToRole="Worker" />
+    <NavigationProperty Name="Worker1" Relationship="OculusModel.FK_WORKPLAN2_Workers1" FromRole="WORKPLAN2" ToRole="Worker" />
+    <NavigationProperty Name="WORK" Relationship="OculusModel.FK_WORKPLAN2_WORKS" FromRole="WORKPLAN2" ToRole="WORK" />
+    <NavigationProperty Name="WORKPLAN2PARCELS" Relationship="OculusModel.FK_WORKPLAN2PARCELS_WORKPLAN2" FromRole="WORKPLAN2" ToRole="WORKPLAN2PARCELS" />
+    <NavigationProperty Name="WORKPLAN2TASKS" Relationship="OculusModel.FK_WORKPLAN2TASKS_WORKPLAN2" FromRole="WORKPLAN2" ToRole="WORKPLAN2TASKS" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2PARCELS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PARCELID" Type="Int32" />
+    <Property Name="WORKPLAN2ID" Type="Int32" />
+    <NavigationProperty Name="PARCEL" Relationship="OculusModel.FK_WORKPLAN2PARCELS_PARCEL" FromRole="WORKPLAN2PARCELS" ToRole="PARCEL" />
+    <NavigationProperty Name="WORKPLAN2" Relationship="OculusModel.FK_WORKPLAN2PARCELS_WORKPLAN2" FromRole="WORKPLAN2PARCELS" ToRole="WORKPLAN2" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2QUEUEWORKERS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WORKPLAN2TASKQUEUEID" Type="Int32" />
+    <Property Name="WORKERID" Type="Int32" />
+    <NavigationProperty Name="Worker" Relationship="OculusModel.FK_WORKPLAN2QUEUEWORKERS_Workers" FromRole="WORKPLAN2QUEUEWORKERS" ToRole="Worker" />
+    <NavigationProperty Name="WORKPLAN2TASKQUEUE" Relationship="OculusModel.FK_WORKPLAN2QUEUEWORKERS_WORKPLAN2TASKQUEUE" FromRole="WORKPLAN2QUEUEWORKERS" ToRole="WORKPLAN2TASKQUEUE" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2TASKFELTILIZER">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WOKRPLAN2TASKID" Type="Int32" />
+    <Property Name="FELTILIZERID" Type="Int32" />
+    <Property Name="WATERCOUNT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FELTILIZERCOUNT" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="FERTILIZER" Relationship="OculusModel.FK_WORKPLAN2TASKFELTILIZER_FERTILIZER" FromRole="WORKPLAN2TASKFELTILIZER" ToRole="FERTILIZER" />
+    <NavigationProperty Name="WORKPLAN2TASKS" Relationship="OculusModel.FK_WORKPLAN2TASKFELTILIZER_WORKPLAN2TASKS" FromRole="WORKPLAN2TASKFELTILIZER" ToRole="WORKPLAN2TASKS" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2TASKQUEUE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STARTHOURS" Type="Time" Precision="7" />
+    <Property Name="ENDHOURS" Type="Time" Precision="7" />
+    <Property Name="NOTE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="WORKPLAN2TASKID" Type="Int32" />
+    <NavigationProperty Name="WOKRPLAN2TASKQUEUETECHNICAL" Relationship="OculusModel.FK_WOKRPLAN2TASKQUEUETECHNICAL_WORKPLAN2TASKQUEUE" FromRole="WORKPLAN2TASKQUEUE" ToRole="WOKRPLAN2TASKQUEUETECHNICAL" />
+    <NavigationProperty Name="WORKPLAN2QUEUEWORKERS" Relationship="OculusModel.FK_WORKPLAN2QUEUEWORKERS_WORKPLAN2TASKQUEUE" FromRole="WORKPLAN2TASKQUEUE" ToRole="WORKPLAN2QUEUEWORKERS" />
+    <NavigationProperty Name="WORKPLAN2TASKS" Relationship="OculusModel.FK_WORKPLAN2TASKQUEUE_WORKPLAN2TASKS" FromRole="WORKPLAN2TASKQUEUE" ToRole="WORKPLAN2TASKS" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2TASKS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STARDATE" Type="DateTime" Precision="3" />
+    <Property Name="ENDDATE" Type="DateTime" Precision="3" />
+    <Property Name="ISDONE" Type="Boolean" />
+    <Property Name="FINISHDATE" Type="DateTime" Precision="3" />
+    <Property Name="WORKPLAN2ID" Type="Int32" />
+    <NavigationProperty Name="WORKPLAN2" Relationship="OculusModel.FK_WORKPLAN2TASKS_WORKPLAN2" FromRole="WORKPLAN2TASKS" ToRole="WORKPLAN2" />
+    <NavigationProperty Name="WORKPLAN2TASKFELTILIZER" Relationship="OculusModel.FK_WORKPLAN2TASKFELTILIZER_WORKPLAN2TASKS" FromRole="WORKPLAN2TASKS" ToRole="WORKPLAN2TASKFELTILIZER" />
+    <NavigationProperty Name="WORKPLAN2TASKQUEUE" Relationship="OculusModel.FK_WORKPLAN2TASKQUEUE_WORKPLAN2TASKS" FromRole="WORKPLAN2TASKS" ToRole="WORKPLAN2TASKQUEUE" />
+  </EntityType>
+  <Association Name="FK_WORKPLAN2TASKFELTILIZER_FERTILIZER">
+    <End Type="OculusModel.FERTILIZER" Role="FERTILIZER" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2TASKFELTILIZER" Role="WORKPLAN2TASKFELTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FERTILIZER">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2TASKFELTILIZER">
+        <PropertyRef Name="FELTILIZERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2PARCELS_PARCEL">
+    <End Type="OculusModel.PARCEL" Role="PARCEL" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2PARCELS" Role="WORKPLAN2PARCELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2PARCELS">
+        <PropertyRef Name="PARCELID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES">
+    <End Type="OculusModel.TECHNIQUE" Role="TECHNIQUE" Multiplicity="0..1" />
+    <End Type="OculusModel.WOKRPLAN2TASKQUEUETECHNICAL" Role="WOKRPLAN2TASKQUEUETECHNICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WOKRPLAN2TASKQUEUETECHNICAL">
+        <PropertyRef Name="TECHNICALID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES1">
+    <End Type="OculusModel.TECHNIQUE" Role="TECHNIQUE" Multiplicity="0..1" />
+    <End Type="OculusModel.WOKRPLAN2TASKQUEUETECHNICAL" Role="WOKRPLAN2TASKQUEUETECHNICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WOKRPLAN2TASKQUEUETECHNICAL">
+        <PropertyRef Name="TRAILERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.WOKRPLAN2TASKQUEUETECHNICAL" Role="WOKRPLAN2TASKQUEUETECHNICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WOKRPLAN2TASKQUEUETECHNICAL">
+        <PropertyRef Name="WORKERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_WORKPLAN2TASKQUEUE">
+    <End Type="OculusModel.WORKPLAN2TASKQUEUE" Role="WORKPLAN2TASKQUEUE" Multiplicity="0..1" />
+    <End Type="OculusModel.WOKRPLAN2TASKQUEUETECHNICAL" Role="WOKRPLAN2TASKQUEUETECHNICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2TASKQUEUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WOKRPLAN2TASKQUEUETECHNICAL">
+        <PropertyRef Name="WORKPLANTASKQUEUEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2" Role="WORKPLAN2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2">
+        <PropertyRef Name="RESPONDERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2_Workers1">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2" Role="WORKPLAN2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2">
+        <PropertyRef Name="CREATORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2QUEUEWORKERS_Workers">
+    <End Type="OculusModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2QUEUEWORKERS" Role="WORKPLAN2QUEUEWORKERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2QUEUEWORKERS">
+        <PropertyRef Name="WORKERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2_WORKS">
+    <End Type="OculusModel.WORK" Role="WORK" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2" Role="WORKPLAN2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2">
+        <PropertyRef Name="WORKS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2PARCELS_WORKPLAN2">
+    <End Type="OculusModel.WORKPLAN2" Role="WORKPLAN2" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2PARCELS" Role="WORKPLAN2PARCELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2PARCELS">
+        <PropertyRef Name="WORKPLAN2ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2TASKS_WORKPLAN2">
+    <End Type="OculusModel.WORKPLAN2" Role="WORKPLAN2" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2TASKS" Role="WORKPLAN2TASKS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2TASKS">
+        <PropertyRef Name="WORKPLAN2ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2QUEUEWORKERS_WORKPLAN2TASKQUEUE">
+    <End Type="OculusModel.WORKPLAN2TASKQUEUE" Role="WORKPLAN2TASKQUEUE" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2QUEUEWORKERS" Role="WORKPLAN2QUEUEWORKERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2TASKQUEUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2QUEUEWORKERS">
+        <PropertyRef Name="WORKPLAN2TASKQUEUEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2TASKFELTILIZER_WORKPLAN2TASKS">
+    <End Type="OculusModel.WORKPLAN2TASKS" Role="WORKPLAN2TASKS" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2TASKFELTILIZER" Role="WORKPLAN2TASKFELTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2TASKS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2TASKFELTILIZER">
+        <PropertyRef Name="WOKRPLAN2TASKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2TASKQUEUE_WORKPLAN2TASKS">
+    <End Type="OculusModel.WORKPLAN2TASKS" Role="WORKPLAN2TASKS" Multiplicity="0..1" />
+    <End Type="OculusModel.WORKPLAN2TASKQUEUE" Role="WORKPLAN2TASKQUEUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2TASKS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2TASKQUEUE">
+        <PropertyRef Name="WORKPLAN2TASKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

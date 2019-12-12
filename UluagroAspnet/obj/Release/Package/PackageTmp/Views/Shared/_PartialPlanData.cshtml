@@ -1,0 +1,28 @@
+﻿@model UluagroAspnet.ClassGetAjaxs.PlanDataVM
+
+<div class="col as-12">
+    <table class="table bordered hovered no-wrap text-center no-footer mb-20">
+        <thead>
+            <tr>
+                <th>Ay</th>
+                <th>Görüləcək işlər</th>
+                <th>Lazımlı ehtiyyat</th>
+                <th>Qiymət</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.planlist)
+            {
+                <tr>
+                    <td>@item.MONTH</td>
+                    <td>@item.WORKCANDO</td>
+                    <td>@item.NEEDED</td>
+                    <td>@(item.PRICE * Model.area)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <span style="color: green;">Yekun məbləğ: </span>
+    <span> @(Model.summary * Model.area)</span>
+</div>

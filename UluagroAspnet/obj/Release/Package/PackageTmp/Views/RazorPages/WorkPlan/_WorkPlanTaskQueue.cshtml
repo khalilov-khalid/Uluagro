@@ -1,0 +1,114 @@
+﻿@model UluagroAspnet.Mainclasses.NewWorkPlan.QueueWorkPlanTask
+
+
+@if (Model.QueueCount == 1)
+{
+    <form action="/" method="post" id="WorkPlanQueueForm_0">
+        <div class="row as-5">           
+            <div class="col as-6 xs-6 xxs-6 mb-15">
+                <label>Vəzifə</label>
+                <select class="input" name="QueueProfessin">
+                    <option selected disabled>Seç</option>
+                    @foreach (var item in Model.WorkerProfessions)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="col as-6 xs-6 xxs-6 mb-15">
+                <label>İşci</label>
+                <select class="input" name="QueueName">
+                    <option value="value">text</option>
+                </select>
+            </div>
+            <div class="col as-12 mb-10">
+                <label>Qeyd</label>
+                <textarea required="" rows="3" cols="50" class="input no-resize" name="Queuenote" placeholder="Qeyd"></textarea>
+            </div>
+            <div class="col as-12 mb-10">
+                <div id="_WorkPlanTechnicalTable_0" style="display:none">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Texnikanin markasi</th>
+                                <th>Texnikanin adi</th>
+                                <th>Surucu</th>
+                                <th>Qosqunun Növü</th>
+                                <th>Qosqu</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col as-12 mb-10" id="_workPlanTaskAllTechnichals_0" data-count="0">
+
+            </div>
+            <div class="col as-12 mb-10">
+                <button id="_AddWorkPlanTaskTechnichalLine_0" data-count="0" type="button" class="btn bg-orange">Texnika Əlavə Et</button>
+            </div>
+        </div>
+    </form>
+}
+else
+{
+    for (int i = 0; i < Model.QueueCount; i++)
+    {
+        <form action="/" method="post" id="WorkPlanQueueForm_@i">
+            <div class="row as-5">
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Başlama Saatı</label>
+                    <input class="input" type="time" name="QueueStartDate" value="" />
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Bitmə Saatı</label>
+                    <input class="input" type="time" name="QueueEnddate" value="" />
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>Vəzifə</label>
+                    <select class="input" name="QueueProfessin">
+                        <option selected disabled>Seç</option>
+                        @foreach (var item in Model.WorkerProfessions)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col as-3 xs-6 xxs-6 mb-15">
+                    <label>İşci</label>
+                    <select class="input" name="QueueName">
+                        <option value="value">text</option>
+                    </select>
+                </div>
+                <div class="col as-12 mb-10">
+                    <label>Qeyd</label>
+                    <textarea required="" rows="3" cols="50" class="input no-resize" name="Queuenote" placeholder="Qeyd"></textarea>
+                </div>
+                <div class="col as-12 mb-10">
+                    <div id="_WorkPlanTechnicalTable_@i" style="display:none">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Texnikanin markasi</th>
+                                    <th>Texnikanin adi</th>
+                                    <th>Surucu</th>
+                                    <th>Qosqu</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col as-12 mb-10" id="_workPlanTaskAllTechnichals_@i" data-count="@i">
+
+                </div>
+                <div class="col as-12 mb-10">
+                    <button id="_AddWorkPlanTaskTechnichalLine_@i" data-count="@i" type="button" class="btn bg-orange">Texnika Əlavə Et</button>
+                </div>
+            </div>
+        </form>
+    }
+}
+

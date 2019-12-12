@@ -1,0 +1,64 @@
+﻿@model UluagroAspnet.Models.MYSILOSTOCK
+
+<div class="col as-5 xxs-8">
+    <div class="thumb responsive pb-in-100">
+        <img src="~/Public/assets/images/silo-icon.png" alt="Silo" width="450" height="450">
+    </div>
+</div>
+
+<div class="col as-7 xxs-12 d-flex-center">
+    <div class="bg-gray p-10">
+        <div class="panel mb-10">
+            <div class="panel-header">
+                <span class="bold">Silonun məlumatları</span>
+            </div>
+            <div class="panel-body">
+                <table class="w-100p">
+                    <tbody>
+                        <tr>
+                            <td class="w-100p pb-10 bold">Tutumu:</td>
+                            <td class="no-wrap">1500 ton</td>
+                        </tr>
+                        <tr>
+                            <td class="w-100p pb-10 bold">Nəmlik:</td>
+                            <td class="no-wrap">10%</td>
+                        </tr>
+                        <tr>
+                            <td class="w-100p bold">İstilik:</td>
+                            <td class="no-wrap">10<sup>o</sup></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">
+                <span class="bold">Silonun içindəki</span>
+            </div>
+            <div class="panel-body">
+                <table class="w-100p">
+                    <tbody>
+                        <tr>
+                            <td class="w-100p pb-10 bold">Adı:</td>
+                            <td class="no-wrap">@Model.CROP_SORT.CROP.NAME</td>
+                        </tr>
+                        <tr>
+                            <td class="w-100p pb-10 bold">Növü:</td>
+                            <td class="no-wrap">@Model.CROP_SORT.NAME</td>
+                        </tr>
+                        <tr>
+                            <td class="w-100p pb-10 bold">Keyfiyyət dərəcəsi:</td>
+                            <td class="no-wrap">@Model.CROP_REPRODUCTION.NAME</td>
+                        </tr>
+                        <tr>
+                            <td class="w-100p bold">Miqdarı:</td>
+                            <td class="no-wrap">@Model.TOTALCOUNT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

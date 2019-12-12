@@ -1,0 +1,73 @@
+﻿@model UluagroAspnet.Models.Worker
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-between pt-4 pb-4">
+            <h4>İşci haqqında ətrafli məlumat</h4>
+            <a class="u_btn go_b_btn" href="@Url.Action("Index","Workers")">Geri qayıt</a>
+        </div>
+        <hr />
+        <div class="col-md-12 mb-3">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <td>Adı</td>
+                    <td>@Html.DisplayFor(model => model.Name)</td>
+                </tr>
+                <tr>
+                    <td>Soyadı</td>
+                    <td>@Html.DisplayFor(model => model.Surname)</td>
+                </tr>
+                <tr>
+                    <td>Ata adı</td>
+                    <td>@Html.DisplayFor(model => model.Fathername)</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <td>Maaş</td>
+                    <td>@Html.DisplayFor(model => model.Salary)</td>
+                </tr>
+                <tr>
+                    <td>Elavə Edildiyi vaxt</td>
+                    <td>@Html.DisplayFor(model => model.Create_data)</td>
+                </tr>
+                <tr>
+                    <td>Telefon</td>
+                    <td>@Html.DisplayFor(model => model.Phone)</td>
+                </tr>
+                <tr>
+                    <td>FİN</td>
+                    <td>@Html.DisplayFor(model => model.Fin_number)</td>
+                </tr>
+                <tr>
+                    <td>Serial</td>
+                    <td>@Html.DisplayFor(model => model.Serial_number)</td>
+                </tr>
+                <tr>
+                    <td>Doğum tarixi</td>
+                    <td>@Html.DisplayFor(model => model.Birthdate)</td>
+                </tr>
+                <tr>
+                    <td>Cinsi</td>
+                    <td>@Html.DisplayFor(model => model.Gender.Name)</td>
+                </tr>
+                <tr>
+                    <td>Vəzifəsi</td>
+                    <td>@Html.DisplayFor(model => model.Profession.Name)</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-12 mb-3 d-flex justify-content-center">
+            <a class="u_btn sbm_btn" href="@Url.Action("Edit","Workers", new { id = Model.ID })">Düzəliş et</a>
+        </div>
+    </div>
+</div>

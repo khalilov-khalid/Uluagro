@@ -1,0 +1,70 @@
+﻿@model UluagroAspnet.Models.DOCMESSAGE
+
+@{
+    UluagroAspnet.Models.User currentuser = Session["UserLogin"] as UluagroAspnet.Models.User;
+}
+
+    <div class="row as-7 p-50">
+        <div class="col as-12">
+            <p class="text-left text-capitalize"><b>@Model.TITLE</b></p>
+        </div>
+        <div class="col as-12">
+            <p class="text-left text-capitalize"><b>@Model.Note</b></p>
+        </div>
+        <div class="col as-12" style="min-height: 200px;">
+            <p class="text-left">@Model.DOCUMENT.CONTENT</p>
+        </div>
+        <div class="col as-12">
+            @if (Model.SENDERID == currentuser.WorkerID)
+            {
+                <p class="text-left"><b>Kimə:</b> @Model.Worker1.Name @Model.Worker1.Surname</p>
+            }
+            else
+            {
+                <p class="text-left"><b>Göndərən:</b> @Model.Worker.Name @Model.Worker.Surname</p>
+            }
+            <p class="text-left"><b>Tərtib edən:</b> @Model.DOCUMENT.Worker.Name @Model.DOCUMENT.Worker.Surname</p>
+            <p class="text-left"><b>Tarix:</b> @String.Format("{0:dd MMM HH:mm}", Model.CREATEDATE)</p>
+        </div>
+        @if (Model.SENDERID != currentuser.WorkerID)
+        {
+            if (Model.OPRTYPE == 3)
+            {
+                if (Model.TITLE == "Dərkənar")
+                {
+                    <div class="col as-12">
+                        <label for="file-content">Sənəd üçün qeyd</label>
+                        <input type="text" name="" id="file-note-from" value="" class="input mb-15" placeholder="Qeyd əlavə edin..." />
+                    </div>
+
+                }
+                <div class="col as-12 d-flex justify-content-around">
+                    @if (Model.TITLE == "Dərkənar")
+                    {
+                        <button class="btn xs bg-green" id="accept_doc">Təsdiq et</button>
+                        <button class="btn xs bg-red" id="decline_doc">İmtina et</button>
+
+                    }
+                    else if (Model.TITLE != "Qəbul" && Model.TITLE != "İmtina")
+                    {
+                        <button class="btn xs bg-green" id="accept_doc">Təsdiq et</button>
+                        <button class="btn xs bg-orange" id="inferior_doc">Dərkənar et</button>
+                        <button class="btn xs bg-red" id="decline_doc">İmtina et</button>
+                    }
+                </div>
+                <div class="col as-12 mt-10" id="inf_doc_con">
+
+                </div>
+                <div class="col as-12">
+                    <div class="reciver_con">
+
+                    </div>
+                </div>
+                <input type="hidden" name="" value="@Model.DOCID" id="doc_id" />
+                <input type="hidden" name="" value="@Model.OBJECTID" id="doc_msg_id" />
+                <div class="col as-12 text-center send_accept">
+
+                </div>
+            }
+        }
+    </div>

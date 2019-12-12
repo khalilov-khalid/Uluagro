@@ -1,0 +1,21 @@
+﻿<div class="row as-7">
+    <div class="col as-5 mb-15">
+        <label for="file-category">İxtisas</label>
+        <select name="" class="input" id="inf_doc_profession" required>
+            <option value="" disabled>Seç</option>
+            @foreach (var item in ViewBag.Professions)
+            {
+                <option value="@item.ID">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col as-5 mb-15">
+        <label for="file-address">İşçi</label>
+        <select name="" class="input" id="inf_doc_worker">
+            <option value="">Seç</option>
+        </select>
+    </div>
+    <div class="col as-2 d-flex justify-content-center align-items-center">
+        <button type="button" id="doc_rec_add" title="Şəxs əlavə et">+</button>
+    </div>
+</div>

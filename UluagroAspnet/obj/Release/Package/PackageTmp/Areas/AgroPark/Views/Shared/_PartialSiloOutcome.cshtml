@@ -1,0 +1,52 @@
+﻿@model UluagroAspnet.Models.MYSILOSTOCK
+
+<div class="row">
+    @* Bitkiler *@
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="control-label">Bitki</label>
+            <input type="text" name="name" value="@Model.CROP_SORT.CROP.NAME" class="form-control" readonly />
+        </div>
+    </div>
+
+    @* Sortlar *@
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="control-label" for="CROPSORTID">Bitki sortu</label>
+            <input type="text" name="name" value="@Model.CROP_SORT.NAME" class="form-control" readonly />
+        </div>
+    </div>
+
+    @* Keyfiyyet derecesi *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label">Keyfiyyət dərəcəsi</label>
+            <input type="text" name="name" value="@Model.CROP_REPRODUCTION.NAME" class="form-control" readonly />
+        </div>
+    </div>
+
+    @* Miqdar *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label">Mövcud miqdar</label>
+            <input type="number" step="0.01" name="total" value="@Model.TOTALCOUNT" class="form-control" readonly />
+        </div>
+    </div>
+
+    @* Daxil edilen miqdar *@
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label">Çıxarılacaq miqdar</label>
+            <input type="number" step="0.01" name="totalAdd" value="" class="form-control" id="count"/>
+        </div>
+    </div>
+
+    @* Add *@
+    <div class="col-md-12">
+        <div class="form-group">
+            <div class="d-flex justify-content-center">
+                <button type="button" class="u_btn sbm_btn" id="take_from_silo">Yadda saxla</button>
+            </div>
+        </div>
+    </div>
+</div>

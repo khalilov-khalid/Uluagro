@@ -1,0 +1,87 @@
+﻿@model IEnumerable<UluagroAspnet.Models.FERTILIZER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Dərman və Gübrələrin siyahısı</h3>
+        <a href="@Url.Action("Create","FERTILIZERs")" class="u_btn sbm_btn">Əlavə Et</a>
+    </div>
+
+    <div class="table_con">
+        <table class="table table-hover table-bordered t_h_fixed">
+            <thead>
+                <tr>
+                    <th>
+                        Adı
+                    </th>
+                    <th>
+                        Kateqoriya
+                    </th>
+                    <th>
+                        Təsiredici Maddə
+                    </th>
+                    <th>
+                        Firma
+                    </th>
+                    <th>
+                        Marka
+                    </th>
+                    <th>
+                        Qablaşdırma
+                    </th>
+                    <th>
+                        Ölçü
+                    </th>
+                    <th>
+                        Faiz
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CATEGORy.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MAIN_COMPONENTS.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FIRM.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MARK.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PACKING.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UNIT.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WATER_PER_KG)
+                        </td>
+                        <td style="text-align:-webkit-center;">
+                            <a href="@Url.Action("Edit","FERTILIZERs", new { id = item.OBJECTID })" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>

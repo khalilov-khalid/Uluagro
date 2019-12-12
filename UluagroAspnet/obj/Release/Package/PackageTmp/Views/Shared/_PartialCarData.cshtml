@@ -1,0 +1,20 @@
+﻿@model IEnumerable<UluagroAspnet.ClassGetAjaxs.PergoData>
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr class="text-center">
+            <th>Dövlət nişanı</th>
+            <th>Qət etdiyi məsafə</th>
+            <th>Ortalama sürət</th>
+            <th>Xəritədə göstər</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="text-center">
+            <td>@Model.First().name</td>
+            <td>@String.Format("{0:0.00}", Model.Sum(i => i.distance)) km</td>
+            <td>@String.Format("{0:0.00}", Model.Average(i => i.speed)) km/saat</td>
+            <td><span class="far fa-play-circle play_car_animation" data-close="car-info-modal"></span></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,148 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Oculus Admin</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="~/Areas/Agropark/AdmPublic/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="~/Areas/Agropark/AdmPublic/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="~/Areas/Agropark/AdmPublic/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/Areas/Agropark/AdmPublic/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top top_con_p">
+
+        <a class="navbar-brand mr-1" href="@Url.Action("Index","Admin")">
+            <img class="logo_image" src="~/Areas/AgroPark/AdmPublic/images/logo.png" alt="Alternate Text" />
+        </a>
+
+
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i style="font-size:2em;" class="fas fa-toggle-on"></i>
+        </button>
+
+        <!-- Navbar Search -->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"></form>
+
+        <!-- Navbar -->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown no-arrow mx-1">
+            </li>
+            <li class="nav-item dropdown no-arrow mx-1">
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-circle fa-fw" style="font-size:2em;"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right personal_dropdown" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal" href="#"><i class="fas fa-key"></i> Şifrəni Dəyiş</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-power-off"></i> Çıxış</a>
+                </div>
+            </li>
+        </ul>
+
+    </nav>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        @Html.Action("Index", "Partial")
+
+        <div id="content-wrapper">
+            @RenderBody()
+            <!-- Sticky Footer -->
+            @*<footer class="sticky-footer">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span></span>
+                        </div>
+                    </div>
+                </footer>*@
+
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sistemdən çıxış etmək istədiyinizə əminsiniz?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button class="u_btn go_b_btn w_100" type="button" data-dismiss="modal">İmtina</button>
+                    <a class="u_btn sbm_btn w_100" href="@Url.Action("Logout","Login")">Çıxış</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Areas/Agropark/AdmPublic/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Areas/Agropark/AdmPublic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/Areas/AgroPark/AdmPublic/js/script.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Areas/Agropark/AdmPublic/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="~/Areas/Agropark/AdmPublic/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/Areas/Agropark/AdmPublic/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Areas/Agropark/AdmPublic/js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="~/Areas/Agropark/AdmPublic/js/demo/datatables-demo.js"></script>
+
+    <script>
+        $("#sidebarToggle").on('click', function () {
+            if ($(this).children().hasClass('fa-toggle-on')) {
+                $(this).children().removeClass('fa-toggle-on');
+                $(this).children().addClass('fa-toggle-off');
+            }
+            else {
+                $(this).children().removeClass('fa-toggle-off');
+                $(this).children().addClass('fa-toggle-on');
+            }
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+
+</html>
+

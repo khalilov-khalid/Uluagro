@@ -1,0 +1,111 @@
+﻿@model UluagroAspnet.Models.FERTILIZER
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-between mb-3">
+            <h3>Düzəliş et</h3>
+            <a href="@Url.Action("Index","FERTILIZERs")" class="u_btn go_b_btn">Geri qayıt</a>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.OBJECTID)
+
+        <div class="col-md-6 mb-3">
+            <div class="form-group">
+                <label class="control-label">Adı</label>
+                <div>
+                    @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="form-group">
+                <label class="control-label">100 litrə görə</label>
+                <div>
+                    @Html.EditorFor(model => model.WATER_PER_KG, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.WATER_PER_KG, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="form-group">
+                <label class="control-label">Kategoryiya</label>
+                <div>
+                    @Html.DropDownList("CATEGORY_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CATEGORY_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="form-group">
+                <label class="control-label ">Firma</label>
+                <div>
+                    @Html.DropDownList("FIRM_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FIRM_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="form-group">
+                <label class="control-label ">Marka</label>
+                <div>
+                    @Html.DropDownList("MARK_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MARK_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="form-group">
+                <label class="control-label ">Təsiredici maddə</label>
+                <div>
+                    @Html.DropDownList("MAIN_COMPONENT_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MAIN_COMPONENT_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="form-group">
+                <label class="control-label ">Qablaşdırma</label>
+                <div>
+                    @Html.DropDownList("PACKING_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.PACKING_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="form-group">
+                <label class="control-label ">Ölçü vahidi</label>
+                <div>
+                    @Html.DropDownList("UNIT_TYPE_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UNIT_TYPE_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 d-flex justify-content-center">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Yadda Saxla" class="u_btn sbm_btn" />
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

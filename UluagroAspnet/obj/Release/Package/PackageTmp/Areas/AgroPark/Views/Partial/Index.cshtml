@@ -1,0 +1,118 @@
+﻿@model UluagroAspnet.Models.User
+@{
+    Layout = null;
+}
+    <ul class="sidebar navbar-nav">
+        @if (Model.UserAdmin_ID == 1)
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>İstifadəçilər</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    <a class="dropdown-item" href="@Url.Action("Index","GroupRoles")">Grup ve Rollar</a>
+                    <a class="dropdown-item" href="@Url.Action("Index","Users")">User Account</a>
+                </div>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","PARCEL_CATEGORY")">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Sahələrin növləri</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Işçilər</span>
+            </a>
+            <div class="dropdown-menu cls_dropdown_main" aria-labelledby="pagesDropdown">
+                <a class="dropdown-item" href="@Url.Action("Index","Professions")">Vəzifələr</a>
+                <a class="dropdown-item" href="@Url.Action("Index","Workers")">Işçilər</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>İşlər bölməsi</span>
+            </a>
+            <div class="dropdown-menu cls_dropdown_main" aria-labelledby="pagesDropdown">
+                <a class="dropdown-item" href="@Url.Action("Index","WORKS_CATEGORY")">İşlərin kateqoriyası</a>
+                <a class="dropdown-item" href="@Url.Action("Index","WORKs")">İşlər siyahısı</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Dərman & Gübrələr</span>
+            </a>
+            <div class="dropdown-menu cls_dropdown_main" aria-labelledby="pagesDropdown">
+                <a class="dropdown-item" href="@Url.Action("Index","FIRMs")">Firmalar</a>
+                <a class="dropdown-item" href="@Url.Action("Index","MARKs")">Markalar</a>
+                <a class="dropdown-item" href="@Url.Action("Index","MAIN_COMPONENTS")">Təsir edici maddələr</a>
+                <a class="dropdown-item" href="@Url.Action("Index","PACKINGs")">Qablaşdırma formaları</a>
+                <a class="dropdown-item" href="@Url.Action("Index","UNITs")">Ölçü vahidləri</a>
+                <a class="dropdown-item" href="@Url.Action("Index","FERTILIZERs")">Dərman & Gübrələr</a>
+                <a class="dropdown-item" href="@Url.Action("Index","FERTILIZER_STOCK")">Anbardakı Ehtiyyat</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Texnikalar</span>
+            </a>
+            <div class="dropdown-menu cls_dropdown_main" aria-labelledby="pagesDropdown">
+                <a class="dropdown-item" href="@Url.Action("Index","TECHNIQUE_TYPE")">Texnikaların növləri</a>
+                <a class="dropdown-item" href="@Url.Action("Index","TECHNIQUEs")">Texnikalar</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Anbar</span>
+            </a>
+            <div class="dropdown-menu cls_dropdown_main" aria-labelledby="pagesDropdown">
+                <a class="dropdown-item" href="@Url.Action("Index","STOCKPLACEs")">Anbarlar</a>
+                <a class="dropdown-item" href="@Url.Action("Index","STOCK")">Anbardakı Ehtiyyatlar</a>
+            </div>
+        </li>
+        @* Planning *@
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","CropPlanning")">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Əkin planlaması</span>
+            </a>
+        </li>
+
+        @* MYSilo *@
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","MYSilo")">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Silo</span>
+            </a>
+        </li>
+    </ul>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yeni şifrəni daxil edin</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="_newPassword" type="password" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="u_btn go_b_btn w_100" data-dismiss="modal">Geri qayıt</button>
+                <button type="button" id="_changePassword" data-dismiss="modal" class="u_btn sbm_btn w_100">Yadda saxla</button>
+            </div>
+        </div>
+    </div>
+</div>
+

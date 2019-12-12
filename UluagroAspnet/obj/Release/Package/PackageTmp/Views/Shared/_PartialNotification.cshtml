@@ -1,0 +1,62 @@
+﻿@model List<UluagroAspnet.ClassGetAjaxs.NotificationFormat>
+
+
+@for (int i = 0; i < Model.Count; i++)
+{
+    if (Model[i].Status == true)
+    {
+        <tr class="unread" style="background-color:#0079c1">
+            <td>@(i+1)</td>
+            <td width="100%">@Model[i].SenderName</td>
+            <td class="no-wrap">@Model[i].MessageSendedTime</td>
+            <td>
+                <button class="btn xs circle bg-tr-2 ReadMEssages" data-bool="@Model[i].Status" data-mesage="@Model[i].Objectid" data-target-collapse="notification-@i">
+                    <i aria-hidden="true" class="icon-eye"></i>
+                </button>
+            </td>
+        </tr>
+        <tr class="collapse-content" data-collapse="notification-@i">
+            <td colspan="4">
+                <p>
+                    @Model[i].messagename
+                </p>
+                <span><b>Başlama tarixi: @Model[i].BeginTime</b></span><br />
+                <span><b>Bitmə tarixi: @Model[i].EndTime</b></span>
+                <button class="btn xs float-right workplancolplate">Tamamlandı</button>
+                <button class="btn xs float-right bg-tr-2">Çap et</button>
+            </td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td>@(i+1)</td>
+            <td width="100%">@Model[i].SenderName</td>
+            <td class="no-wrap">@Model[i].MessageSendedTime</td>
+            <td>
+                <button class="btn xs circle bg-tr-2 ReadMEssages" data-bool="@Model[i].Status" data-mesage="@Model[i].Objectid" data-target-collapse="notification-@i">
+                    <i aria-hidden="true" class="icon-eye"></i>
+                </button>
+            </td>
+        </tr>
+        <tr class="collapse-content" data-collapse="notification-@i">
+            <td colspan="4">
+                <p>
+                    @Model[i].messagename
+
+                </p>
+                <span><b>Başlama tarixi: @Model[i].BeginTime</b></span><br />
+                <span><b>Bitmə tarixi: @Model[i].EndTime</b></span>
+                @if (Model[i].WorkStatus)
+                {
+                    <button data-wp="@Model[i].Objectid" class="btn xs float-right workplancolplate">Tamamlandı</button>
+                }
+                else
+                {
+                    <button class="btn xs float-right bg-tr-2">Tamamlandı</button>
+                }
+                <button class="btn xs float-right bg-tr-2">Çap et</button>
+            </td>
+        </tr>
+    }
+}

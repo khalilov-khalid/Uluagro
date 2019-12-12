@@ -1,0 +1,41 @@
+﻿@model IEnumerable<UluagroAspnet.Models.DOCMESSAGE>
+@{ 
+    UluagroAspnet.Models.User curruser = Session["UserLogin"] as UluagroAspnet.Models.User;
+}
+<table class="table bordered hovered m-0">
+    <thead>
+        <tr>
+            <th>Sənədin başlığı</th>
+            <th>Sənədi göndərən</th>
+            <th>Kimə</th>
+            <th>Tarix</th>
+            <th></th>
+            <th width="50">Bax</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">@item.TITLE</td>
+                <td>@item.Worker.Name @item.Worker.Surname</td>
+                <td>@item.Worker1.Name @item.Worker1.Surname</td>
+                <td class="text-center">@String.Format("{0:dd MMM HH:mm}", item.CREATEDATE)</td>
+                @if(item.RECIVED == curruser.WorkerID)
+                {
+                    <td class="text-center"><i class="fas fa-arrow-circle-down" style="color: green;"></i></td>
+
+                }
+                else
+                {
+                    <td class="text-center"><i class="fas fa-arrow-circle-up" style="color: orange;"></i></td>
+                }
+                <td>
+                    <button class="btn xs circle bg-green show_msg_content" data-target-modal="doc-msg-view" data-id="@item.OBJECTID">
+                        <i aria-hidden="true" class="icon-eye"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

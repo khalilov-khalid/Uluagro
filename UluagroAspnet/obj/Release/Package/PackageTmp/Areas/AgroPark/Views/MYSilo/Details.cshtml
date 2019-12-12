@@ -1,0 +1,48 @@
+﻿@model IEnumerable<UluagroAspnet.Models.MYSILOSTOCKDETAIL>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Silo əməliyyat siyahısı</h3>
+        <a href="@Url.Action("Index","MYSilo")" class="u_btn go_b_btn">Geri qayıt</a>
+    </div>
+    <div class="table_con">
+        <table class="table table-hover table-bordered t_h_fixed">
+            <thead>
+                <tr>
+                    <th>Silo</th>
+                    <th>Bitki</th>
+                    <th>Sort</th>
+                    <th>Keyfiyyət dərəcəsi</th>
+                    <th>Miqdar</th>
+                    <th style="width:15%;">Əməliyyat tipi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MYSILO.NAME</td>
+                        <td>@item.CROP_SORT.CROP.NAME</td>
+                        <td>@item.CROP_SORT.NAME</td>
+                        <td>@item.CROP_REPRODUCTION.NAME</td>
+                        <td>@item.COUNT</td>
+                        @if (item.OPERATIONTYPE == 1)
+                        {
+                            <td style="text-align: -webkit-center;"><i class="fas fa-arrow-circle-down" style="color: green;"></i></td>
+                        }
+                        else
+                        {
+                            <td style="text-align: -webkit-center;"><i class="fas fa-arrow-circle-up" style="color: red;"></i></td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

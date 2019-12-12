@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-2 d-flex justify-content-between">
+                <h4>Stok nəzarət paneli.</h4>
+                <a href="@Url.Action("Index","MYSilo")" class="u_btn go_b_btn">Geri qayıt</a>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center">
+                @if (ViewBag.CreateError != null)
+                {
+                    <div class="alert alert-danger">
+                        <p>@ViewBag.CreateError</p>
+                    </div>
+                }
+            </div>
+            <hr />
+
+            @* Mex/Med *@
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Əməliyyat tipi</label>
+                    <div>
+                        <select class="form-control" id="optype" required>
+                            <option value="" disabled selected>Seçin</option>
+                            <option value="1">Mədaxil</option>
+                            <option value="0">Məxaric</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            @* Silo *@
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Silo</label>
+                    <select class="form-control" id="siloid" required>
+                        <option value="" selected disabled>Seçin</option>
+                        @foreach (var item in ViewBag.Silo)
+                        {
+                            <option value="@item.OBJECTID">@item.NAME</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div id="silo_controller_con">
+            
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        var op = document.getElementById("optype");
+        var silo = document.getElementById("siloid");
+
+        function load_ops(op, silo) {
+            if (op.value && silo.value) {
+                $.ajax({
+                    url: "/MYSilo/OperationLoad",
+                    method: "get",
+                    data: {
+                        op_id: op.value,
+                        silo_id: silo.value,
+                    },
+                    type: "JSON",
+                    success: function (response) {
+                        $("#silo_controller_con").html("");
+                        $("#silo_controller_con").html(response);
+                    }
+                })
+            }
+        }
+
+        $("#siloid").change(function () {
+            load_ops(op, this);
+        })
+
+        $("#optype").change(function () {
+            load_ops(this, silo);
+        })
+
+        //Load CropSort for selection
+        $(document).on("change", "#crops", function () {
+            $.ajax({
+                url: "/CropPlanning/LoadCropSorts",
+                method: "get",
+                data: { id: $(this).val()},
+                type: "JSON",
+                success: function (response) {
+                    $("#CROPSORTID option").remove();
+                    $("#CROPSORTID").append("<option selected disabled value=''>Seçin</option>");
+                    if (response!=null) {
+                        for (var i = 0; i < response.length; i++) {
+                            $("#CROPSORTID").append("<option value='" + response[i].OBJECTID + "'>" + response[i].NAME + "</option>")
+                        }
+                    }
+                }
+            })
+        })
+
+        $(document).on("click", "#add_silo", function () {
+            if ($("#CROPSORTID").val() && $("#repr").val() && $("#count").val()) {
+                $.ajax({
+                    url: "/MYSilo/AddToSilo",
+                    method: "get",
+                    data:
+                    {
+                        silo_id: $("#siloid").val(),
+                        opr_id: $("#optype").val(),
+                        sort_id: $("#CROPSORTID").val(),
+                        repr_id: $("#repr").val(),
+                        count: $("#count").val()
+                    },
+                    type: "JSON",
+                    success: function (response) {
+                        if (response == 1) {
+                            alert("Yeni stok uğurla əlavə olundu.");
+                            location.reload();
+                        }
+                        else if (response == 2) {
+                            alert("Dəyişikliklər uğurla saxlanıldı.");
+                            location.reload();
+                        }
+                        else if (response == 3) {
+                            alert("Daxil etdiyiniz miqdar uğurla əlavə olundu.");
+                            location.reload();
+                        }
+                    }
+                })
+            }
+            else {
+                alert("Zəhmət olmasa məlumatları düzgün daxil edin!");
+            }
+        });
+
+        $(document).on("click", "#take_from_silo", function () {
+            if ($("#count").val()) {
+                $.ajax({
+                    url: "/MYSilo/TakeFromSilo",
+                    method: "get",
+                    data:
+                    {
+                        silo_id: $("#siloid").val(),
+                        opr_id: $("#optype").val(),
+                        count: $("#count").val()
+                    },
+                    type: "JSON",
+                    success: function (response) {
+                        if (response == 1) {
+                            alert("Əməliyyat uğurla tamamlandı.");
+                            location.reload();
+                        }
+                        else if (response == 0) {
+                            alert("Siloda daxil etdiyinz miqdar yoxdur.");
+                        }
+                    }
+                })
+            }
+            else {
+                alert("Zəhmət olmasa ilk öncə miqdarı daxil edin!");
+            }
+        })
+            
+    </script>
+}

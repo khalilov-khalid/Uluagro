@@ -1,0 +1,139 @@
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\ApplicationInsights.config
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\UluagroAspnet.dll.config
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\UluagroAspnet.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\UluagroAspnet.pdb
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Antlr3.Runtime.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\EntityFramework.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\EntityFramework.SqlServer.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.Web.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.ApplicationInsights.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Newtonsoft.Json.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.Helpers.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.Mvc.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.Optimization.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.Razor.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.Razor.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\WebGrease.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\EntityFramework.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\EntityFramework.SqlServer.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.Helpers.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.Mvc.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.Optimization.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.Razor.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.Razor.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Antlr3.Runtime.pdb
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Newtonsoft.Json.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.ApplicationInsights.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.Web.xml
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\obj\Debug\UluagroAspnet.csprojAssemblyReference.cache
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\obj\Debug\UluagroAspnet.csproj.CoreCompileInputs.cache
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\obj\Debug\UluagroAspnet.csproj.CopyComplete
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\obj\Debug\UluagroAspnet.dll
+C:\Users\xalid.xalilov\Desktop\WorkProjects\Asp.net MVC\oculus-agropark\UluagroAspnet\obj\Debug\UluagroAspnet.pdb
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\ApplicationInsights.config
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\UluagroAspnet.dll.config
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\UluagroAspnet.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\UluagroAspnet.pdb
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Antlr3.Runtime.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\EntityFramework.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\EntityFramework.SqlServer.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.Web.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.ApplicationInsights.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Newtonsoft.Json.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.Helpers.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.Mvc.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.Optimization.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.Razor.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.Razor.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\WebGrease.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\EntityFramework.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\EntityFramework.SqlServer.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.Helpers.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.Mvc.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.Optimization.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.Razor.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\System.Web.WebPages.Razor.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Antlr3.Runtime.pdb
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Newtonsoft.Json.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.ApplicationInsights.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\bin\Microsoft.AI.Web.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\obj\Debug\UluagroAspnet.csprojAssemblyReference.cache
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\obj\Debug\UluagroAspnet.csproj.CopyComplete
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\obj\Debug\UluagroAspnet.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\oculus-agropark\UluagroAspnet\obj\Debug\UluagroAspnet.pdb
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\ApplicationInsights.config
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\UluagroAspnet.dll.config
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\UluagroAspnet.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\UluagroAspnet.pdb
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Antlr3.Runtime.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\EntityFramework.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\EntityFramework.SqlServer.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.Web.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.ApplicationInsights.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Newtonsoft.Json.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.Helpers.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.Mvc.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.Optimization.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.Razor.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.WebPages.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.WebPages.Razor.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\WebGrease.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\EntityFramework.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\EntityFramework.SqlServer.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.Helpers.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.Mvc.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.Optimization.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.Razor.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.WebPages.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\System.Web.WebPages.Razor.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Antlr3.Runtime.pdb
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Newtonsoft.Json.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.ApplicationInsights.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\bin\Microsoft.AI.Web.xml
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\obj\Debug\UluagroAspnet.csprojAssemblyReference.cache
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\obj\Debug\UluagroAspnet.csproj.CopyComplete
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\obj\Debug\UluagroAspnet.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\Uluagro\UluagroAspnet\obj\Debug\UluagroAspnet.pdb

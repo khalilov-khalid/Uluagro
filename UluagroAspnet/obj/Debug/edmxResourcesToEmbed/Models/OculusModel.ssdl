@@ -1,0 +1,2022 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OculusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CATEGORIES">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CATEGORIES_WORK_CATEGORY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WORK_CATEGORY_ID" Type="int" />
+    <Property Name="CATEGORIES_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="CROP">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PARCEL_CATEGORY_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="CROP_REPRODUCTION">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CROP_SORT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="CROP_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="CURRENT_ACCOUNT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATE" Type="datetime2" Precision="7" />
+    <Property Name="CURRENT_BANK_CASH" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="MAIN_CASH" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="VAT" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="HAND_CASH" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="WAITING_CASH" Type="numeric" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="DAYLY_WORK_PLAN">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WORKPLAN_ID" Type="int" />
+    <Property Name="STARTDATE" Type="datetime" />
+    <Property Name="ENDDATE" Type="datetime" />
+    <Property Name="NOTE" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DOCMESSAGE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SENDERID" Type="int" />
+    <Property Name="RECIVED" Type="int" />
+    <Property Name="TITLE" Type="nvarchar" MaxLength="250" />
+    <Property Name="DOCID" Type="int" />
+    <Property Name="OPRTYPE" Type="int" />
+    <Property Name="CREATEDATE" Type="datetime" />
+    <Property Name="Note" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DOCUMENTS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CONTENT" Type="nvarchar(max)" />
+    <Property Name="CREATORID" Type="int" />
+  </EntityType>
+  <EntityType Name="FERTILIZER">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIRM_ID" Type="int" />
+    <Property Name="MARK_ID" Type="int" />
+    <Property Name="MAIN_COMPONENT_ID" Type="int" />
+    <Property Name="PACKING_ID" Type="int" />
+    <Property Name="UNIT_TYPE_ID" Type="int" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="350" />
+    <Property Name="CATEGORY_ID" Type="int" />
+    <Property Name="WATER_PER_KG" Type="numeric" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="FERTILIZER_STOCK">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FERTILIZER_ID" Type="int" />
+    <Property Name="UNIT" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="CREATED_DATE" Type="datetime2" Precision="7" />
+    <Property Name="USED_DATE" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="FERTILIZER_WORK_PLAN">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DAYLY_WORK_PLAN_ID" Type="int" />
+    <Property Name="FERTILIZER_ID" Type="int" />
+    <Property Name="WATER_UNIT" Type="int" />
+    <Property Name="FERTILIZER_UNIT" Type="int" />
+  </EntityType>
+  <EntityType Name="FIRMS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GROUP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="MAIN_COMPONENTS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="MARKS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MESSAGENOTIFICATION">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SENDERID" Type="int" Nullable="false" />
+    <Property Name="RECIVERID" Type="int" Nullable="false" />
+    <Property Name="STATUS" Type="bit" Nullable="false" />
+    <Property Name="WORKPLANID" Type="int" Nullable="false" />
+    <Property Name="SENDEDTIME" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MYSILO">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CAPACITY" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="MYSILOSTOCK">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MYSILOID" Type="int" Nullable="false" />
+    <Property Name="CROPSORTID" Type="int" Nullable="false" />
+    <Property Name="CROPREPREDUCTIONID" Type="int" Nullable="false" />
+    <Property Name="TOTALCOUNT" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MYSILOSTOCKDETAILS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OPERATIONTYPE" Type="int" Nullable="false" />
+    <Property Name="CROPSORTID" Type="int" Nullable="false" />
+    <Property Name="CROPREPREDUCTIONID" Type="int" Nullable="false" />
+    <Property Name="COUNT" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MYSILOID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PACKING">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PARCEL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PARCEL_CATEGORY_ID" Type="int" />
+    <Property Name="RESPONSER_ID" Type="int" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="AREA" Type="numeric" Precision="38" Scale="1" />
+    <Property Name="SORT_ID" Type="int" />
+    <Property Name="REPRODUCTION_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="PARCEL_CATEGORY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PAYMENT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATE" Type="datetime" />
+    <Property Name="ID_INOUT" Type="int" />
+    <Property Name="PAYMENT_TYPE_ID" Type="int" />
+    <Property Name="MAIN_PAYMENT" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="VAT" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ALL_PAYMENT" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="RELEASE" Type="nvarchar" MaxLength="50" />
+    <Property Name="REMNANT" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="1550" />
+  </EntityType>
+  <EntityType Name="PAYMENT_INOUT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PAYMENT_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PLANINGPLANBYDETAILS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PLANNINGPLANID" Type="int" Nullable="false" />
+    <Property Name="PLANNINGDETAISID" Type="int" Nullable="false" />
+    <Property Name="PLANNINGDETAISWORKID" Type="int" Nullable="false" />
+    <Property Name="FINALLYPRICE" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PLANNINGPLAN">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PLANNINGDATE" Type="date" Nullable="false" />
+    <Property Name="PARCELID" Type="int" Nullable="false" />
+    <Property Name="CROPSORTID" Type="int" Nullable="false" />
+    <Property Name="CROPREPRODUCTIONID" Type="int" Nullable="false" />
+    <Property Name="CREATEDDATE" Type="date" Nullable="false" />
+    <Property Name="SEASON" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PLANNINGPLANDETAILS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CROPSORTID" Type="int" Nullable="false" />
+    <Property Name="CROPREPRODUCTIONID" Type="int" Nullable="false" />
+    <Property Name="SEASON" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PLANNINGPLANDETAILSWORKS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PLANNINGPLANDETAILSID" Type="int" Nullable="false" />
+    <Property Name="MONTH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WORKCANDO" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="NEEDED" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Professions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="CanResponser" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PVOT_S">
+    <Key>
+      <PropertyRef Name="OBJECTID_12" />
+    </Key>
+    <Property Name="OBJECTID_12" Type="int" Nullable="false" />
+    <Property Name="OBJECTID" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="OBJECTID_1" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="ID" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="TYPE" Type="nvarchar" MaxLength="50" />
+    <Property Name="R" Type="nvarchar" MaxLength="50" />
+    <Property Name="F" Type="nvarchar" MaxLength="50" />
+    <Property Name="HK" Type="nvarchar" MaxLength="50" />
+    <Property Name="RADIUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="EKIN" Type="nvarchar" MaxLength="50" />
+    <Property Name="NOV" Type="nvarchar" MaxLength="50" />
+    <Property Name="EKIN2" Type="nvarchar" MaxLength="50" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="50" />
+    <Property Name="NOTE1" Type="nvarchar" MaxLength="50" />
+    <Property Name="LAST_WATER" Type="nvarchar" MaxLength="50" />
+    <Property Name="LAST_EXPRI" Type="nvarchar" MaxLength="50" />
+    <Property Name="LAST_FERTI" Type="nvarchar" MaxLength="50" />
+    <Property Name="LAST_CONTR" Type="nvarchar" MaxLength="50" />
+    <Property Name="EKIN_ID" Type="smallint" />
+    <Property Name="NOV_ID" Type="smallint" />
+    <Property Name="FERT_SUM" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="FERT_SALARY" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="WATER_SALARY" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="SEED_SUM" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="SEED_SALARY" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="PILL_SUM" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="PILL_SALARY" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="INCOME_SUM" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="INCOME_SALARY" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="Shape" Type="geometry" />
+    <Property Name="AREAS" Type="numeric" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="QueuePlan">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="startdate" Type="datetime" />
+    <Property Name="enddate" Type="datetime" />
+    <Property Name="note" Type="nvarchar(max)" />
+    <Property Name="dailyPlanId" Type="int" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Action_id" Type="int" Nullable="false" />
+    <Property Name="Group_id" Type="int" Nullable="false" />
+    <Property Name="can_view" Type="bit" Nullable="false" />
+    <Property Name="can_update" Type="bit" Nullable="false" />
+    <Property Name="can_add" Type="bit" Nullable="false" />
+    <Property Name="can_delete" Type="bit" Nullable="false" />
+    <Property Name="ownerdata" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STATUSMODIFY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="STOCKMODIFY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STOCKITEMID" Type="int" />
+    <Property Name="STATUSID" Type="int" />
+    <Property Name="MODIFYDATE" Type="datetime" />
+    <Property Name="QUANTITY" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PLACEID" Type="int" />
+    <Property Name="WORKERID" Type="int" />
+  </EntityType>
+  <EntityType Name="STOCKPLACES">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="STOCKS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_ID" Type="int" />
+    <Property Name="TYPE" Type="smallint" />
+    <Property Name="QUANTITY" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="SPEC" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TECHNIQUE_CONDITION">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="TECHNIQUE_TRAILER">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WORK_PLAN_TECHNIQUE_ID" Type="int" />
+    <Property Name="TECHNIQUE_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TECHNIQUE_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TECHNIQUE_WORKING_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TECHNIQUES">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="TYPE_ID" Type="int" />
+    <Property Name="CONDITION_ID" Type="int" />
+    <Property Name="WORKING_TYPE_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="UNITS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="USERADMINSTATUS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WorkerID" Type="int" />
+    <Property Name="Username" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="150" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UserAdmin_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="WOKRPLAN2TASKQUEUETECHNICAL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WORKPLANTASKQUEUEID" Type="int" />
+    <Property Name="TECHNICALID" Type="int" />
+    <Property Name="WORKERID" Type="int" />
+    <Property Name="TRAILERID" Type="int" />
+  </EntityType>
+  <EntityType Name="WORK_PLAN">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WORKS_ID" Type="int" />
+    <Property Name="RESPONDER_ID" Type="int" />
+    <Property Name="PARCEL_ID" Type="int" />
+    <Property Name="START_DATE" Type="datetime2" Precision="7" />
+    <Property Name="END_DATE" Type="datetime2" Precision="7" />
+    <Property Name="STATUS" Type="bit" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="2500" />
+    <Property Name="FINISH_DATE" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="WORK_PLAN_MODIFY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STATUS_ID" Type="int" />
+    <Property Name="WORK_PLAN_ID" Type="int" />
+    <Property Name="USER_ID" Type="int" />
+    <Property Name="DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WORK_PLAN_TECHNIQUE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DAYLY_WORK_PLAN_ID" Type="int" />
+    <Property Name="TECHNIQUE_ID" Type="int" />
+    <Property Name="DRIVER_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="WORK_PLAN_WORKERS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DAYLY_WORK_PLAN_ID" Type="int" />
+    <Property Name="WORKER_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Workers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Professions_id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fathername" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gerder_id" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Create_data" Type="datetime" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fin_number" Type="nvarchar" MaxLength="7" />
+    <Property Name="Serial_number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birthdate" Type="datetime" />
+    <Property Name="TurniketID" Type="int" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WORKS_ID" Type="int" />
+    <Property Name="RESPONDERID" Type="int" />
+    <Property Name="STARTDATE" Type="datetime" />
+    <Property Name="ENDDATE" Type="datetime" />
+    <Property Name="FINISDATE" Type="datetime" />
+    <Property Name="ISDONE" Type="bit" />
+    <Property Name="CREATORID" Type="int" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2PARCELS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARCELID" Type="int" />
+    <Property Name="WORKPLAN2ID" Type="int" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2QUEUEWORKERS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WORKPLAN2TASKQUEUEID" Type="int" />
+    <Property Name="WORKERID" Type="int" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2TASKFELTILIZER">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WOKRPLAN2TASKID" Type="int" />
+    <Property Name="FELTILIZERID" Type="int" />
+    <Property Name="WATERCOUNT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FELTILIZERCOUNT" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2TASKQUEUE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STARTHOURS" Type="time" Precision="7" />
+    <Property Name="ENDHOURS" Type="time" Precision="7" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="200" />
+    <Property Name="WORKPLAN2TASKID" Type="int" />
+  </EntityType>
+  <EntityType Name="WORKPLAN2TASKS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STARDATE" Type="datetime" />
+    <Property Name="ENDDATE" Type="datetime" />
+    <Property Name="ISDONE" Type="bit" />
+    <Property Name="FINISHDATE" Type="datetime" />
+    <Property Name="WORKPLAN2ID" Type="int" />
+  </EntityType>
+  <EntityType Name="WORKS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="250" />
+    <Property Name="WORK_CAT_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="WORKS_CATEGORY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK_CATEGORIES_WORK_CATEGORY_CATEGORIES">
+    <End Role="CATEGORIES" Type="Self.CATEGORIES" Multiplicity="0..1" />
+    <End Role="CATEGORIES_WORK_CATEGORY" Type="Self.CATEGORIES_WORK_CATEGORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CATEGORIES_WORK_CATEGORY">
+        <PropertyRef Name="CATEGORIES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CATEGORIES_WORK_CATEGORY_WORKS_CATEGORY">
+    <End Role="WORKS_CATEGORY" Type="Self.WORKS_CATEGORY" Multiplicity="0..1" />
+    <End Role="CATEGORIES_WORK_CATEGORY" Type="Self.CATEGORIES_WORK_CATEGORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKS_CATEGORY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CATEGORIES_WORK_CATEGORY">
+        <PropertyRef Name="WORK_CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CROP_CROP">
+    <End Role="PARCEL_CATEGORY" Type="Self.PARCEL_CATEGORY" Multiplicity="0..1" />
+    <End Role="CROP" Type="Self.CROP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL_CATEGORY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CROP">
+        <PropertyRef Name="PARCEL_CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CROP_SORT_CROP">
+    <End Role="CROP" Type="Self.CROP" Multiplicity="0..1" />
+    <End Role="CROP_SORT" Type="Self.CROP_SORT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CROP_SORT">
+        <PropertyRef Name="CROP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAYLY_WORK_PLAN_WORK_PLAN">
+    <End Role="WORK_PLAN" Type="Self.WORK_PLAN" Multiplicity="0..1" />
+    <End Role="DAYLY_WORK_PLAN" Type="Self.DAYLY_WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_PLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DAYLY_WORK_PLAN">
+        <PropertyRef Name="WORKPLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCMESSAGE_DOCUMENTS">
+    <End Role="DOCUMENTS" Type="Self.DOCUMENTS" Multiplicity="0..1" />
+    <End Role="DOCMESSAGE" Type="Self.DOCMESSAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCUMENTS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DOCMESSAGE">
+        <PropertyRef Name="DOCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCMESSAGE_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="DOCMESSAGE" Type="Self.DOCMESSAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOCMESSAGE">
+        <PropertyRef Name="SENDERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCMESSAGE_Workers1">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="DOCMESSAGE" Type="Self.DOCMESSAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOCMESSAGE">
+        <PropertyRef Name="RECIVED" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCUMENTS_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="DOCUMENTS" Type="Self.DOCUMENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DOCUMENTS">
+        <PropertyRef Name="CREATORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_CATEGORIES">
+    <End Role="CATEGORIES" Type="Self.CATEGORIES" Multiplicity="0..1" />
+    <End Role="FERTILIZER" Type="Self.FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_FERTILIZER">
+    <End Role="MAIN_COMPONENTS" Type="Self.MAIN_COMPONENTS" Multiplicity="0..1" />
+    <End Role="FERTILIZER" Type="Self.FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAIN_COMPONENTS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="MAIN_COMPONENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_FIRMS">
+    <End Role="FIRMS" Type="Self.FIRMS" Multiplicity="0..1" />
+    <End Role="FERTILIZER" Type="Self.FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FIRMS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="FIRM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_MARKS">
+    <End Role="MARKS" Type="Self.MARKS" Multiplicity="0..1" />
+    <End Role="FERTILIZER" Type="Self.FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARKS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="MARK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_PACKING">
+    <End Role="PACKING" Type="Self.PACKING" Multiplicity="0..1" />
+    <End Role="FERTILIZER" Type="Self.FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACKING">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="PACKING_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_STOCK_FERTILIZER">
+    <End Role="FERTILIZER" Type="Self.FERTILIZER" Multiplicity="0..1" />
+    <End Role="FERTILIZER_STOCK" Type="Self.FERTILIZER_STOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FERTILIZER">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER_STOCK">
+        <PropertyRef Name="FERTILIZER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_UNITS">
+    <End Role="UNITS" Type="Self.UNITS" Multiplicity="0..1" />
+    <End Role="FERTILIZER" Type="Self.FERTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNITS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER">
+        <PropertyRef Name="UNIT_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_WORK_PLAN_FERTILIZER">
+    <End Role="FERTILIZER" Type="Self.FERTILIZER" Multiplicity="0..1" />
+    <End Role="FERTILIZER_WORK_PLAN" Type="Self.FERTILIZER_WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FERTILIZER">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER_WORK_PLAN">
+        <PropertyRef Name="FERTILIZER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FERTILIZER_WORK_PLAN_WORK_PLAN">
+    <End Role="QueuePlan" Type="Self.QueuePlan" Multiplicity="0..1" />
+    <End Role="FERTILIZER_WORK_PLAN" Type="Self.FERTILIZER_WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QueuePlan">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="FERTILIZER_WORK_PLAN">
+        <PropertyRef Name="DAYLY_WORK_PLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGENOTIFICATION_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="MESSAGENOTIFICATION" Type="Self.MESSAGENOTIFICATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGENOTIFICATION">
+        <PropertyRef Name="SENDERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGENOTIFICATION_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="MESSAGENOTIFICATION" Type="Self.MESSAGENOTIFICATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGENOTIFICATION">
+        <PropertyRef Name="RECIVERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGENOTIFICATION_WORK_PLAN">
+    <End Role="WORK_PLAN" Type="Self.WORK_PLAN" Multiplicity="1" />
+    <End Role="MESSAGENOTIFICATION" Type="Self.MESSAGENOTIFICATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_PLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MESSAGENOTIFICATION">
+        <PropertyRef Name="WORKPLANID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCK_CROP_REPRODUCTION">
+    <End Role="CROP_REPRODUCTION" Type="Self.CROP_REPRODUCTION" Multiplicity="1" />
+    <End Role="MYSILOSTOCK" Type="Self.MYSILOSTOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_REPRODUCTION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCK">
+        <PropertyRef Name="CROPREPREDUCTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCK_CROP_SORT">
+    <End Role="CROP_SORT" Type="Self.CROP_SORT" Multiplicity="1" />
+    <End Role="MYSILOSTOCK" Type="Self.MYSILOSTOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_SORT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCK">
+        <PropertyRef Name="CROPSORTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCK_MYSILO">
+    <End Role="MYSILO" Type="Self.MYSILO" Multiplicity="1" />
+    <End Role="MYSILOSTOCK" Type="Self.MYSILOSTOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MYSILO">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCK">
+        <PropertyRef Name="MYSILOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCKDETAILS_CROP_REPRODUCTION">
+    <End Role="CROP_REPRODUCTION" Type="Self.CROP_REPRODUCTION" Multiplicity="1" />
+    <End Role="MYSILOSTOCKDETAILS" Type="Self.MYSILOSTOCKDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_REPRODUCTION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCKDETAILS">
+        <PropertyRef Name="CROPREPREDUCTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCKDETAILS_CROP_SORT">
+    <End Role="CROP_SORT" Type="Self.CROP_SORT" Multiplicity="1" />
+    <End Role="MYSILOSTOCKDETAILS" Type="Self.MYSILOSTOCKDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_SORT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCKDETAILS">
+        <PropertyRef Name="CROPSORTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MYSILOSTOCKDETAILS_MYSILO">
+    <End Role="MYSILO" Type="Self.MYSILO" Multiplicity="1" />
+    <End Role="MYSILOSTOCKDETAILS" Type="Self.MYSILOSTOCKDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MYSILO">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="MYSILOSTOCKDETAILS">
+        <PropertyRef Name="MYSILOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PARCEL_PARCEL_CATEGORY">
+    <End Role="PARCEL_CATEGORY" Type="Self.PARCEL_CATEGORY" Multiplicity="0..1" />
+    <End Role="PARCEL" Type="Self.PARCEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL_CATEGORY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PARCEL">
+        <PropertyRef Name="PARCEL_CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PARCEL_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="PARCEL" Type="Self.PARCEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PARCEL">
+        <PropertyRef Name="RESPONSER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAYMENT_PAYMENT_INOUT">
+    <End Role="PAYMENT_INOUT" Type="Self.PAYMENT_INOUT" Multiplicity="0..1" />
+    <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_INOUT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PAYMENT">
+        <PropertyRef Name="ID_INOUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAYMENT_PAYMENT_TYPE">
+    <End Role="PAYMENT_TYPE" Type="Self.PAYMENT_TYPE" Multiplicity="0..1" />
+    <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PAYMENT">
+        <PropertyRef Name="PAYMENT_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLAN">
+    <End Role="PLANNINGPLAN" Type="Self.PLANNINGPLAN" Multiplicity="1" />
+    <End Role="PLANINGPLANBYDETAILS" Type="Self.PLANINGPLANBYDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANNINGPLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANINGPLANBYDETAILS">
+        <PropertyRef Name="PLANNINGPLANID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILS">
+    <End Role="PLANNINGPLANDETAILS" Type="Self.PLANNINGPLANDETAILS" Multiplicity="1" />
+    <End Role="PLANINGPLANBYDETAILS" Type="Self.PLANINGPLANBYDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANNINGPLANDETAILS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANINGPLANBYDETAILS">
+        <PropertyRef Name="PLANNINGDETAISID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILSWORKS">
+    <End Role="PLANNINGPLANDETAILSWORKS" Type="Self.PLANNINGPLANDETAILSWORKS" Multiplicity="1" />
+    <End Role="PLANINGPLANBYDETAILS" Type="Self.PLANINGPLANBYDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANNINGPLANDETAILSWORKS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANINGPLANBYDETAILS">
+        <PropertyRef Name="PLANNINGDETAISWORKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLAN_CROP_REPRODUCTION">
+    <End Role="CROP_REPRODUCTION" Type="Self.CROP_REPRODUCTION" Multiplicity="1" />
+    <End Role="PLANNINGPLAN" Type="Self.PLANNINGPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_REPRODUCTION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLAN">
+        <PropertyRef Name="CROPREPRODUCTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLAN_CROP_SORT">
+    <End Role="CROP_SORT" Type="Self.CROP_SORT" Multiplicity="1" />
+    <End Role="PLANNINGPLAN" Type="Self.PLANNINGPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_SORT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLAN">
+        <PropertyRef Name="CROPSORTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLAN_PARCEL">
+    <End Role="PARCEL" Type="Self.PARCEL" Multiplicity="1" />
+    <End Role="PLANNINGPLAN" Type="Self.PLANNINGPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLAN">
+        <PropertyRef Name="PARCELID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLANDETAILS_CROP_REPRODUCTION">
+    <End Role="CROP_REPRODUCTION" Type="Self.CROP_REPRODUCTION" Multiplicity="1" />
+    <End Role="PLANNINGPLANDETAILS" Type="Self.PLANNINGPLANDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_REPRODUCTION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLANDETAILS">
+        <PropertyRef Name="CROPREPRODUCTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLANDETAILS_CROP_SORT">
+    <End Role="CROP_SORT" Type="Self.CROP_SORT" Multiplicity="1" />
+    <End Role="PLANNINGPLANDETAILS" Type="Self.PLANNINGPLANDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CROP_SORT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLANDETAILS">
+        <PropertyRef Name="CROPSORTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANNINGPLANDETAILSWORKS_PlanningPlanDetails">
+    <End Role="PLANNINGPLANDETAILS" Type="Self.PLANNINGPLANDETAILS" Multiplicity="1" />
+    <End Role="PLANNINGPLANDETAILSWORKS" Type="Self.PLANNINGPLANDETAILSWORKS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANNINGPLANDETAILS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PLANNINGPLANDETAILSWORKS">
+        <PropertyRef Name="PLANNINGPLANDETAILSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QueuePlan_DAYLY_WORK_PLAN">
+    <End Role="DAYLY_WORK_PLAN" Type="Self.DAYLY_WORK_PLAN" Multiplicity="0..1" />
+    <End Role="QueuePlan" Type="Self.QueuePlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAYLY_WORK_PLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="QueuePlan">
+        <PropertyRef Name="dailyPlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Action">
+    <End Role="Action" Type="Self.Action" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Action">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="Action_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Group">
+    <End Role="GROUP" Type="Self.GROUP" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GROUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="Group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCKMODIFY_STOCKPLACES">
+    <End Role="STOCKPLACES" Type="Self.STOCKPLACES" Multiplicity="0..1" />
+    <End Role="STOCKMODIFY" Type="Self.STOCKMODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STOCKPLACES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="STOCKMODIFY">
+        <PropertyRef Name="PLACEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCKMODIFY_STOCKS">
+    <End Role="STOCKS" Type="Self.STOCKS" Multiplicity="0..1" />
+    <End Role="STOCKMODIFY" Type="Self.STOCKMODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STOCKS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="STOCKMODIFY">
+        <PropertyRef Name="STOCKITEMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCKMODIFY_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="STOCKMODIFY" Type="Self.STOCKMODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STOCKMODIFY">
+        <PropertyRef Name="WORKERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUE_TRAILER_TECHNIQUES">
+    <End Role="TECHNIQUES" Type="Self.TECHNIQUES" Multiplicity="0..1" />
+    <End Role="TECHNIQUE_TRAILER" Type="Self.TECHNIQUE_TRAILER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUE_TRAILER">
+        <PropertyRef Name="TECHNIQUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUE_TRAILER_WORK_PLAN_TECHNIQUE">
+    <End Role="WORK_PLAN_TECHNIQUE" Type="Self.WORK_PLAN_TECHNIQUE" Multiplicity="0..1" />
+    <End Role="TECHNIQUE_TRAILER" Type="Self.TECHNIQUE_TRAILER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_PLAN_TECHNIQUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUE_TRAILER">
+        <PropertyRef Name="WORK_PLAN_TECHNIQUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUES_TECHNIQUE_CONDITION">
+    <End Role="TECHNIQUE_CONDITION" Type="Self.TECHNIQUE_CONDITION" Multiplicity="0..1" />
+    <End Role="TECHNIQUES" Type="Self.TECHNIQUES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE_CONDITION">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUES">
+        <PropertyRef Name="CONDITION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUES_TECHNIQUE_TYPE">
+    <End Role="TECHNIQUE_TYPE" Type="Self.TECHNIQUE_TYPE" Multiplicity="0..1" />
+    <End Role="TECHNIQUES" Type="Self.TECHNIQUES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUES">
+        <PropertyRef Name="TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TECHNIQUES_TECHNIQUE_WORKING_TYPE">
+    <End Role="TECHNIQUE_WORKING_TYPE" Type="Self.TECHNIQUE_WORKING_TYPE" Multiplicity="0..1" />
+    <End Role="TECHNIQUES" Type="Self.TECHNIQUES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUE_WORKING_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="TECHNIQUES">
+        <PropertyRef Name="WORKING_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Group">
+    <End Role="GROUP" Type="Self.GROUP" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GROUP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_USERADMINSTATUS">
+    <End Role="USERADMINSTATUS" Type="Self.USERADMINSTATUS" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERADMINSTATUS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserAdmin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="WorkerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES">
+    <End Role="TECHNIQUES" Type="Self.TECHNIQUES" Multiplicity="0..1" />
+    <End Role="WOKRPLAN2TASKQUEUETECHNICAL" Type="Self.WOKRPLAN2TASKQUEUETECHNICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WOKRPLAN2TASKQUEUETECHNICAL">
+        <PropertyRef Name="TECHNICALID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES1">
+    <End Role="TECHNIQUES" Type="Self.TECHNIQUES" Multiplicity="0..1" />
+    <End Role="WOKRPLAN2TASKQUEUETECHNICAL" Type="Self.WOKRPLAN2TASKQUEUETECHNICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WOKRPLAN2TASKQUEUETECHNICAL">
+        <PropertyRef Name="TRAILERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="WOKRPLAN2TASKQUEUETECHNICAL" Type="Self.WOKRPLAN2TASKQUEUETECHNICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WOKRPLAN2TASKQUEUETECHNICAL">
+        <PropertyRef Name="WORKERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_WORKPLAN2TASKQUEUE">
+    <End Role="WORKPLAN2TASKQUEUE" Type="Self.WORKPLAN2TASKQUEUE" Multiplicity="0..1" />
+    <End Role="WOKRPLAN2TASKQUEUETECHNICAL" Type="Self.WOKRPLAN2TASKQUEUETECHNICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2TASKQUEUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WOKRPLAN2TASKQUEUETECHNICAL">
+        <PropertyRef Name="WORKPLANTASKQUEUEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_MODIFY_STATUSMODIFY">
+    <End Role="STATUSMODIFY" Type="Self.STATUSMODIFY" Multiplicity="0..1" />
+    <End Role="WORK_PLAN_MODIFY" Type="Self.WORK_PLAN_MODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUSMODIFY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_MODIFY">
+        <PropertyRef Name="STATUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_MODIFY_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="WORK_PLAN_MODIFY" Type="Self.WORK_PLAN_MODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_MODIFY">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_MODIFY_WORK_PLAN">
+    <End Role="WORK_PLAN" Type="Self.WORK_PLAN" Multiplicity="0..1" />
+    <End Role="WORK_PLAN_MODIFY" Type="Self.WORK_PLAN_MODIFY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_PLAN">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_MODIFY">
+        <PropertyRef Name="WORK_PLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_PARCEL">
+    <End Role="PARCEL" Type="Self.PARCEL" Multiplicity="0..1" />
+    <End Role="WORK_PLAN" Type="Self.WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN">
+        <PropertyRef Name="PARCEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_TECHNIQUE_TECHNIQUES">
+    <End Role="TECHNIQUES" Type="Self.TECHNIQUES" Multiplicity="0..1" />
+    <End Role="WORK_PLAN_TECHNIQUE" Type="Self.WORK_PLAN_TECHNIQUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNIQUES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_TECHNIQUE">
+        <PropertyRef Name="TECHNIQUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_TECHNIQUE_WORK_PLAN">
+    <End Role="QueuePlan" Type="Self.QueuePlan" Multiplicity="0..1" />
+    <End Role="WORK_PLAN_TECHNIQUE" Type="Self.WORK_PLAN_TECHNIQUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QueuePlan">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_TECHNIQUE">
+        <PropertyRef Name="DAYLY_WORK_PLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_TECHNIQUE_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="WORK_PLAN_TECHNIQUE" Type="Self.WORK_PLAN_TECHNIQUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_TECHNIQUE">
+        <PropertyRef Name="DRIVER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="WORK_PLAN" Type="Self.WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN">
+        <PropertyRef Name="RESPONDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_WORKERS_WORK_PLAN">
+    <End Role="QueuePlan" Type="Self.QueuePlan" Multiplicity="0..1" />
+    <End Role="WORK_PLAN_WORKERS" Type="Self.WORK_PLAN_WORKERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QueuePlan">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_WORKERS">
+        <PropertyRef Name="DAYLY_WORK_PLAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_WORKERS_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="WORK_PLAN_WORKERS" Type="Self.WORK_PLAN_WORKERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN_WORKERS">
+        <PropertyRef Name="WORKER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORK_PLAN_WORKS">
+    <End Role="WORKS" Type="Self.WORKS" Multiplicity="0..1" />
+    <End Role="WORK_PLAN" Type="Self.WORK_PLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORK_PLAN">
+        <PropertyRef Name="WORKS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Workers">
+        <PropertyRef Name="Gerder_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_Professions">
+    <End Role="Professions" Type="Self.Professions" Multiplicity="1" />
+    <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Workers">
+        <PropertyRef Name="Professions_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="WORKPLAN2" Type="Self.WORKPLAN2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2">
+        <PropertyRef Name="RESPONDERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2_Workers1">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="WORKPLAN2" Type="Self.WORKPLAN2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2">
+        <PropertyRef Name="CREATORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2_WORKS">
+    <End Role="WORKS" Type="Self.WORKS" Multiplicity="0..1" />
+    <End Role="WORKPLAN2" Type="Self.WORKPLAN2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2">
+        <PropertyRef Name="WORKS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2PARCELS_PARCEL">
+    <End Role="PARCEL" Type="Self.PARCEL" Multiplicity="0..1" />
+    <End Role="WORKPLAN2PARCELS" Type="Self.WORKPLAN2PARCELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARCEL">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2PARCELS">
+        <PropertyRef Name="PARCELID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2PARCELS_WORKPLAN2">
+    <End Role="WORKPLAN2" Type="Self.WORKPLAN2" Multiplicity="0..1" />
+    <End Role="WORKPLAN2PARCELS" Type="Self.WORKPLAN2PARCELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2PARCELS">
+        <PropertyRef Name="WORKPLAN2ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2QUEUEWORKERS_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+    <End Role="WORKPLAN2QUEUEWORKERS" Type="Self.WORKPLAN2QUEUEWORKERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2QUEUEWORKERS">
+        <PropertyRef Name="WORKERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2QUEUEWORKERS_WORKPLAN2TASKQUEUE">
+    <End Role="WORKPLAN2TASKQUEUE" Type="Self.WORKPLAN2TASKQUEUE" Multiplicity="0..1" />
+    <End Role="WORKPLAN2QUEUEWORKERS" Type="Self.WORKPLAN2QUEUEWORKERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2TASKQUEUE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2QUEUEWORKERS">
+        <PropertyRef Name="WORKPLAN2TASKQUEUEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2TASKFELTILIZER_FERTILIZER">
+    <End Role="FERTILIZER" Type="Self.FERTILIZER" Multiplicity="0..1" />
+    <End Role="WORKPLAN2TASKFELTILIZER" Type="Self.WORKPLAN2TASKFELTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FERTILIZER">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2TASKFELTILIZER">
+        <PropertyRef Name="FELTILIZERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2TASKFELTILIZER_WORKPLAN2TASKS">
+    <End Role="WORKPLAN2TASKS" Type="Self.WORKPLAN2TASKS" Multiplicity="0..1" />
+    <End Role="WORKPLAN2TASKFELTILIZER" Type="Self.WORKPLAN2TASKFELTILIZER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2TASKS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2TASKFELTILIZER">
+        <PropertyRef Name="WOKRPLAN2TASKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2TASKQUEUE_WORKPLAN2TASKS">
+    <End Role="WORKPLAN2TASKS" Type="Self.WORKPLAN2TASKS" Multiplicity="0..1" />
+    <End Role="WORKPLAN2TASKQUEUE" Type="Self.WORKPLAN2TASKQUEUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2TASKS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2TASKQUEUE">
+        <PropertyRef Name="WORKPLAN2TASKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKPLAN2TASKS_WORKPLAN2">
+    <End Role="WORKPLAN2" Type="Self.WORKPLAN2" Multiplicity="0..1" />
+    <End Role="WORKPLAN2TASKS" Type="Self.WORKPLAN2TASKS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKPLAN2">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKPLAN2TASKS">
+        <PropertyRef Name="WORKPLAN2ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKS_WORKS_CATEGORY">
+    <End Role="WORKS_CATEGORY" Type="Self.WORKS_CATEGORY" Multiplicity="0..1" />
+    <End Role="WORKS" Type="Self.WORKS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORKS_CATEGORY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WORKS">
+        <PropertyRef Name="WORK_CAT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="StorkTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PRODUCT_ID" Type="int" Mode="In" />
+    <Parameter Name="TYPE" Type="int" Mode="In" />
+    <Parameter Name="QUANTITY" Type="int" Mode="In" />
+    <Parameter Name="CREATED_DATA" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATA" Type="datetime" Mode="In" />
+    <Parameter Name="PLACE" Type="int" Mode="In" />
+    <Parameter Name="SPEC" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="StorkTest1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PRODUCT_ID" Type="int" Mode="In" />
+    <Parameter Name="TYPE" Type="int" Mode="In" />
+    <Parameter Name="QUANTITY" Type="int" Mode="In" />
+    <Parameter Name="CREATED_DATA" Type="datetime" Mode="In" />
+    <Parameter Name="END_DATA" Type="datetime" Mode="In" />
+    <Parameter Name="PLACE" Type="int" Mode="In" />
+    <Parameter Name="SPEC" Type="xml" Mode="In" />
+  </Function>
+  <EntityContainer Name="OculusModelStoreContainer">
+    <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CATEGORIES" EntityType="Self.CATEGORIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CATEGORIES_WORK_CATEGORY" EntityType="Self.CATEGORIES_WORK_CATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CROP" EntityType="Self.CROP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CROP_REPRODUCTION" EntityType="Self.CROP_REPRODUCTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CROP_SORT" EntityType="Self.CROP_SORT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CURRENT_ACCOUNT" EntityType="Self.CURRENT_ACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAYLY_WORK_PLAN" EntityType="Self.DAYLY_WORK_PLAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCMESSAGE" EntityType="Self.DOCMESSAGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENTS" EntityType="Self.DOCUMENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FERTILIZER" EntityType="Self.FERTILIZER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FERTILIZER_STOCK" EntityType="Self.FERTILIZER_STOCK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FERTILIZER_WORK_PLAN" EntityType="Self.FERTILIZER_WORK_PLAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FIRMS" EntityType="Self.FIRMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GROUP" EntityType="Self.GROUP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAIN_COMPONENTS" EntityType="Self.MAIN_COMPONENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MARKS" EntityType="Self.MARKS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MESSAGENOTIFICATION" EntityType="Self.MESSAGENOTIFICATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MYSILO" EntityType="Self.MYSILO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MYSILOSTOCK" EntityType="Self.MYSILOSTOCK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MYSILOSTOCKDETAILS" EntityType="Self.MYSILOSTOCKDETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PACKING" EntityType="Self.PACKING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PARCEL" EntityType="Self.PARCEL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PARCEL_CATEGORY" EntityType="Self.PARCEL_CATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAYMENT" EntityType="Self.PAYMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAYMENT_INOUT" EntityType="Self.PAYMENT_INOUT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAYMENT_TYPE" EntityType="Self.PAYMENT_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLANINGPLANBYDETAILS" EntityType="Self.PLANINGPLANBYDETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLANNINGPLAN" EntityType="Self.PLANNINGPLAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLANNINGPLANDETAILS" EntityType="Self.PLANNINGPLANDETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLANNINGPLANDETAILSWORKS" EntityType="Self.PLANNINGPLANDETAILSWORKS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Professions" EntityType="Self.Professions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PVOT_S" EntityType="Self.PVOT_S" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QueuePlan" EntityType="Self.QueuePlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STATUSMODIFY" EntityType="Self.STATUSMODIFY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STOCKMODIFY" EntityType="Self.STOCKMODIFY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STOCKPLACES" EntityType="Self.STOCKPLACES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STOCKS" EntityType="Self.STOCKS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TECHNIQUE_CONDITION" EntityType="Self.TECHNIQUE_CONDITION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TECHNIQUE_TRAILER" EntityType="Self.TECHNIQUE_TRAILER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TECHNIQUE_TYPE" EntityType="Self.TECHNIQUE_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TECHNIQUE_WORKING_TYPE" EntityType="Self.TECHNIQUE_WORKING_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TECHNIQUES" EntityType="Self.TECHNIQUES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UNITS" EntityType="Self.UNITS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERADMINSTATUS" EntityType="Self.USERADMINSTATUS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WOKRPLAN2TASKQUEUETECHNICAL" EntityType="Self.WOKRPLAN2TASKQUEUETECHNICAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORK_PLAN" EntityType="Self.WORK_PLAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORK_PLAN_MODIFY" EntityType="Self.WORK_PLAN_MODIFY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORK_PLAN_TECHNIQUE" EntityType="Self.WORK_PLAN_TECHNIQUE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORK_PLAN_WORKERS" EntityType="Self.WORK_PLAN_WORKERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORKPLAN2" EntityType="Self.WORKPLAN2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORKPLAN2PARCELS" EntityType="Self.WORKPLAN2PARCELS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORKPLAN2QUEUEWORKERS" EntityType="Self.WORKPLAN2QUEUEWORKERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORKPLAN2TASKFELTILIZER" EntityType="Self.WORKPLAN2TASKFELTILIZER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORKPLAN2TASKQUEUE" EntityType="Self.WORKPLAN2TASKQUEUE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORKPLAN2TASKS" EntityType="Self.WORKPLAN2TASKS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORKS" EntityType="Self.WORKS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORKS_CATEGORY" EntityType="Self.WORKS_CATEGORY" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CATEGORIES_WORK_CATEGORY_CATEGORIES" Association="Self.FK_CATEGORIES_WORK_CATEGORY_CATEGORIES">
+      <End Role="CATEGORIES" EntitySet="CATEGORIES" />
+      <End Role="CATEGORIES_WORK_CATEGORY" EntitySet="CATEGORIES_WORK_CATEGORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CATEGORIES_WORK_CATEGORY_WORKS_CATEGORY" Association="Self.FK_CATEGORIES_WORK_CATEGORY_WORKS_CATEGORY">
+      <End Role="WORKS_CATEGORY" EntitySet="WORKS_CATEGORY" />
+      <End Role="CATEGORIES_WORK_CATEGORY" EntitySet="CATEGORIES_WORK_CATEGORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CROP_CROP" Association="Self.FK_CROP_CROP">
+      <End Role="PARCEL_CATEGORY" EntitySet="PARCEL_CATEGORY" />
+      <End Role="CROP" EntitySet="CROP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CROP_SORT_CROP" Association="Self.FK_CROP_SORT_CROP">
+      <End Role="CROP" EntitySet="CROP" />
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAYLY_WORK_PLAN_WORK_PLAN" Association="Self.FK_DAYLY_WORK_PLAN_WORK_PLAN">
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+      <End Role="DAYLY_WORK_PLAN" EntitySet="DAYLY_WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCMESSAGE_DOCUMENTS" Association="Self.FK_DOCMESSAGE_DOCUMENTS">
+      <End Role="DOCUMENTS" EntitySet="DOCUMENTS" />
+      <End Role="DOCMESSAGE" EntitySet="DOCMESSAGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCMESSAGE_Workers" Association="Self.FK_DOCMESSAGE_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="DOCMESSAGE" EntitySet="DOCMESSAGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCMESSAGE_Workers1" Association="Self.FK_DOCMESSAGE_Workers1">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="DOCMESSAGE" EntitySet="DOCMESSAGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCUMENTS_Workers" Association="Self.FK_DOCUMENTS_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="DOCUMENTS" EntitySet="DOCUMENTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_CATEGORIES" Association="Self.FK_FERTILIZER_CATEGORIES">
+      <End Role="CATEGORIES" EntitySet="CATEGORIES" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_FERTILIZER" Association="Self.FK_FERTILIZER_FERTILIZER">
+      <End Role="MAIN_COMPONENTS" EntitySet="MAIN_COMPONENTS" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_FIRMS" Association="Self.FK_FERTILIZER_FIRMS">
+      <End Role="FIRMS" EntitySet="FIRMS" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_MARKS" Association="Self.FK_FERTILIZER_MARKS">
+      <End Role="MARKS" EntitySet="MARKS" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_PACKING" Association="Self.FK_FERTILIZER_PACKING">
+      <End Role="PACKING" EntitySet="PACKING" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_STOCK_FERTILIZER" Association="Self.FK_FERTILIZER_STOCK_FERTILIZER">
+      <End Role="FERTILIZER" EntitySet="FERTILIZER" />
+      <End Role="FERTILIZER_STOCK" EntitySet="FERTILIZER_STOCK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_UNITS" Association="Self.FK_FERTILIZER_UNITS">
+      <End Role="UNITS" EntitySet="UNITS" />
+      <End Role="FERTILIZER" EntitySet="FERTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_WORK_PLAN_FERTILIZER" Association="Self.FK_FERTILIZER_WORK_PLAN_FERTILIZER">
+      <End Role="FERTILIZER" EntitySet="FERTILIZER" />
+      <End Role="FERTILIZER_WORK_PLAN" EntitySet="FERTILIZER_WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FERTILIZER_WORK_PLAN_WORK_PLAN" Association="Self.FK_FERTILIZER_WORK_PLAN_WORK_PLAN">
+      <End Role="QueuePlan" EntitySet="QueuePlan" />
+      <End Role="FERTILIZER_WORK_PLAN" EntitySet="FERTILIZER_WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGENOTIFICATION_Users" Association="Self.FK_MESSAGENOTIFICATION_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MESSAGENOTIFICATION" EntitySet="MESSAGENOTIFICATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGENOTIFICATION_Users1" Association="Self.FK_MESSAGENOTIFICATION_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MESSAGENOTIFICATION" EntitySet="MESSAGENOTIFICATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGENOTIFICATION_WORK_PLAN" Association="Self.FK_MESSAGENOTIFICATION_WORK_PLAN">
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+      <End Role="MESSAGENOTIFICATION" EntitySet="MESSAGENOTIFICATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCK_CROP_REPRODUCTION" Association="Self.FK_MYSILOSTOCK_CROP_REPRODUCTION">
+      <End Role="CROP_REPRODUCTION" EntitySet="CROP_REPRODUCTION" />
+      <End Role="MYSILOSTOCK" EntitySet="MYSILOSTOCK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCK_CROP_SORT" Association="Self.FK_MYSILOSTOCK_CROP_SORT">
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+      <End Role="MYSILOSTOCK" EntitySet="MYSILOSTOCK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCK_MYSILO" Association="Self.FK_MYSILOSTOCK_MYSILO">
+      <End Role="MYSILO" EntitySet="MYSILO" />
+      <End Role="MYSILOSTOCK" EntitySet="MYSILOSTOCK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCKDETAILS_CROP_REPRODUCTION" Association="Self.FK_MYSILOSTOCKDETAILS_CROP_REPRODUCTION">
+      <End Role="CROP_REPRODUCTION" EntitySet="CROP_REPRODUCTION" />
+      <End Role="MYSILOSTOCKDETAILS" EntitySet="MYSILOSTOCKDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCKDETAILS_CROP_SORT" Association="Self.FK_MYSILOSTOCKDETAILS_CROP_SORT">
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+      <End Role="MYSILOSTOCKDETAILS" EntitySet="MYSILOSTOCKDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MYSILOSTOCKDETAILS_MYSILO" Association="Self.FK_MYSILOSTOCKDETAILS_MYSILO">
+      <End Role="MYSILO" EntitySet="MYSILO" />
+      <End Role="MYSILOSTOCKDETAILS" EntitySet="MYSILOSTOCKDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PARCEL_PARCEL_CATEGORY" Association="Self.FK_PARCEL_PARCEL_CATEGORY">
+      <End Role="PARCEL_CATEGORY" EntitySet="PARCEL_CATEGORY" />
+      <End Role="PARCEL" EntitySet="PARCEL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PARCEL_Workers" Association="Self.FK_PARCEL_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="PARCEL" EntitySet="PARCEL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAYMENT_PAYMENT_INOUT" Association="Self.FK_PAYMENT_PAYMENT_INOUT">
+      <End Role="PAYMENT_INOUT" EntitySet="PAYMENT_INOUT" />
+      <End Role="PAYMENT" EntitySet="PAYMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAYMENT_PAYMENT_TYPE" Association="Self.FK_PAYMENT_PAYMENT_TYPE">
+      <End Role="PAYMENT_TYPE" EntitySet="PAYMENT_TYPE" />
+      <End Role="PAYMENT" EntitySet="PAYMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLAN" Association="Self.FK_PLANINGPLANBYDETAILS_PLANNINGPLAN">
+      <End Role="PLANNINGPLAN" EntitySet="PLANNINGPLAN" />
+      <End Role="PLANINGPLANBYDETAILS" EntitySet="PLANINGPLANBYDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILS" Association="Self.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILS">
+      <End Role="PLANNINGPLANDETAILS" EntitySet="PLANNINGPLANDETAILS" />
+      <End Role="PLANINGPLANBYDETAILS" EntitySet="PLANINGPLANBYDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILSWORKS" Association="Self.FK_PLANINGPLANBYDETAILS_PLANNINGPLANDETAILSWORKS">
+      <End Role="PLANNINGPLANDETAILSWORKS" EntitySet="PLANNINGPLANDETAILSWORKS" />
+      <End Role="PLANINGPLANBYDETAILS" EntitySet="PLANINGPLANBYDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLAN_CROP_REPRODUCTION" Association="Self.FK_PLANNINGPLAN_CROP_REPRODUCTION">
+      <End Role="CROP_REPRODUCTION" EntitySet="CROP_REPRODUCTION" />
+      <End Role="PLANNINGPLAN" EntitySet="PLANNINGPLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLAN_CROP_SORT" Association="Self.FK_PLANNINGPLAN_CROP_SORT">
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+      <End Role="PLANNINGPLAN" EntitySet="PLANNINGPLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLAN_PARCEL" Association="Self.FK_PLANNINGPLAN_PARCEL">
+      <End Role="PARCEL" EntitySet="PARCEL" />
+      <End Role="PLANNINGPLAN" EntitySet="PLANNINGPLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLANDETAILS_CROP_REPRODUCTION" Association="Self.FK_PLANNINGPLANDETAILS_CROP_REPRODUCTION">
+      <End Role="CROP_REPRODUCTION" EntitySet="CROP_REPRODUCTION" />
+      <End Role="PLANNINGPLANDETAILS" EntitySet="PLANNINGPLANDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLANDETAILS_CROP_SORT" Association="Self.FK_PLANNINGPLANDETAILS_CROP_SORT">
+      <End Role="CROP_SORT" EntitySet="CROP_SORT" />
+      <End Role="PLANNINGPLANDETAILS" EntitySet="PLANNINGPLANDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANNINGPLANDETAILSWORKS_PlanningPlanDetails" Association="Self.FK_PLANNINGPLANDETAILSWORKS_PlanningPlanDetails">
+      <End Role="PLANNINGPLANDETAILS" EntitySet="PLANNINGPLANDETAILS" />
+      <End Role="PLANNINGPLANDETAILSWORKS" EntitySet="PLANNINGPLANDETAILSWORKS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QueuePlan_DAYLY_WORK_PLAN" Association="Self.FK_QueuePlan_DAYLY_WORK_PLAN">
+      <End Role="DAYLY_WORK_PLAN" EntitySet="DAYLY_WORK_PLAN" />
+      <End Role="QueuePlan" EntitySet="QueuePlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Action" Association="Self.FK_Roles_Action">
+      <End Role="Action" EntitySet="Action" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Group" Association="Self.FK_Roles_Group">
+      <End Role="GROUP" EntitySet="GROUP" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCKMODIFY_STOCKPLACES" Association="Self.FK_STOCKMODIFY_STOCKPLACES">
+      <End Role="STOCKPLACES" EntitySet="STOCKPLACES" />
+      <End Role="STOCKMODIFY" EntitySet="STOCKMODIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCKMODIFY_STOCKS" Association="Self.FK_STOCKMODIFY_STOCKS">
+      <End Role="STOCKS" EntitySet="STOCKS" />
+      <End Role="STOCKMODIFY" EntitySet="STOCKMODIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCKMODIFY_Workers" Association="Self.FK_STOCKMODIFY_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="STOCKMODIFY" EntitySet="STOCKMODIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUE_TRAILER_TECHNIQUES" Association="Self.FK_TECHNIQUE_TRAILER_TECHNIQUES">
+      <End Role="TECHNIQUES" EntitySet="TECHNIQUES" />
+      <End Role="TECHNIQUE_TRAILER" EntitySet="TECHNIQUE_TRAILER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUE_TRAILER_WORK_PLAN_TECHNIQUE" Association="Self.FK_TECHNIQUE_TRAILER_WORK_PLAN_TECHNIQUE">
+      <End Role="WORK_PLAN_TECHNIQUE" EntitySet="WORK_PLAN_TECHNIQUE" />
+      <End Role="TECHNIQUE_TRAILER" EntitySet="TECHNIQUE_TRAILER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUES_TECHNIQUE_CONDITION" Association="Self.FK_TECHNIQUES_TECHNIQUE_CONDITION">
+      <End Role="TECHNIQUE_CONDITION" EntitySet="TECHNIQUE_CONDITION" />
+      <End Role="TECHNIQUES" EntitySet="TECHNIQUES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUES_TECHNIQUE_TYPE" Association="Self.FK_TECHNIQUES_TECHNIQUE_TYPE">
+      <End Role="TECHNIQUE_TYPE" EntitySet="TECHNIQUE_TYPE" />
+      <End Role="TECHNIQUES" EntitySet="TECHNIQUES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TECHNIQUES_TECHNIQUE_WORKING_TYPE" Association="Self.FK_TECHNIQUES_TECHNIQUE_WORKING_TYPE">
+      <End Role="TECHNIQUE_WORKING_TYPE" EntitySet="TECHNIQUE_WORKING_TYPE" />
+      <End Role="TECHNIQUES" EntitySet="TECHNIQUES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Group" Association="Self.FK_Users_Group">
+      <End Role="GROUP" EntitySet="GROUP" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_USERADMINSTATUS" Association="Self.FK_Users_USERADMINSTATUS">
+      <End Role="USERADMINSTATUS" EntitySet="USERADMINSTATUS" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Workers" Association="Self.FK_Users_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES" Association="Self.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES">
+      <End Role="TECHNIQUES" EntitySet="TECHNIQUES" />
+      <End Role="WOKRPLAN2TASKQUEUETECHNICAL" EntitySet="WOKRPLAN2TASKQUEUETECHNICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES1" Association="Self.FK_WOKRPLAN2TASKQUEUETECHNICAL_TECHNIQUES1">
+      <End Role="TECHNIQUES" EntitySet="TECHNIQUES" />
+      <End Role="WOKRPLAN2TASKQUEUETECHNICAL" EntitySet="WOKRPLAN2TASKQUEUETECHNICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_Workers" Association="Self.FK_WOKRPLAN2TASKQUEUETECHNICAL_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WOKRPLAN2TASKQUEUETECHNICAL" EntitySet="WOKRPLAN2TASKQUEUETECHNICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WOKRPLAN2TASKQUEUETECHNICAL_WORKPLAN2TASKQUEUE" Association="Self.FK_WOKRPLAN2TASKQUEUETECHNICAL_WORKPLAN2TASKQUEUE">
+      <End Role="WORKPLAN2TASKQUEUE" EntitySet="WORKPLAN2TASKQUEUE" />
+      <End Role="WOKRPLAN2TASKQUEUETECHNICAL" EntitySet="WOKRPLAN2TASKQUEUETECHNICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_MODIFY_STATUSMODIFY" Association="Self.FK_WORK_PLAN_MODIFY_STATUSMODIFY">
+      <End Role="STATUSMODIFY" EntitySet="STATUSMODIFY" />
+      <End Role="WORK_PLAN_MODIFY" EntitySet="WORK_PLAN_MODIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_MODIFY_Users" Association="Self.FK_WORK_PLAN_MODIFY_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="WORK_PLAN_MODIFY" EntitySet="WORK_PLAN_MODIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_MODIFY_WORK_PLAN" Association="Self.FK_WORK_PLAN_MODIFY_WORK_PLAN">
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+      <End Role="WORK_PLAN_MODIFY" EntitySet="WORK_PLAN_MODIFY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_PARCEL" Association="Self.FK_WORK_PLAN_PARCEL">
+      <End Role="PARCEL" EntitySet="PARCEL" />
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_TECHNIQUE_TECHNIQUES" Association="Self.FK_WORK_PLAN_TECHNIQUE_TECHNIQUES">
+      <End Role="TECHNIQUES" EntitySet="TECHNIQUES" />
+      <End Role="WORK_PLAN_TECHNIQUE" EntitySet="WORK_PLAN_TECHNIQUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_TECHNIQUE_WORK_PLAN" Association="Self.FK_WORK_PLAN_TECHNIQUE_WORK_PLAN">
+      <End Role="QueuePlan" EntitySet="QueuePlan" />
+      <End Role="WORK_PLAN_TECHNIQUE" EntitySet="WORK_PLAN_TECHNIQUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_TECHNIQUE_Workers" Association="Self.FK_WORK_PLAN_TECHNIQUE_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WORK_PLAN_TECHNIQUE" EntitySet="WORK_PLAN_TECHNIQUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_Workers" Association="Self.FK_WORK_PLAN_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_WORKERS_WORK_PLAN" Association="Self.FK_WORK_PLAN_WORKERS_WORK_PLAN">
+      <End Role="QueuePlan" EntitySet="QueuePlan" />
+      <End Role="WORK_PLAN_WORKERS" EntitySet="WORK_PLAN_WORKERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_WORKERS_Workers" Association="Self.FK_WORK_PLAN_WORKERS_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WORK_PLAN_WORKERS" EntitySet="WORK_PLAN_WORKERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORK_PLAN_WORKS" Association="Self.FK_WORK_PLAN_WORKS">
+      <End Role="WORKS" EntitySet="WORKS" />
+      <End Role="WORK_PLAN" EntitySet="WORK_PLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_Gender" Association="Self.FK_Workers_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Workers" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_Professions" Association="Self.FK_Workers_Professions">
+      <End Role="Professions" EntitySet="Professions" />
+      <End Role="Workers" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2_Workers" Association="Self.FK_WORKPLAN2_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2_Workers1" Association="Self.FK_WORKPLAN2_Workers1">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2_WORKS" Association="Self.FK_WORKPLAN2_WORKS">
+      <End Role="WORKS" EntitySet="WORKS" />
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2PARCELS_PARCEL" Association="Self.FK_WORKPLAN2PARCELS_PARCEL">
+      <End Role="PARCEL" EntitySet="PARCEL" />
+      <End Role="WORKPLAN2PARCELS" EntitySet="WORKPLAN2PARCELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2PARCELS_WORKPLAN2" Association="Self.FK_WORKPLAN2PARCELS_WORKPLAN2">
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+      <End Role="WORKPLAN2PARCELS" EntitySet="WORKPLAN2PARCELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2QUEUEWORKERS_Workers" Association="Self.FK_WORKPLAN2QUEUEWORKERS_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WORKPLAN2QUEUEWORKERS" EntitySet="WORKPLAN2QUEUEWORKERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2QUEUEWORKERS_WORKPLAN2TASKQUEUE" Association="Self.FK_WORKPLAN2QUEUEWORKERS_WORKPLAN2TASKQUEUE">
+      <End Role="WORKPLAN2TASKQUEUE" EntitySet="WORKPLAN2TASKQUEUE" />
+      <End Role="WORKPLAN2QUEUEWORKERS" EntitySet="WORKPLAN2QUEUEWORKERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2TASKFELTILIZER_FERTILIZER" Association="Self.FK_WORKPLAN2TASKFELTILIZER_FERTILIZER">
+      <End Role="FERTILIZER" EntitySet="FERTILIZER" />
+      <End Role="WORKPLAN2TASKFELTILIZER" EntitySet="WORKPLAN2TASKFELTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2TASKFELTILIZER_WORKPLAN2TASKS" Association="Self.FK_WORKPLAN2TASKFELTILIZER_WORKPLAN2TASKS">
+      <End Role="WORKPLAN2TASKS" EntitySet="WORKPLAN2TASKS" />
+      <End Role="WORKPLAN2TASKFELTILIZER" EntitySet="WORKPLAN2TASKFELTILIZER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2TASKQUEUE_WORKPLAN2TASKS" Association="Self.FK_WORKPLAN2TASKQUEUE_WORKPLAN2TASKS">
+      <End Role="WORKPLAN2TASKS" EntitySet="WORKPLAN2TASKS" />
+      <End Role="WORKPLAN2TASKQUEUE" EntitySet="WORKPLAN2TASKQUEUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKPLAN2TASKS_WORKPLAN2" Association="Self.FK_WORKPLAN2TASKS_WORKPLAN2">
+      <End Role="WORKPLAN2" EntitySet="WORKPLAN2" />
+      <End Role="WORKPLAN2TASKS" EntitySet="WORKPLAN2TASKS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKS_WORKS_CATEGORY" Association="Self.FK_WORKS_WORKS_CATEGORY">
+      <End Role="WORKS_CATEGORY" EntitySet="WORKS_CATEGORY" />
+      <End Role="WORKS" EntitySet="WORKS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<UluagroAspnet.Models.Worker>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AgroPark/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>İşcilerin siyahısı</h3>
+        <a class="btn sbm_btn" href="@Url.Action("Create","Workers")">Yeni işçi əlavə et</a>
+    </div>
+    <div class="table_con">
+        <table class="table table-bordered table-hover t_h_fixed">
+            <thead>
+                <tr>
+                    <th>
+                        Adı
+                    </th>
+                    <th>
+                        Soyadı
+                    </th>
+                    <th>
+                        Ata adı
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Vəzifəsi
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fathername)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Profession.Name)
+                        </td>
+                        <td class="icon_center">
+                            <a class="ico ico_edit" href="@Url.Action("Edit","Workers", new { id = item.ID })"><i class="fas fa-pencil-alt"></i></a>
+                            <a class="ico ico_info" href="@Url.Action("Details","Workers", new { id = item.ID })"><i class="fas fa-info-circle"></i></a>
+                            @*<a class="btn btn-danger" href="@Url.Action("Delete","Workers", new { id = item.ID })"><i class="far fa-trash-alt"></i></a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
